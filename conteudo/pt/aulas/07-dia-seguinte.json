@@ -1,0 +1,337 @@
+{
+  "slug": "dia-seguinte",
+  "num": 7,
+  "titulo": "O dia seguinte: conferir, medir e criar a regra nova",
+  "titulo_curto": "O dia seguinte",
+  "menu": "Manhã",
+  "minutos": 18,
+  "lead": "A noite de fila só vale se a manhã for curta. Você lê o relatório no chat, confere cada resultado contra o que esperava, anota quantas saíram certas na primeira e transforma a tarefa que mais falhou numa regra nova.",
+  "objetivo": "conferir o lote da noite, medir o acerto na primeira tentativa e escrever uma regra para a tarefa que mais falhou.",
+  "hero_alt": "Manhã com luz natural, xícara de café e notebook com uma lista de resultados.",
+  "competencias": [
+    "avaliar-resultado-lote",
+    "medir-acerto",
+    "transformar-falha-em-regra"
+  ],
+  "aprende": [
+    {
+      "icone": "lupa",
+      "t": "Onde olhar de manhã: chat, /status e /jobs"
+    },
+    {
+      "icone": "grafico",
+      "t": "A medida que importa: certas na primeira"
+    },
+    {
+      "icone": "caneta",
+      "t": "Da falha para uma regra no AGENTS.md ou no prompt"
+    },
+    {
+      "icone": "calendario",
+      "t": "O seu plano para completar o degrau"
+    }
+  ],
+  "secoes": [
+    {
+      "tipo": "diagrama",
+      "titulo": "O ciclo da manhã",
+      "sub": "Quinze minutos que melhoram a próxima noite.",
+      "nos": [
+        {
+          "icone": "chat",
+          "titulo": "Relatório",
+          "sub": "O chat da noite",
+          "itens": [
+            {
+              "icone": "check",
+              "t": "resultados"
+            },
+            {
+              "icone": "x",
+              "t": "motivos de falha"
+            }
+          ],
+          "detalhe": "Cada tarefa respondeu no chat quando terminou. Comece lendo a conversa de cima para baixo; /jobs e /completos mostram o que terminou, /status o que ainda está aberto."
+        },
+        {
+          "icone": "lupa",
+          "titulo": "Conferir",
+          "sub": "Contra o esperado",
+          "itens": [
+            {
+              "icone": "arquivo",
+              "t": "abra o resultado"
+            }
+          ],
+          "detalhe": "Abra cada resultado e compare com a coluna \"Resultado conferível\" da sua fila no papel. A pergunta é simples: dá para usar como está?"
+        },
+        {
+          "icone": "grafico",
+          "titulo": "Medir",
+          "sub": "Certas na primeira",
+          "itens": [
+            {
+              "icone": "check",
+              "t": "ex.: 7 de 10"
+            }
+          ],
+          "detalhe": "Conte quantas saíram certas sem você mexer. Esse número, anotado toda manhã, mostra se a fila está melhorando ou só rodando.",
+          "forte": true
+        },
+        {
+          "icone": "caneta",
+          "titulo": "Regra nova",
+          "sub": "Para a que mais falhou",
+          "itens": [
+            {
+              "icone": "arquivo",
+              "t": "AGENTS.md ou prompt da skill"
+            }
+          ],
+          "detalhe": "Pegue a tarefa que mais falhou e escreva uma regra de uma linha que evitaria o erro. Ela entra no AGENTS.md do projeto ou no prompt da skill. Rode de novo e compare."
+        }
+      ],
+      "volta": "A próxima noite já roda com a regra nova",
+      "legenda": "Clique em cada bloco. Corrigir na mão resolve hoje; a regra nova resolve as próximas noites.",
+      "rolagem": true,
+      "rolagem_fim": {
+        "titulo": "Gerenciar é isto",
+        "texto": "Ler, conferir, medir e transformar o erro em regra. O agente faz o trabalho; você melhora o processo."
+      }
+    },
+    {
+      "tipo": "passos",
+      "titulo": "A manhã, passo a passo",
+      "passos": [
+        {
+          "titulo": "Ler o relatório",
+          "sub": "5 min",
+          "texto": [
+            "Leia o chat da noite. Para cada tarefa você deve ter um resultado ou um motivo de falha. Tarefa sem resposta nenhuma está rodando ou esperando: confira no <code>/fila</code>.",
+            "<code>/completos</code> lista os fluxos que terminaram; <code>/status</code> mostra os que ainda pedem algo de você (rodando ou falhou)."
+          ]
+        },
+        {
+          "titulo": "Conferir cada resultado",
+          "sub": "5 a 10 min",
+          "texto": [
+            "Abra o arquivo ou o texto e compare com o que você esperava. Marque: certa na primeira, certa com ajuste, errada ou falhou.",
+            "Não corrija ainda. Primeiro olhe o lote inteiro: o padrão dos erros aparece quando você vê todos juntos."
+          ]
+        },
+        {
+          "titulo": "Tratar as falhas",
+          "sub": "o motivo primeiro",
+          "texto": [
+            "Leia o motivo. <code>código 143</code> foi reinício, não erro do agente: <code>/refazer</code>. Erro de entrada (link quebrado, arquivo errado): corrija a entrada e mande de novo.",
+            "Se o agente entendeu errado, não basta refazer igual: é caso para regra nova."
+          ]
+        },
+        {
+          "titulo": "Escrever a regra",
+          "sub": "uma linha",
+          "texto": [
+            "Uma regra boa é curta, concreta e testável: diz o que fazer, não só o que evitar. Ela vai no AGENTS.md do projeto (degrau 1) ou no prompt da skill.",
+            "Rode a mesma tarefa de novo com a regra e compare. Se melhorou, a regra fica; se não, reescreva."
+          ],
+          "exemplo": {
+            "rot": "Exemplo",
+            "texto": "Resumos de reunião: começar pelas decisões tomadas e pelos responsáveis, em no máximo 8 linhas."
+          }
+        }
+      ]
+    },
+    {
+      "tipo": "codigo",
+      "titulo": "A planilha da manhã e o pedido da regra",
+      "sub": "Uma linha por tarefa. Guarde as manhãs no mesmo arquivo para ver a evolução.",
+      "blocos": [
+        {
+          "rot": "conferencia.md",
+          "icone": "arquivo",
+          "conteudo": "## Manhã de AAAA-MM-DD\n\n| # | Tarefa | Resultado | Certa na 1ª? | O que errou | Ação |\n|---|---|---|---|---|---|\n| 1 | Transcrever reunião de segunda | texto | sim | — | — |\n| 2 | Explicativo da fila | vídeo | não | ficou longo demais | regra nova |\n| 3 |  |  |  |  |  |\n\nCertas na primeira: __ de __\nTarefa que mais falhou: __\nRegra nova: __"
+        },
+        {
+          "rot": "Pedido para o seu agente propor a regra",
+          "icone": "chat",
+          "conteudo": "Leia conferencia.md. Para a tarefa que mais falhou:\n1. Descreva o erro em uma frase, com um exemplo do resultado.\n2. Proponha UMA regra de uma linha, concreta e testável, para o AGENTS.md ou para o prompt da skill.\n3. Diga como eu confiro amanhã se a regra funcionou.\nNão altere nenhum arquivo; só proponha."
+        },
+        {
+          "rot": "Telegram · ver o que terminou e liberar espaço",
+          "icone": "lupa",
+          "conteudo": "/completos\n/jobs\n/espaco\n/limpar artefatos 14    # só mostra o que sairia (mais de 14 dias)"
+        }
+      ],
+      "saida": {
+        "selo": "simulacao",
+        "abas": [
+          {
+            "rot": "Exemplo de manhã",
+            "html": "<p><b>Certas na primeira: 7 de 10.</b> Duas certas com ajuste (resumos longos demais) e uma falha por link quebrado.</p><p><b>Regra nova:</b> \"Resumos de reunião: decisões e responsáveis primeiro, no máximo 8 linhas.\"</p><p>Na noite seguinte: 9 de 10.</p>"
+          },
+          {
+            "rot": "Erros comuns de manhã",
+            "html": "<ul><li>Corrigir na mão e não anotar: a mesma falha volta amanhã.</li><li>Medir só o que falhou: o que importa é a proporção certa na primeira.</li><li>Escrever regra vaga (\"seja melhor\"): não dá para conferir.</li><li>Reiniciar o bot com tarefa ainda rodando para \"limpar\".</li></ul>"
+          }
+        ]
+      }
+    },
+    {
+      "tipo": "pratica",
+      "titulo": "Prática",
+      "sub": "Na manhã depois do E4.",
+      "exercicios": [
+        {
+          "id": "e6",
+          "titulo": "E6 · A conferência da manhã",
+          "min": "20 min",
+          "texto": "Preencha o conferencia.md com cada tarefa da noite: resultado, se saiu certa na primeira e o que errou. Trate as falhas pelo motivo.",
+          "pronto": "cada tarefa do lote tem uma linha e você anotou quantas saíram certas na primeira."
+        },
+        {
+          "id": "e7",
+          "titulo": "E7 · A regra nova",
+          "min": "30 min",
+          "dias": 1,
+          "texto": "Escreva uma regra para a tarefa que mais falhou (no AGENTS.md ou no prompt da skill). Rode a mesma tarefa de novo na próxima noite e compare.",
+          "pronto": "a regra está escrita, a tarefa rodou de novo e você anotou se o resultado melhorou."
+        }
+      ],
+      "fonte": "Desafio extra da sequência 3: <a href=\"https://github.com/inematds/jornada-agentes/blob/main/exercicios/03-filas.md\" target=\"_blank\" rel=\"noopener\">03-filas.md</a>."
+    },
+    {
+      "tipo": "gerador",
+      "titulo": "Gere o seu plano do degrau 3",
+      "sub": "Escolha a data de início e quanto tempo você tem por semana. O plano respeita os exercícios que pedem uma noite de fila.",
+      "curso": "Filas: dez tarefas e vá dormir",
+      "horas_padrao": 3,
+      "degraus": [
+        {
+          "titulo": "Decidir o que vai",
+          "aula": "o-que-vai"
+        },
+        {
+          "titulo": "Fila caseira",
+          "aula": "fila-caseira"
+        },
+        {
+          "titulo": "Instalar o bot",
+          "aula": "instalar"
+        },
+        {
+          "titulo": "Mandar o lote",
+          "aula": "mandar-tarefas"
+        },
+        {
+          "titulo": "Portões",
+          "aula": "portoes"
+        },
+        {
+          "titulo": "O dia seguinte",
+          "aula": "dia-seguinte"
+        }
+      ],
+      "txt": {
+        "titulo": "Plano — Filas: dez tarefas e vá dormir",
+        "inicio": "Início",
+        "ritmo": "Ritmo",
+        "termino": "Término previsto",
+        "ate": "até",
+        "pronto": "pronto quando",
+        "semanas": "semanas",
+        "travou": "## O que travou e a regra que criei",
+        "h": "h por semana",
+        "exs": "exercícios"
+      }
+    },
+    {
+      "tipo": "resumo",
+      "titulo": "O degrau 3 em três frases",
+      "itens": [
+        {
+          "t": "Guarde antes de rodar",
+          "texto": "Fila durável: o pedido fica em disco, roda um por vez, retoma depois de uma queda e separa feito de falhou."
+        },
+        {
+          "t": "Portão antes do que importa",
+          "texto": "Depois do que precisa do seu olho e antes do que é caro ou público. Ler, corrigir e só então aprovar."
+        },
+        {
+          "t": "A manhã melhora a noite",
+          "texto": "Conferir, medir as certas na primeira e transformar a falha que mais se repete numa regra nova."
+        }
+      ]
+    },
+    {
+      "tipo": "video",
+      "titulo": "A formação inteira em vídeo",
+      "sub": "Onde o degrau 3 entra entre o terminal, o seu Jarvis e as redes no automático.",
+      "chave": "jornada-ia"
+    },
+    {
+      "tipo": "quiz",
+      "titulo": "Teste o que aprendeu",
+      "sub": "A explicação aparece depois da sua resposta.",
+      "perguntas": [
+        {
+          "p": "Qual número você deve anotar toda manhã?",
+          "opcoes": [
+            "Quantas tarefas foram mandadas.",
+            "Quantas saíram certas na primeira tentativa, do total.",
+            "Quanto tempo a fila levou.",
+            "Quantas mensagens o bot mandou."
+          ],
+          "certa": 1,
+          "explica": "A proporção de certas na primeira mostra se a fila está melhorando. Mandar mais tarefas não diz nada sobre a qualidade.",
+          "cert": true,
+          "ref": "diagrama"
+        },
+        {
+          "p": "Um resumo saiu longo demais pela terceira noite seguida. O que fazer?",
+          "opcoes": [
+            "Encurtar na mão toda manhã.",
+            "Escrever uma regra concreta no prompt da skill ou no AGENTS.md e comparar na próxima noite.",
+            "Tirar essa tarefa da fila para sempre.",
+            "Trocar de modelo sem mudar nada."
+          ],
+          "certa": 1,
+          "explica": "Corrigir na mão resolve hoje. A regra nova resolve as próximas noites e pode ser conferida.",
+          "ref": "passos"
+        },
+        {
+          "p": "Uma tarefa falhou com <code>código 143</code>. O que entra na sua conferência?",
+          "opcoes": [
+            "Regra nova para o agente.",
+            "Falha de reinício: /refazer e não reiniciar com lote rodando.",
+            "Trocar o prompt da skill.",
+            "Apagar a tarefa."
+          ],
+          "certa": 1,
+          "explica": "143 é desligamento do serviço, não erro do agente. Regra para o agente não resolveria; o cuidado é com o reinício.",
+          "ref": "passos"
+        }
+      ]
+    },
+    {
+      "tipo": "links",
+      "titulo": "Próximos passos",
+      "links": [
+        {
+          "t": "Voltar à visão geral: Do chat ao agente",
+          "href": "https://inematds.github.io/do-chat-ao-agente-v72/",
+          "icone": "voltar"
+        },
+        {
+          "t": "Área da formação no eventos",
+          "href": "https://eventos.inema.pro/do-chat-ao-agente/",
+          "icone": "camadas"
+        },
+        {
+          "t": "Guia do inemaccbot",
+          "href": "https://inematds.github.io/inemaccbot/guia/",
+          "icone": "fila"
+        }
+      ]
+    }
+  ]
+}

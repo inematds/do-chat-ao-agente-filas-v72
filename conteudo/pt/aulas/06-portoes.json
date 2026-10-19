@@ -1,0 +1,300 @@
+{
+  "slug": "portoes",
+  "num": 6,
+  "titulo": "Onde ficam os portões: parar antes do que importa",
+  "titulo_curto": "Portões",
+  "menu": "Portões",
+  "minutos": 18,
+  "lead": "Um fluxo é uma tarefa em várias fases, com estado guardado em cada uma. O portão é a fase que termina e para: o bot mostra o que fez e espera você. Aprovar, corrigir ou recusar é o momento em que você gerencia, em vez de fazer.",
+  "objetivo": "pôr o portão no lugar certo de um fluxo e decidir entre aprovar, reprovar com correção ou cancelar.",
+  "hero_alt": "Portão de metal fino entreaberto num corredor escuro, recortado por luz neutra.",
+  "competencias": [
+    "definir-portao-humano",
+    "operar-fluxo",
+    "recusar-e-corrigir"
+  ],
+  "aprende": [
+    {
+      "icone": "camadas",
+      "t": "Skill × fluxo: quando vale guardar o estado"
+    },
+    {
+      "icone": "portao",
+      "t": "Como o portão para e o que ele mostra"
+    },
+    {
+      "icone": "check",
+      "t": "Aprovar, reprovar com correção, refazer ou cancelar"
+    },
+    {
+      "icone": "lupa",
+      "t": "Ensaiar com | sombra antes de gastar"
+    }
+  ],
+  "secoes": [
+    {
+      "tipo": "diagrama",
+      "titulo": "Um fluxo com portão: o /promoavatar",
+      "sub": "O fluxo de domínio que roda em produção no inemaccbot.",
+      "nos": [
+        {
+          "icone": "chat",
+          "titulo": "Pedido",
+          "sub": "/promoavatar assunto",
+          "itens": [
+            {
+              "icone": "arquivo",
+              "t": "vira o fluxo A#9"
+            }
+          ],
+          "detalhe": "O comando cria um fluxo com número (A#9) e uma lista de fases. Cada fase tem estado próprio; o /status mostra fase por fase e público por público."
+        },
+        {
+          "icone": "caneta",
+          "titulo": "Textos",
+          "sub": "Fase de agente",
+          "itens": [
+            {
+              "icone": "usuario",
+              "t": "um roteiro por público"
+            }
+          ],
+          "detalhe": "O agente escreve um texto para cada público (jovens, mulheres…). É trabalho que você não quer jogar fora se uma fase posterior falhar: por isso é fluxo, não skill."
+        },
+        {
+          "icone": "portao",
+          "titulo": "Portão",
+          "sub": "pausa_apos",
+          "itens": [
+            {
+              "icone": "lupa",
+              "t": "mostra os textos no chat"
+            },
+            {
+              "icone": "check",
+              "t": "/pronto libera"
+            }
+          ],
+          "detalhe": "A fase termina, o bot manda no chat o que ela declarou para mostrar e PARA. Você lê, corrige e grava os avatares. Só com /pronto (ou /aprovar, /ok) o fluxo segue.",
+          "forte": true
+        },
+        {
+          "icone": "video",
+          "titulo": "Vídeo",
+          "sub": "Fases seguintes",
+          "itens": [
+            {
+              "icone": "baixar",
+              "t": "baixa o avatar"
+            },
+            {
+              "icone": "video",
+              "t": "monta o reel"
+            }
+          ],
+          "detalhe": "Depois do portão vêm as fases caras ou com consequência: baixar o vídeo do avatar, montar o reel e entregar no canal. Se uma falhar, /refazer retoma dela, sem refazer os textos."
+        }
+      ],
+      "legenda": "Clique em cada bloco. O portão fica depois do trabalho que você precisa ler e antes do que custa ou sai para o mundo.",
+      "rolagem": true,
+      "rolagem_fim": {
+        "titulo": "A regra do lugar do portão",
+        "texto": "Depois do que precisa do seu olho, antes do que é caro ou público. Portão no começo não tem o que mostrar; portão no fim chega tarde."
+      }
+    },
+    {
+      "tipo": "simportao",
+      "titulo": "Simule o portão",
+      "sub": "Rode o fluxo, leia o texto que parou no portão e decida.",
+      "fases": [
+        "Textos",
+        "Portão",
+        "Vídeo",
+        "Publicar"
+      ],
+      "rascunho": "Fila durável: o seu agente trabalha a noite toda. Garantimos 100% de acerto em todas as tarefas.",
+      "corrigido": "Fila durável: o seu agente trabalha a noite toda, e de manhã você confere o que saiu certo e o que falhou.",
+      "rot": {
+        "rodar": "Rodar o fluxo",
+        "aprovar": "/pronto (aprovar)",
+        "reprovar": "Reprovar com correção",
+        "sempor": "Rodar com | sem-portao",
+        "zerar": "Recomeçar"
+      },
+      "msg": {
+        "inicio": "Fluxo A#9 criado. Clique em \"Rodar o fluxo\".",
+        "portao": "A fase Textos terminou e o fluxo PAROU no portão. Leia o texto abaixo antes de decidir.",
+        "reprovado": "Você reprovou com a correção \"sem promessa de 100%\". A fase Textos reabriu e entregou a versão nova. Ela parou de novo no portão.",
+        "aprovado_ruim": "Aprovado sem corrigir: o texto com a promessa falsa seguiu para o vídeo e foi publicado. Era aqui que o portão servia.",
+        "aprovado_bom": "Aprovado depois da correção: o fluxo seguiu para o vídeo e publicou o texto certo.",
+        "sem_portao": "Com | sem-portao o fluxo foi até o fim sem esperar você. O texto chegou ao chat, mas só depois de publicado."
+      },
+      "legenda": "Simulação ilustrativa no navegador: nada é gerado nem publicado. O texto com erro é proposital."
+    },
+    {
+      "tipo": "passos",
+      "titulo": "As decisões no portão",
+      "sub": "Cada comando faz uma coisa diferente. Confundir custa trabalho.",
+      "passos": [
+        {
+          "titulo": "Aprovar",
+          "sub": "/pronto",
+          "texto": [
+            "<code>/pronto A#9</code> libera o portão. <code>/aprovar</code>, <code>/aprovado</code> e <code>/ok</code> são sinônimos, e <code>A#9</code>, <code>a9</code> e <code>A9</code> são a mesma referência.",
+            "Sem referência, <code>/pronto</code> libera o fluxo quando só um está esperando; com vários, ele lista quais."
+          ]
+        },
+        {
+          "titulo": "Reprovar com correção",
+          "sub": "resposta ao portão",
+          "texto": [
+            "Quando o fluxo declara respostas no portão, você pode responder além de \"sim\": uma palavra, como <code>reprova</code>, seguida do que corrigir. O bot executa o comando do domínio e a fase REABRE com o material novo.",
+            "É o \"refaz e me apresenta até eu aprovar\". Cada fluxo declara as respostas que aceita; <code>/ajuda &lt;fluxo&gt;</code> mostra quais."
+          ]
+        },
+        {
+          "titulo": "Refazer o que falhou",
+          "sub": "/refazer",
+          "texto": [
+            "<code>/refazer A#9 [público]</code> retoma da fase que FALHOU, sem refazer as anteriores.",
+            "Não serve para fase parada no portão: ela não falhou, está esperando você. Para essa, a saída é aprovar ou reprovar com correção."
+          ]
+        },
+        {
+          "titulo": "Cancelar",
+          "sub": "/cancelar",
+          "texto": [
+            "<code>/cancelar A#9</code> para o fluxo inteiro e o tira do <code>/status</code>. É o último recurso: para trocar um texto, você perde todas as fases.",
+            "Para apagar de vez os arquivos do fluxo, <code>/limpar A#9</code>, que só mostra o que sairia até você escrever <code>confirmar</code>."
+          ]
+        }
+      ]
+    },
+    {
+      "tipo": "codigo",
+      "titulo": "Os comandos do fluxo",
+      "sub": "Ensaie com | sombra antes de gastar qualquer coisa.",
+      "blocos": [
+        {
+          "rot": "Telegram · ensaiar, rodar e acompanhar",
+          "icone": "chat",
+          "conteudo": "/promoavatar Não comece aprendendo ferramentas | sombra\n# mostra fase × público × fila e NÃO enfileira nada\n\n/promoavatar Não comece aprendendo ferramentas --alvo=jovens\n/status\n/status A#9"
+        },
+        {
+          "rot": "Telegram · decidir no portão",
+          "icone": "portao",
+          "conteudo": "/pronto A#9           # aprova e segue\n/refazer A#9 jovens   # retoma da fase que falhou\n/cancelar A#9         # para o fluxo inteiro\n/limpar A#9           # mostra o que apagaria\n/limpar A#9 confirmar # apaga de verdade"
+        },
+        {
+          "rot": "flow.json · como o domínio declara um portão",
+          "icone": "arquivo",
+          "conteudo": "{ \"id\": \"plano\", \"kind\": \"function\", \"tarefa\": \"cli.rodar\",\n  \"comando\": \"bash {{repo}}/musicavideo.sh plano {{input}} --bruto\",\n  \"pausa_apos\": true,\n  \"portao\": { \"mostrar\": [\"{{artefato:plano}}\"] } }"
+        }
+      ],
+      "saida": {
+        "selo": "real",
+        "abas": [
+          {
+            "rot": "O que o portão mostra",
+            "html": "<p>A fase declara em <code>portao.mostrar</code> o que vai para o chat: texto vai na mensagem, áudio e imagem vão como arquivo, vídeo vai como link (vídeo de minutos passa do limite de 50 MB do Telegram).</p>"
+          },
+          {
+            "rot": "| sem-portao",
+            "html": "<p>Vai até o fim sem parar para aprovar, mas continua mandando no chat o que cada portão mostraria. Use só quando você já confia naquele fluxo, e nunca antes de publicar algo que ainda não leu.</p>"
+          },
+          {
+            "rot": "Aprovar em lote, com cuidado",
+            "html": "<p>A documentação do projeto registra o risco: aprovar vários fluxos de uma vez sem conferir pode disparar esperas inúteis (a fase que baixa o avatar espera até 90 minutos antes de falhar quando o vídeo não foi gravado). Confira antes de liberar.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "tipo": "pratica",
+      "titulo": "Prática",
+      "sub": "Use um fluxo com portão. Se ainda não tem o /promoavatar configurado, comece pelo | sombra.",
+      "exercicios": [
+        {
+          "id": "e5",
+          "titulo": "E5 · O portão",
+          "min": "30 min",
+          "texto": "Rode um fluxo com portão (como o /promoavatar), primeiro com | sombra para ver as fases. Quando ele parar, leia o que chegou no chat, corrija se precisar e só então mande /pronto.",
+          "pronto": "você recusou ou corrigiu pelo menos um texto antes de aprovar."
+        }
+      ],
+      "fonte": "Fluxos de domínio: <a href=\"https://github.com/inematds/promoavatar3\" target=\"_blank\" rel=\"noopener\">promoavatar3</a> (ativo) e <a href=\"https://github.com/inematds/promoavatar\" target=\"_blank\" rel=\"noopener\">promoavatar</a> (congelado)."
+    },
+    {
+      "tipo": "quiz",
+      "titulo": "Teste o que aprendeu",
+      "sub": "A explicação aparece depois da sua resposta.",
+      "perguntas": [
+        {
+          "p": "Onde o portão de um fluxo de vídeo para redes deve ficar?",
+          "opcoes": [
+            "Antes da primeira fase, para aprovar o assunto.",
+            "Depois dos textos e antes das fases caras e da publicação.",
+            "Depois da publicação, para conferir.",
+            "Em todas as fases."
+          ],
+          "certa": 1,
+          "explica": "Depois do que precisa do seu olho, antes do que custa ou sai para o mundo. No começo não há o que ler; depois de publicar já é tarde.",
+          "cert": true,
+          "ref": "diagrama"
+        },
+        {
+          "p": "O fluxo parou no portão com um texto errado. Você manda <code>/refazer A#9</code>. O que acontece?",
+          "opcoes": [
+            "A fase de textos é refeita com a sua correção.",
+            "Nada: /refazer só pega fase que falhou, e a do portão está esperando você.",
+            "O fluxo é cancelado.",
+            "O texto é publicado."
+          ],
+          "certa": 1,
+          "explica": "Fase no portão não falhou. Para mudar o texto, responda ao portão com a correção (quando o fluxo aceita) ou, em último caso, cancele.",
+          "ref": "passos"
+        },
+        {
+          "p": "Para que serve <code>| sombra</code>?",
+          "opcoes": [
+            "Rodar o fluxo sem portão.",
+            "Mostrar o plano (fases, públicos e filas) sem enfileirar nada.",
+            "Esconder o fluxo do /status.",
+            "Rodar com um modelo mais barato."
+          ],
+          "certa": 1,
+          "explica": "É o ensaio antes de gastar: você vê o que seria feito. Não confunda com | sem-portao, que roda tudo sem parar.",
+          "ref": "codigo"
+        },
+        {
+          "p": "Na simulação, o que mostra que você está gerenciando, e não só usando?",
+          "opcoes": [
+            "Aprovar rápido para o fluxo andar.",
+            "Ler o texto no portão, reprovar com a correção e só aprovar a versão certa.",
+            "Rodar com | sem-portao para economizar tempo.",
+            "Cancelar e começar de novo."
+          ],
+          "certa": 1,
+          "explica": "O portão só protege se você lê. Aprovar sem ler deixou passar a promessa falsa; reprovar com correção reabriu a fase e publicou o texto certo.",
+          "ref": "simportao"
+        }
+      ]
+    },
+    {
+      "tipo": "links",
+      "titulo": "Para ir além",
+      "links": [
+        {
+          "t": "Curso INEMACCBOT com Promoavatar",
+          "href": "https://eventos.inema.pro/inemaccbot.html",
+          "icone": "lista"
+        },
+        {
+          "t": "Mapa da arquitetura (fluxos e portões)",
+          "href": "https://inematds.github.io/inemaccbot/guia/arquitetura.html",
+          "icone": "camadas"
+        }
+      ]
+    }
+  ]
+}

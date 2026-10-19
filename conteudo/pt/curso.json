@@ -1,0 +1,181 @@
+{
+  "id": "do-chat-ao-agente-filas-v72",
+  "lang": "pt-BR",
+  "url": "https://inematds.github.io/do-chat-ao-agente-filas-v72/",
+  "nome": "Filas: dez tarefas e vá dormir",
+  "sub": "Do chat ao agente · degrau 3",
+  "volta": {
+    "t": "Visão geral: Do chat ao agente",
+    "href": "https://inematds.github.io/do-chat-ao-agente-v72/"
+  },
+  "lado_card": {
+    "rot": "Prática deste degrau",
+    "t": "Sete exercícios com \"pronto quando\"",
+    "texto": "Da fila no papel à conferência da manhã. Só passe para o próximo quando o \"pronto quando\" for verdade.",
+    "link": "Exercícios da sequência 3",
+    "href": "https://github.com/inematds/jornada-agentes/blob/main/exercicios/03-filas.md"
+  },
+  "rodape": "INEMA.CLUB · conteúdo aberto e gratuito · formato INEMA Learning v7.2 · degrau 3 da formação <a href=\"https://inematds.github.io/do-chat-ao-agente-v72/\">Do chat ao agente</a> · <a href=\"https://inematds.github.io/inemaccbot/guia/\">guia do inemaccbot</a> · <a href=\"https://eventos.inema.pro/do-chat-ao-agente/\">eventos.inema.pro/do-chat-ao-agente</a> · <a href=\"https://inema.club/\">inema.club</a>",
+  "videos": {
+    "jornada-ia": {
+      "titulo": "Do chat ao agente: a visão geral",
+      "duracao": "2 min 27 s",
+      "mp4": "https://github.com/inematds/jornada-agentes/releases/download/video-v2.0.0/jornada-jornada-ia-16x9.mp4",
+      "vtt": "assets/vtt/jornada-ia.vtt",
+      "poster": "assets/img/jornada-ia.jpg",
+      "pagina": "https://inematds.github.io/jornada-agentes/serie/jornada-ia/"
+    },
+    "seq3-filas": {
+      "titulo": "Dez tarefas e vá dormir",
+      "duracao": "1 min 33 s",
+      "mp4": "https://github.com/inematds/jornada-agentes/releases/download/video-v2.0.0/jornada-seq3-filas-16x9.mp4",
+      "vtt": "assets/vtt/seq3-filas.vtt",
+      "poster": "assets/img/seq3-filas.jpg",
+      "pagina": "https://inematds.github.io/jornada-agentes/serie/seq3-filas/"
+    }
+  },
+  "inicio": {
+    "kicker": "Curso · degrau 3 de Do chat ao agente · 7 aulas",
+    "titulo": "Filas: mande dez tarefas, vá dormir e confira o resultado de manhã",
+    "lead": "Um agente no chat faz uma coisa por vez e só enquanto você olha. Neste curso você monta a sua fila: decide o que entra, entende a fila caseira, instala o inemaccbot, põe portões antes do que importa e aprende a conferir o lote no dia seguinte.",
+    "cta": "Começar pela aula 1",
+    "cta2": {
+      "t": "Voltar à visão geral da formação",
+      "href": "https://inematds.github.io/do-chat-ao-agente-v72/"
+    },
+    "capa_alt": "Escritório à noite com notebook mostrando uma lista de tarefas concluídas e o celular ao lado.",
+    "numeros": [
+      {
+        "v": "7",
+        "t": "aulas"
+      },
+      {
+        "v": "7",
+        "t": "exercícios práticos"
+      },
+      {
+        "v": "1",
+        "t": "noite de fila real"
+      },
+      {
+        "v": "2",
+        "t": "vídeos"
+      }
+    ],
+    "aulas_titulo": "As aulas",
+    "aulas_sub": "Na ordem em que você faz: primeiro entender e decidir, depois instalar, mandar, pôr portões e conferir. Pré-requisito: degraus 1 (terminal) e 2 (seu Jarvis) da formação.",
+    "blocos": [
+      {
+        "t": "Para quem é",
+        "itens": [
+          "Quem já usa um agente no terminal (degrau 1) e tem um assistente com regras (degrau 2).",
+          "Quem repete as mesmas tarefas toda semana: transcrever, resumir, rascunhar, gerar vídeo.",
+          "Quem quer deixar o computador trabalhando à noite sem medo de perder o que foi feito."
+        ]
+      },
+      {
+        "t": "O que você sai fazendo",
+        "itens": [
+          "Separar as suas tarefas em: vai para a fila, vai com portão, fica com você.",
+          "Rodar uma fila caseira e ver a retomada depois de uma interrupção.",
+          "Instalar o inemaccbot até o /ping responder no seu Telegram.",
+          "Mandar um lote numa noite, aprovar no portão e medir de manhã quantas saíram certas na primeira.",
+          "Transformar a tarefa que mais falhou numa regra nova."
+        ]
+      }
+    ]
+  },
+  "ui": {
+    "pular": "Pular para o conteúdo",
+    "aulas": "Aulas",
+    "concluido": "concluído",
+    "aula": "Aula",
+    "nesta_aula": "Nesta aula, você vai aprender:",
+    "objetivo": "Objetivo:",
+    "proxima_aula": "Próxima aula",
+    "aula_anterior": "Aula anterior",
+    "voltar_inicio": "Voltar ao início do curso",
+    "marcar_concluida": "Marcar aula como concluída",
+    "dg_dica": "Clique em cada bloco do diagrama para ver o que ele faz.",
+    "copiar": "Copiar",
+    "copiado": "Copiado",
+    "selo_simulacao": "Simulação: exemplo ilustrativo",
+    "selo_real": "Exemplo do repositório",
+    "pronto_quando": "Pronto quando:",
+    "fiz": "Fiz este exercício",
+    "video_pagina": "Página do vídeo com roteiro",
+    "pergunta": "Pergunta",
+    "de": "de",
+    "cert_tag": "competência",
+    "correto": "Correto",
+    "errado": "Não é essa",
+    "quiz_aguarda": "Escolha uma alternativa. A explicação aparece depois da sua tentativa.",
+    "proxima_pergunta": "Próxima pergunta",
+    "quiz_ver": "Ver resultado",
+    "quiz_fim": "Teste concluído",
+    "quiz_total": "Você acertou {a} de {n}. Acertando todas, a aula é marcada como concluída.",
+    "aparencia": "Aparência",
+    "tamanho_texto": "Tamanho do texto",
+    "tema": "Tema",
+    "tema_escuro": "Escuro",
+    "tema_papel": "Papel claro",
+    "role_dica": "Role a página: cada etapa abaixo acende a sua parte do diagrama.",
+    "pre_requisito": "requer",
+    "ver_aula": "Ver a aula",
+    "mapa_dica": "Clique num exercício para ver o que fazer e o \"pronto quando\".",
+    "etapas": "Etapas",
+    "exercicios": "exercícios",
+    "rever": "Rever:",
+    "revisar_erradas": "Revisar as erradas",
+    "refazer": "Refazer o teste",
+    "h_semana": "h por semana",
+    "data_inicio": "Data de início",
+    "ritmo": "Tempo disponível",
+    "gerar_plano": "Gerar meu plano",
+    "baixar_md": "Baixar plano.md",
+    "baixar_ics": "Baixar para o calendário (.ics)",
+    "ind_estudo": "Estudo (aulas)",
+    "ind_pratica": "Prática declarada",
+    "ind_nota": "Prática = exercícios que você marcou como feitos. A comprovação vem na prova da certificação.",
+    "estudo": {
+      "titulo": "Seu estudo",
+      "continuar": "Continuar de onde parei",
+      "comecar": "Começar pela aula 1",
+      "cta_continuar": "Continuar a aula {n}",
+      "hoje": "hoje",
+      "ontem": "ontem",
+      "ha_dias": "há {n} dias",
+      "desempenho": "Desempenho nos testes",
+      "notas": "Minhas anotações",
+      "dados": "Copiar meus dados",
+      "sem_testes": "Nenhum teste feito ainda. O teste fica no fim de cada aula.",
+      "nao_fez": "teste ainda não feito",
+      "ultimo": "Último",
+      "melhor": "Melhor",
+      "tentativas": "tentativas",
+      "tentativa": "tentativa",
+      "tudo_certo": "Acertou tudo no último teste.",
+      "rever": "Para rever",
+      "resposta": "Resposta certa:",
+      "ir_teste": "Refazer o teste",
+      "sem_notas": "Nenhuma anotação ainda. Na aula, selecione um trecho do texto e toque em Marcar ou Anotar.",
+      "so_marcado": "(só marcado)",
+      "marcar": "Marcar",
+      "anotar": "Anotar",
+      "salvar": "Salvar",
+      "apagar": "Apagar marca",
+      "fechar": "Fechar",
+      "nota_ph": "Escreva sua anotação sobre este trecho…",
+      "um_bloco": "Marque dentro de um parágrafo só.",
+      "nao_marca": "Este trecho não pode ser marcado.",
+      "dados_exp": "Seu progresso, suas anotações e as notas dos testes ficam só neste navegador. Baixe uma cópia (.json) para guardar ou para continuar em outro computador ou navegador; lá, carregue a cópia. Carregar soma com o que já existe e não apaga nada.",
+      "exportar": "Baixar cópia",
+      "importar": "Carregar cópia",
+      "import_ok": "Cópia carregada ({n} itens). Atualizando a página…",
+      "import_erro": "Arquivo não reconhecido. Nada foi alterado.",
+      "import_outro": "Esta cópia é de outro curso. Nada foi alterado.",
+      "export_ok": "Cópia baixada."
+    }
+  },
+  "icone": "fila"
+}

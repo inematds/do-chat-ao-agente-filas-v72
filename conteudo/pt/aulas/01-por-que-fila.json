@@ -1,0 +1,255 @@
+{
+  "slug": "por-que-fila",
+  "num": 1,
+  "titulo": "Do chat à fila: por que guardar as tarefas",
+  "titulo_curto": "Por que uma fila",
+  "menu": "Por quê",
+  "minutos": 12,
+  "lead": "No chat, o agente faz uma coisa por vez e só enquanto a janela está aberta. Uma fila durável guarda cada pedido, executa um de cada vez, retoma depois de uma queda e separa o que deu certo do que falhou.",
+  "objetivo": "explicar as quatro garantias de uma fila durável e por que elas deixam você sair de perto.",
+  "hero_alt": "Fileira de fichas de papel em sequência sobre uma mesa escura, uma delas destacada.",
+  "competencias": [
+    "explicar-fila-duravel",
+    "distinguir-chat-de-fila",
+    "ler-estado-da-tarefa"
+  ],
+  "aprende": [
+    {
+      "icone": "chat",
+      "t": "O limite do chat: você precisa estar olhando"
+    },
+    {
+      "icone": "memoria",
+      "t": "As quatro garantias de uma fila durável"
+    },
+    {
+      "icone": "relogio",
+      "t": "Os estados de uma tarefa, do pedido ao resultado"
+    },
+    {
+      "icone": "robo",
+      "t": "Onde o inemaccbot entra no degrau 3"
+    }
+  ],
+  "secoes": [
+    {
+      "tipo": "diagrama",
+      "titulo": "Chat × fila",
+      "sub": "O mesmo pedido, em dois lugares diferentes.",
+      "nos": [
+        {
+          "icone": "chat",
+          "titulo": "Chat",
+          "sub": "Você na frente",
+          "itens": [
+            {
+              "icone": "usuario",
+              "t": "Um pedido por vez"
+            },
+            {
+              "icone": "x",
+              "t": "Fechou a janela, perdeu"
+            }
+          ],
+          "detalhe": "No chat você digita, espera, copia e cola. Se fechar a janela ou o computador desligar, o trabalho em andamento some. Dez tarefas = dez esperas com você na frente."
+        },
+        {
+          "icone": "fila",
+          "titulo": "Fila durável",
+          "sub": "Guardada em disco",
+          "itens": [
+            {
+              "icone": "arquivo",
+              "t": "Cada pedido vira tarefa"
+            },
+            {
+              "icone": "memoria",
+              "t": "Sobrevive a quedas"
+            }
+          ],
+          "detalhe": "O pedido é gravado antes de rodar. No inemaccbot, a fila é um banco SQLite no disco; na fila caseira, um arquivo por tarefa numa pasta. Desligou? A tarefa continua lá.",
+          "forte": true
+        },
+        {
+          "icone": "robo",
+          "titulo": "Trabalhador",
+          "sub": "Pega uma por vez",
+          "itens": [
+            {
+              "icone": "relogio",
+              "t": "Retoma o que ficou no meio"
+            }
+          ],
+          "detalhe": "Um trabalhador (worker) pega uma tarefa, entrega ao agente e espera. Se o processo cair no meio, na próxima subida ele recupera o que estava em voo antes de aceitar trabalho novo."
+        },
+        {
+          "icone": "check",
+          "titulo": "Resultado",
+          "sub": "Separado e rastreável",
+          "itens": [
+            {
+              "icone": "check",
+              "t": "Feito, com o resultado"
+            },
+            {
+              "icone": "x",
+              "t": "Falhou, com o motivo"
+            }
+          ],
+          "detalhe": "Cada tarefa termina num estado claro: deu certo (com o arquivo ou texto) ou falhou (com o motivo). É isso que você confere de manhã."
+        }
+      ],
+      "volta": "Rodar de novo só pega o que sobrou",
+      "legenda": "No inemaccbot o pedido chega pelo Telegram; na fila caseira da aula 3, é um arquivo .md numa pasta. A ideia é a mesma.",
+      "rolagem": true,
+      "rolagem_fim": {
+        "titulo": "Por que isso deixa você sair de perto",
+        "texto": "Guardar antes de rodar, uma por vez, retomar depois de uma queda e separar feito de falhou: com essas quatro garantias, desligar a tela não custa trabalho."
+      }
+    },
+    {
+      "tipo": "passos",
+      "titulo": "As quatro garantias",
+      "sub": "O que você deve esperar de qualquer fila, caseira ou não.",
+      "passos": [
+        {
+          "titulo": "Guardar antes de rodar",
+          "sub": "durável",
+          "texto": [
+            "O pedido vira registro em disco no momento em que chega. Não depende de uma janela aberta nem da memória do programa.",
+            "No inemaccbot, cada pedido vira um <b>job</b> numa tabela do banco. Ele tem número (<code>j13</code>), fila, situação e quantas tentativas sobram."
+          ],
+          "exemplo": {
+            "rot": "Sinal no dia a dia",
+            "texto": "Você manda o pedido pelo celular, o computador reinicia, e o pedido continua na lista."
+          }
+        },
+        {
+          "titulo": "Uma por vez (por fila)",
+          "sub": "ordem",
+          "texto": [
+            "Cada trabalhador pega uma tarefa, termina e só então pega a próxima. Isso evita dois trabalhos brigando pela mesma máquina.",
+            "No inemaccbot há cinco filas com limites diferentes: a de renderização roda <b>uma por vez de propósito</b>, porque usa a placa de vídeo; a de rede aceita dez."
+          ]
+        },
+        {
+          "titulo": "Retomar depois de uma queda",
+          "sub": "recuperação",
+          "texto": [
+            "Se o processo cai no meio, a tarefa não fica perdida nem pela metade para sempre. Na próxima subida, o que estava em andamento volta para a fila.",
+            "O inemaccbot faz isso antes de aceitar trabalho novo e escreve no log: <code>boot: recuperação de leases — requeued=N failed=M</code>. <i>Requeued</i> é o que voltou para a fila; <i>failed</i> é o que já tinha gastado todas as tentativas."
+          ]
+        },
+        {
+          "titulo": "Separar feito de falhou",
+          "sub": "rastreio",
+          "texto": [
+            "Tarefa que deu erro não some e não trava a fila: ela vai para o lado das falhas, com o motivo escrito, e a fila segue.",
+            "Os prompts do inemaccbot exigem que o agente termine com <code>RESULT: &lt;caminho&gt;</code> ou <code>ERRO: &lt;motivo curto&gt;</code>. É esse contrato que permite saber, sem abrir nada, como cada tarefa terminou."
+          ]
+        }
+      ]
+    },
+    {
+      "tipo": "codigo",
+      "titulo": "Os estados de uma tarefa",
+      "sub": "Os nomes mudam de uma fila para outra; a ideia é a mesma.",
+      "blocos": [
+        {
+          "rot": "Fila caseira (pastas)",
+          "icone": "pasta",
+          "conteudo": "fila/\n  entrada/   # pedidos esperando a vez\n  rodando/   # a tarefa que está com o agente agora\n  feito/     # pedido + resposta\n  falhou/    # pedido + ERRO e o motivo"
+        },
+        {
+          "rot": "inemaccbot (situação do job no banco)",
+          "icone": "memoria",
+          "conteudo": "queued    # na fila, esperando a vez\nrunning   # um trabalhador pegou e está executando\ndone      # terminou com resultado\nfailed    # esgotou as tentativas, com o motivo\ncanceled  # você cancelou (/cancelar)"
+        }
+      ],
+      "saida": {
+        "selo": "real",
+        "abas": [
+          {
+            "rot": "Como cada uma retoma",
+            "html": "<ul><li><b>Fila caseira:</b> ao rodar de novo, o que estiver em <code>rodando/</code> volta para <code>entrada/</code>.</li><li><b>inemaccbot:</b> o trabalhador renova um \"aluguel\" (lease) da tarefa enquanto trabalha. Se o aluguel vence porque o processo caiu, a tarefa volta para <code>queued</code> enquanto houver tentativas.</li></ul>"
+          },
+          {
+            "rot": "Quem decide o que é falha",
+            "html": "<p>Na fila caseira: resposta vazia ou código de erro do agente. No inemaccbot: o agente não terminou com <code>RESULT:</code>, o prazo (<code>timeout</code>) estourou ou as tentativas (<code>max_tentativas</code>, 2 a 4 nas skills do catálogo) acabaram.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "tipo": "video",
+      "titulo": "O degrau 3 em vídeo",
+      "sub": "A fila durável do inemaccbot e o portão de aprovação, em um minuto e meio.",
+      "chave": "seq3-filas"
+    },
+    {
+      "tipo": "quiz",
+      "titulo": "Teste o que aprendeu",
+      "sub": "A explicação aparece depois da sua resposta.",
+      "perguntas": [
+        {
+          "p": "Qual é a diferença essencial entre pedir no chat e mandar para uma fila durável?",
+          "opcoes": [
+            "A fila usa um modelo de IA melhor.",
+            "Na fila o pedido é guardado em disco antes de rodar, então não depende de você nem da janela aberta.",
+            "A fila responde mais rápido.",
+            "No chat não é possível pedir tarefas longas."
+          ],
+          "certa": 1,
+          "explica": "O modelo pode ser o mesmo. O que muda é o lugar: o pedido vira registro durável, e por isso sobrevive a quedas e pode rodar com você longe.",
+          "cert": true,
+          "ref": "diagrama"
+        },
+        {
+          "p": "O log do bot mostrou <code>requeued=2 failed=1</code> ao subir. O que aconteceu?",
+          "opcoes": [
+            "Três tarefas novas chegaram durante a noite.",
+            "O processo anterior caiu com trabalho em andamento: duas tarefas voltaram para a fila e uma já tinha esgotado as tentativas.",
+            "Duas tarefas deram certo e uma falhou.",
+            "O banco foi apagado e recriado."
+          ],
+          "certa": 1,
+          "explica": "Essa linha aparece na subida e é a evidência de que havia trabalho em voo quando o processo caiu. Requeued volta para a fila; failed não tinha mais tentativa.",
+          "ref": "passos"
+        },
+        {
+          "p": "Uma tarefa falhou às 3 h da manhã. O que uma boa fila faz?",
+          "opcoes": [
+            "Para tudo até você acordar.",
+            "Apaga a tarefa para não atrapalhar.",
+            "Registra a falha com o motivo e segue para a próxima tarefa.",
+            "Tenta de novo para sempre até dar certo."
+          ],
+          "certa": 2,
+          "explica": "Falha separada e com motivo, e fila andando. Tentar para sempre gastaria a noite (e dinheiro); por isso há um número máximo de tentativas.",
+          "ref": "codigo"
+        }
+      ]
+    },
+    {
+      "tipo": "links",
+      "titulo": "Para ir além",
+      "links": [
+        {
+          "t": "Guia do inemaccbot: o que é e como funciona",
+          "href": "https://inematds.github.io/inemaccbot/guia/",
+          "icone": "fila"
+        },
+        {
+          "t": "Mapa da arquitetura do inemaccbot",
+          "href": "https://inematds.github.io/inemaccbot/guia/arquitetura.html",
+          "icone": "camadas"
+        },
+        {
+          "t": "Visão geral da formação Do chat ao agente",
+          "href": "https://inematds.github.io/do-chat-ao-agente-v72/",
+          "icone": "voltar"
+        }
+      ]
+    }
+  ]
+}

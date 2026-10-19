@@ -1,0 +1,278 @@
+{
+  "slug": "instalar",
+  "num": 4,
+  "titulo": "Instalar o inemaccbot até o /ping responder",
+  "titulo_curto": "Instalar o bot",
+  "menu": "Instalar",
+  "minutos": 20,
+  "lead": "O inemaccbot é um gateway do Telegram com fila durável: você manda o pedido pelo celular e o seu computador (ou uma VPS) executa como agente. Nesta aula você instala, pareia o bot com o seu chat e deixa rodando como serviço.",
+  "objetivo": "instalar o inemaccbot, parear com o seu chat e ver o /ping responder no Telegram.",
+  "hero_alt": "Pequeno computador ligado com LEDs discretos e um celular mostrando uma conversa.",
+  "competencias": [
+    "instalar-gateway",
+    "proteger-segredos",
+    "parear-bot"
+  ],
+  "aprende": [
+    {
+      "icone": "camadas",
+      "t": "As peças: Telegram, fila, trabalhador, agente"
+    },
+    {
+      "icone": "lista",
+      "t": "Os pré-requisitos e o que quebra sem cada um"
+    },
+    {
+      "icone": "cadeado",
+      "t": "Token, allowlist e o modo pareamento"
+    },
+    {
+      "icone": "relogio",
+      "t": "Subir na mão e depois como serviço"
+    }
+  ],
+  "secoes": [
+    {
+      "tipo": "diagrama",
+      "titulo": "As peças do inemaccbot",
+      "sub": "Do celular ao resultado.",
+      "nos": [
+        {
+          "icone": "usuario",
+          "titulo": "Você",
+          "sub": "No Telegram",
+          "itens": [
+            {
+              "icone": "chat",
+              "t": "Manda o pedido"
+            }
+          ],
+          "detalhe": "Você escreve para o seu bot no Telegram, de onde estiver. Só os chats da allowlist são atendidos; qualquer outro é rejeitado em silêncio."
+        },
+        {
+          "icone": "enviar",
+          "titulo": "Gateway",
+          "sub": "O bot do Telegram",
+          "itens": [
+            {
+              "icone": "cadeado",
+              "t": "ALLOWED_CHAT_IDS"
+            }
+          ],
+          "detalhe": "Recebe a mensagem, confere a allowlist, entende o comando e transforma o pedido em tarefa. Também é ele que avisa no chat quando a tarefa termina."
+        },
+        {
+          "icone": "memoria",
+          "titulo": "Fila",
+          "sub": "SQLite no disco",
+          "itens": [
+            {
+              "icone": "fila",
+              "t": "io · cpu · texto · render · navegador"
+            }
+          ],
+          "detalhe": "Cinco filas, cada uma com o seu limite de tarefas ao mesmo tempo. O banco grava o pedido antes de rodar e recupera o que ficou em voo depois de uma queda.",
+          "forte": true
+        },
+        {
+          "icone": "robo",
+          "titulo": "Agente",
+          "sub": "claude (padrão)",
+          "itens": [
+            {
+              "icone": "terminal",
+              "t": "ou codex, por tarefa"
+            }
+          ],
+          "detalhe": "O trabalhador entrega a tarefa ao agente de linha de comando, pela sua assinatura. O claude é o padrão; o codex se liga por tarefa com <code>| motor=codex</code>."
+        },
+        {
+          "icone": "check",
+          "titulo": "Resultado",
+          "sub": "No seu chat",
+          "itens": [
+            {
+              "icone": "arquivo",
+              "t": "Texto, arquivo ou link"
+            }
+          ],
+          "detalhe": "Quando a tarefa termina, o resultado volta para o chat: texto direto, arquivo pequeno como anexo e vídeo grande como link."
+        }
+      ],
+      "legenda": "Clique em cada bloco. Para instalar e usar, você não precisa mexer no código: só no .env e no Telegram."
+    },
+    {
+      "tipo": "passos",
+      "titulo": "A instalação em seis passos",
+      "sub": "Testado no Ubuntu com Node 24. O atalho <code>./scripts/instalar.sh</code> faz a parte mecânica e para no que exige você.",
+      "passos": [
+        {
+          "titulo": "Pré-requisitos",
+          "sub": "confira antes",
+          "texto": [
+            "<b>Node 22 ou mais novo</b> (<code>node -v</code>; o Ubuntu 24.04 traz o 18). <b>claude instalado e logado</b>: confira com <code>claude auth status</code>; instalado não é o mesmo que autenticado. <b>ffmpeg</b> e <b>python3</b> para as tarefas de áudio e vídeo.",
+            "Sem o claude logado o bot sobe e aceita comandos, mas todo trabalho de agente falha. É a falha mais confusa, porque tudo parece certo."
+          ]
+        },
+        {
+          "titulo": "Clonar e instalar",
+          "sub": "npm ci",
+          "texto": [
+            "Clone o repositório e rode <code>npm ci</code> (não <code>npm install</code>: o <code>ci</code> segue o lockfile e a instalação fica igual em toda máquina).",
+            "Clone também os repos de domínio <code>promoavatar</code> e <code>promoavatar3</code> como pastas irmãs. Sem eles o bot sobe, mas os fluxos quebram na primeira fase e dezenas de testes falham."
+          ]
+        },
+        {
+          "titulo": "Criar o bot no Telegram",
+          "sub": "BotFather",
+          "texto": [
+            "Fale com o @BotFather, mande <code>/newbot</code> e guarde o token que ele devolve. Esse valor é o <code>BOT_TOKEN</code>.",
+            "O token é um segredo: nunca vai para o Git, para print ou para mensagem."
+          ]
+        },
+        {
+          "titulo": "Escrever o .env",
+          "sub": "chmod 600",
+          "texto": [
+            "Copie o <code>.env.example</code>, proteja com <code>chmod 600</code> e preencha <code>BOT_TOKEN</code>, <code>QUEUE_DB</code>, <code>STATE_DIR</code> e <code>LOG_FILE</code>.",
+            "Em <code>ALLOWED_CHAT_IDS</code>, deixe <code>0</code>. É o modo pareamento: o primeiro <code>/ping</code> cadastra o seu chat como dono e fecha a porta. Vazio não é pareamento: é erro de propósito, o bot não sobe."
+          ],
+          "exemplo": {
+            "rot": "Cuidado",
+            "texto": "Enquanto a allowlist for 0, quem mandar /ping primeiro leva o bot. Pareie antes de deixar rodando."
+          }
+        },
+        {
+          "titulo": "Subir e parear",
+          "sub": "./start.sh",
+          "texto": [
+            "Rode <code>npm test</code> e <code>npm run build</code>, depois suba na mão com <code>./start.sh</code> para ver qualquer erro na tela.",
+            "Mande <code>/ping</code> para o seu bot. Ele responde com o id do chat e grava esse id no <code>.env</code>. A partir daí, só você é atendido."
+          ]
+        },
+        {
+          "titulo": "Deixar como serviço",
+          "sub": "systemd",
+          "texto": [
+            "Para o bot sobreviver ao logout e subir sozinho no boot, instale o serviço de usuário e ligue o <i>linger</i>. Numa VPS, use o serviço de sistema (<code>deploy/inemaccbot-sistema.service</code>).",
+            "Nunca rode o <code>./start.sh</code> e o serviço ao mesmo tempo com o mesmo token: os dois disputam as mensagens e cada um perde metade. O <code>start.sh</code> já recusa subir quando o serviço está ativo."
+          ]
+        }
+      ]
+    },
+    {
+      "tipo": "codigo",
+      "titulo": "Os comandos da instalação",
+      "sub": "Na ordem. Troque só o que estiver indicado.",
+      "blocos": [
+        {
+          "rot": "Terminal · clonar, instalar, testar",
+          "icone": "terminal",
+          "conteudo": "cd ~/projetos\ngit clone https://github.com/inematds/inemaccbot.git\ngit clone https://github.com/inematds/promoavatar.git\ngit clone https://github.com/inematds/promoavatar3.git\ncd inemaccbot\n./scripts/instalar.sh --checar   # só diz o que falta, não muda nada\nnpm ci\nnpm test\nnpm run build"
+        },
+        {
+          "rot": "Terminal · .env e primeira subida",
+          "icone": "cadeado",
+          "conteudo": "cp .env.example .env\nchmod 600 .env\n# edite o .env: BOT_TOKEN=<do BotFather>  ALLOWED_CHAT_IDS=0\n./start.sh       # log na tela; Ctrl+C encerra drenando o que estiver rodando\n# no Telegram: /ping  →  o bot responde e grava o seu chat id"
+        },
+        {
+          "rot": "Terminal · como serviço de usuário",
+          "icone": "relogio",
+          "conteudo": "mkdir -p ~/.config/systemd/user\ncp deploy/inemaccbot.service ~/.config/systemd/user/\nsystemctl --user daemon-reload\nsystemctl --user enable --now inemaccbot\nloginctl enable-linger \"$USER\"\nsystemctl --user status inemaccbot   # espere: active (running)"
+        }
+      ],
+      "saida": {
+        "selo": "real",
+        "abas": [
+          {
+            "rot": "Boot saudável",
+            "html": "<p>No log aparece a linha de recuperação, mesmo numa fila vazia:</p><pre>boot: recuperação de leases — requeued=0 failed=0</pre><p>Erro de configuração derruba o processo nesse ponto, de propósito. Leia a mensagem antes de mexer em outra coisa.</p>"
+          },
+          {
+            "rot": "Sintoma → causa",
+            "html": "<ul><li><code>config: falta BOT_TOKEN</code>: o .env não tem o token.</li><li>Serviço <i>active</i> mas <code>/ping</code> não responde: allowlist com o id errado (o log mostra <code>rejeitada — fora da allowlist</code>).</li><li>Bot responde, mas todo job falha: <code>claude</code> não está logado.</li><li><code>tsc: not found</code> no build: refaça com <code>NODE_ENV=development npm ci --include=dev</code>.</li></ul>"
+          },
+          {
+            "rot": "Onde moram os segredos",
+            "html": "<p>O <code>.env</code> do bot guarda <b>configuração</b>: token, allowlist, caminhos. Chaves de outros serviços moram num <b>cofre</b> separado, um arquivo por máquina com <code>chmod 600</code>, nunca versionado. Regra do projeto: o .env guarda caminho e id; segredo de terceiro mora no arquivo do dono dele.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "tipo": "pratica",
+      "titulo": "Prática",
+      "sub": "Reserve uma hora sem interrupção.",
+      "exercicios": [
+        {
+          "id": "e3",
+          "titulo": "E3 · Instalar o inemaccbot",
+          "min": "1 h",
+          "texto": "Siga os passos até o bot responder no Telegram. Pareie com ALLOWED_CHAT_IDS=0 e confira que o .env tem chmod 600. Depois teste /ajuda e /fila.",
+          "pronto": "/ping responde no seu Telegram e /fila mostra as filas vazias."
+        }
+      ],
+      "fonte": "Passo a passo completo, com VPS e usuário dedicado: <a href=\"https://github.com/inematds/inemaccbot#instala%C3%A7%C3%A3o-passo-a-passo\" target=\"_blank\" rel=\"noopener\">README do inemaccbot</a>."
+    },
+    {
+      "tipo": "quiz",
+      "titulo": "Teste o que aprendeu",
+      "sub": "A explicação aparece depois da sua resposta.",
+      "perguntas": [
+        {
+          "p": "O serviço está <i>active (running)</i>, mas o bot não responde ao seu /ping. Qual é a causa mais provável?",
+          "opcoes": [
+            "Falta o ffmpeg.",
+            "A allowlist tem um id que não é o do seu chat.",
+            "O modelo está lento.",
+            "O banco está cheio."
+          ],
+          "certa": 1,
+          "explica": "Fora da allowlist, a mensagem é rejeitada em silêncio e só aparece no log. Volte para ALLOWED_CHAT_IDS=0, reinicie e pareie de novo.",
+          "ref": "codigo"
+        },
+        {
+          "p": "Para que serve deixar ALLOWED_CHAT_IDS=0 na primeira subida?",
+          "opcoes": [
+            "Para liberar o bot para qualquer pessoa para sempre.",
+            "Para o primeiro /ping cadastrar o seu chat como dono e fechar a porta.",
+            "Para desligar a fila.",
+            "Para testar sem o token."
+          ],
+          "certa": 1,
+          "explica": "É o modo pareamento. Por isso é preciso parear logo: enquanto estiver 0, quem mandar /ping primeiro vira o dono.",
+          "cert": true,
+          "ref": "passos"
+        },
+        {
+          "p": "Onde deve ficar a chave de um serviço de terceiros que uma tarefa usa?",
+          "opcoes": [
+            "No README, para ninguém esquecer.",
+            "Num cofre separado, com chmod 600, fora do Git.",
+            "No texto do pedido enviado pelo Telegram.",
+            "Dentro do prompt da skill."
+          ],
+          "certa": 1,
+          "explica": "Segredo nunca vai em texto versionado nem em mensagem. O .env do bot guarda configuração; segredo de terceiro mora no cofre.",
+          "ref": "codigo"
+        }
+      ]
+    },
+    {
+      "tipo": "links",
+      "titulo": "Para ir além",
+      "links": [
+        {
+          "t": "Guia do inemaccbot (instalação e uso)",
+          "href": "https://inematds.github.io/inemaccbot/guia/",
+          "icone": "fila"
+        },
+        {
+          "t": "Repositório inemaccbot",
+          "href": "https://github.com/inematds/inemaccbot",
+          "icone": "git"
+        }
+      ]
+    }
+  ]
+}
