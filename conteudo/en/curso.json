@@ -1,0 +1,184 @@
+{
+  "id": "do-chat-ao-agente-filas-v72",
+  "lang": "en",
+  "url": "https://inematds.github.io/do-chat-ao-agente-filas-v72/en/",
+  "nome": "Queues: ten tasks and go to sleep",
+  "sub": "From chat to agent · step 3",
+  "volta": {
+    "t": "Overview: From chat to agent",
+    "href": "https://inematds.github.io/do-chat-ao-agente-v72/"
+  },
+  "lado_card": {
+    "rot": "Practice for this step",
+    "t": "Seven exercises with “done when”",
+    "texto": "From a queue on paper to the morning review. Move on only when “done when” is true.",
+    "link": "Exercises for sequence 3",
+    "href": "https://github.com/inematds/jornada-agentes/blob/main/exercicios/03-filas.md"
+  },
+  "rodape": "INEMA.CLUB · open, free content · INEMA Learning v7.2 format · step 3 of the <a href=\"https://inematds.github.io/do-chat-ao-agente-v72/\">From chat to agent</a> training · <a href=\"https://inematds.github.io/inemaccbot/guia/\">inemaccbot guide</a> · <a href=\"https://eventos.inema.pro/do-chat-ao-agente/\">eventos.inema.pro/do-chat-ao-agente</a> · <a href=\"https://inema.club/\">inema.club</a> · <a href=\"https://www.inema.club/cursos/326-do-chat-ao-agente-degrau-3-filas-dez-tarefas-e-va-dormir-inemaccbot/\">Full course listing on INEMA.CLUB</a> · <a href=\"https://www.inema.club/aprender-inteligencia-artificial/\">Guide: how to learn artificial intelligence</a>",
+  "videos": {
+    "jornada-ia": {
+      "titulo": "From chat to agent: the overview",
+      "duracao": "2 min 27 s",
+      "mp4": "https://github.com/inematds/jornada-agentes/releases/download/video-v2.0.0/jornada-jornada-ia-16x9.mp4",
+      "vtt": "assets/vtt/jornada-ia.vtt",
+      "poster": "assets/img/jornada-ia.jpg",
+      "pagina": "https://inematds.github.io/jornada-agentes/serie/jornada-ia/"
+    },
+    "seq3-filas": {
+      "titulo": "Ten tasks and go to sleep",
+      "duracao": "1 min 33 s",
+      "mp4": "https://github.com/inematds/jornada-agentes/releases/download/video-v2.0.0/jornada-seq3-filas-16x9.mp4",
+      "vtt": "assets/vtt/seq3-filas.vtt",
+      "poster": "assets/img/seq3-filas.jpg",
+      "pagina": "https://inematds.github.io/jornada-agentes/serie/seq3-filas/"
+    }
+  },
+  "inicio": {
+    "kicker": "Course · step 3 of From chat to agent · 7 lessons",
+    "titulo": "Queues: send ten tasks, go to sleep, and check the results in the morning",
+    "lead": "An agent in chat does one thing at a time, and only while you watch. In this course, you’ll set up your queue: decide what goes in, understand a simple queue, install inemaccbot, add gates before the important steps, and learn to review the batch the next day.",
+    "cta": "Start lesson 1",
+    "cta2": {
+      "t": "Back to the training overview",
+      "href": "https://inematds.github.io/do-chat-ao-agente-v72/"
+    },
+    "capa_alt": "Office at night with a laptop showing a list of completed tasks and a phone beside it.",
+    "numeros": [
+      {
+        "v": "7",
+        "t": "lessons"
+      },
+      {
+        "v": "7",
+        "t": "hands-on exercises"
+      },
+      {
+        "v": "1",
+        "t": "real queue night"
+      },
+      {
+        "v": "2",
+        "t": "videos"
+      }
+    ],
+    "aulas_titulo": "The lessons",
+    "aulas_sub": "In the order you’ll do them: first understand and decide, then install, send, add gates, and review. Prerequisite: steps 1 (terminal) and 2 (your Jarvis) of the training.",
+    "blocos": [
+      {
+        "t": "Who it’s for",
+        "itens": [
+          "People who already use an agent in the terminal (step 1) and have an assistant with rules (step 2).",
+          "People who repeat the same tasks every week: transcribe, summarize, draft, generate video.",
+          "People who want to leave the computer working overnight without worrying about losing what it did."
+        ]
+      },
+      {
+        "t": "What you’ll be able to do",
+        "itens": [
+          "Sort your tasks into: goes in the queue, needs a gate, stays with you.",
+          "Run a simple queue and see how it resumes after an interruption.",
+          "Install inemaccbot until /ping responds in your Telegram.",
+          "Send a batch one night, approve it at the gate, and measure in the morning how many came out right on the first try.",
+          "Turn the task that failed most into a new rule."
+        ]
+      }
+    ]
+  },
+  "ui": {
+    "pular": "Skip to content",
+    "aulas": "Lessons",
+    "concluido": "completed",
+    "aula": "Lesson",
+    "nesta_aula": "In this lesson, you’ll learn:",
+    "objetivo": "Goal:",
+    "proxima_aula": "Next lesson",
+    "aula_anterior": "Previous lesson",
+    "voltar_inicio": "Back to the start of the course",
+    "marcar_concluida": "Mark lesson as completed",
+    "dg_dica": "Click each block in the diagram to see what it does.",
+    "copiar": "Copy",
+    "copiado": "Copied",
+    "selo_simulacao": "Simulation: illustrative example",
+    "selo_real": "Repository example",
+    "pronto_quando": "Done when:",
+    "fiz": "I did this exercise",
+    "video_pagina": "Video page with script",
+    "pergunta": "Question",
+    "de": "of",
+    "cert_tag": "skill",
+    "correto": "Correct",
+    "errado": "That’s not it",
+    "quiz_aguarda": "Choose an option. The explanation appears after you try.",
+    "proxima_pergunta": "Next question",
+    "quiz_ver": "See results",
+    "quiz_fim": "Test complete",
+    "quiz_total": "You got {a} out of {n} right. If you get them all right, the lesson is marked complete.",
+    "aparencia": "Appearance",
+    "tamanho_texto": "Text size",
+    "tema": "Theme",
+    "tema_escuro": "Dark",
+    "tema_papel": "Light paper",
+    "role_dica": "Scroll down: each step below lights up its part of the diagram.",
+    "pre_requisito": "requires",
+    "ver_aula": "View lesson",
+    "mapa_dica": "Click an exercise to see what to do and the “done when” criteria.",
+    "etapas": "Steps",
+    "exercicios": "exercises",
+    "rever": "Review:",
+    "revisar_erradas": "Review incorrect answers",
+    "refazer": "Retake the test",
+    "h_semana": "hours per week",
+    "data_inicio": "Start date",
+    "ritmo": "Time available",
+    "gerar_plano": "Generate my plan",
+    "baixar_md": "Download plan.md",
+    "baixar_ics": "Download for calendar (.ics)",
+    "ind_estudo": "Study (lessons)",
+    "ind_pratica": "Declared practice",
+    "ind_nota": "Practice = exercises you marked as done. Proof comes in the certification exam.",
+    "estudo": {
+      "titulo": "Your study",
+      "continuar": "Pick up where I left off",
+      "comecar": "Start lesson 1",
+      "cta_continuar": "Continue lesson {n}",
+      "hoje": "today",
+      "ontem": "yesterday",
+      "ha_dias": "{n} days ago",
+      "desempenho": "Test performance",
+      "notas": "My notes",
+      "dados": "Copy my data",
+      "sem_testes": "No tests taken yet. The test is at the end of each lesson.",
+      "nao_fez": "test not taken yet",
+      "ultimo": "Last",
+      "melhor": "Best",
+      "tentativas": "attempts",
+      "tentativa": "attempt",
+      "tudo_certo": "You got everything right on the last test.",
+      "rever": "Review",
+      "resposta": "Correct answer:",
+      "ir_teste": "Retake the test",
+      "sem_notas": "No notes yet. In the lesson, select a passage and tap Mark or Add note.",
+      "so_marcado": "(marked only)",
+      "marcar": "Mark",
+      "anotar": "Add note",
+      "salvar": "Save",
+      "apagar": "Remove mark",
+      "fechar": "Close",
+      "nota_ph": "Write a note about this passage…",
+      "um_bloco": "Select text within a single paragraph.",
+      "nao_marca": "This passage can't be marked.",
+      "dados_exp": "Your progress, notes, and test scores are stored only in this browser. Download a copy (.json) to save or continue on another computer or browser; load the copy there. Loading adds to what’s already there and doesn’t delete anything.",
+      "exportar": "Download copy",
+      "importar": "Load copy",
+      "import_ok": "Copy loaded ({n} items). Refreshing the page…",
+      "import_erro": "File not recognized. Nothing was changed.",
+      "import_outro": "This copy is from another course. Nothing was changed.",
+      "export_ok": "Copy downloaded."
+    },
+    "comecar": "Start lesson",
+    "nesta_vai": "In this lesson, you’ll",
+    "trocar_tema": "Switch between light and dark themes"
+  },
+  "icone": "fila"
+}

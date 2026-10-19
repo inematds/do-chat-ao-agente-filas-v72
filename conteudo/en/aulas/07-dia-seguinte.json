@@ -1,0 +1,337 @@
+{
+  "slug": "dia-seguinte",
+  "num": 7,
+  "titulo": "The next day: review, measure, and create the new rule",
+  "titulo_curto": "The next day",
+  "menu": "Morning",
+  "minutos": 18,
+  "lead": "The overnight queue is only worthwhile if the morning is short. Read the report in the chat, check each result against what you expected, note how many were right on the first try, and turn the task that failed most into a new rule.",
+  "objetivo": "review the overnight batch, measure first-try accuracy, and write a rule for the task that failed most.",
+  "hero_alt": "Morning light, a cup of coffee, and a laptop with a list of results.",
+  "competencias": [
+    "review-batch-results",
+    "measure-accuracy",
+    "turn-failure-into-rule"
+  ],
+  "aprende": [
+    {
+      "icone": "lupa",
+      "t": "Where to look in the morning: chat, /status, and /jobs"
+    },
+    {
+      "icone": "grafico",
+      "t": "The measure that matters: right on the first try"
+    },
+    {
+      "icone": "caneta",
+      "t": "From failure to a rule in AGENTS.md or the prompt"
+    },
+    {
+      "icone": "calendario",
+      "t": "Your plan to complete the step"
+    }
+  ],
+  "secoes": [
+    {
+      "tipo": "diagrama",
+      "titulo": "The morning cycle",
+      "sub": "Fifteen minutes to improve the next night.",
+      "nos": [
+        {
+          "icone": "chat",
+          "titulo": "Report",
+          "sub": "The overnight chat",
+          "itens": [
+            {
+              "icone": "check",
+              "t": "results"
+            },
+            {
+              "icone": "x",
+              "t": "reasons for failure"
+            }
+          ],
+          "detalhe": "Each task replied in the chat when it finished. Start by reading the conversation from top to bottom; /jobs and /completos show what finished, and /status shows what is still open."
+        },
+        {
+          "icone": "lupa",
+          "titulo": "Check",
+          "sub": "Against what you expected",
+          "itens": [
+            {
+              "icone": "arquivo",
+              "t": "open the result"
+            }
+          ],
+          "detalhe": "Open each result and compare it with the \"Checkable result\" column in your paper queue. The question is simple: can you use it as is?"
+        },
+        {
+          "icone": "grafico",
+          "titulo": "Measure",
+          "sub": "Right on the first try",
+          "itens": [
+            {
+              "icone": "check",
+              "t": "e.g., 7 out of 10"
+            }
+          ],
+          "detalhe": "Count how many were right without any changes from you. This number, recorded every morning, shows whether the queue is improving or just running.",
+          "forte": true
+        },
+        {
+          "icone": "caneta",
+          "titulo": "New rule",
+          "sub": "For the one that failed most",
+          "itens": [
+            {
+              "icone": "arquivo",
+              "t": "AGENTS.md or the skill prompt"
+            }
+          ],
+          "detalhe": "Take the task that failed most and write a one-line rule that would have prevented the error. Add it to the project's AGENTS.md or the skill prompt. Run it again and compare."
+        }
+      ],
+      "volta": "The next night already runs with the new rule",
+      "legenda": "Click each block. Fixing it by hand solves today; the new rule solves the next nights.",
+      "rolagem": true,
+      "rolagem_fim": {
+        "titulo": "This is what managing means",
+        "texto": "Read, check, measure, and turn the error into a rule. The agent does the work; you improve the process."
+      }
+    },
+    {
+      "tipo": "passos",
+      "titulo": "The morning, step by step",
+      "passos": [
+        {
+          "titulo": "Read the report",
+          "sub": "5 min",
+          "texto": [
+            "Read the overnight chat. For each task, you should have a result or a reason for failure. A task with no reply is still running or waiting: check <code>/fila</code>.",
+            "<code>/completos</code> lists the flows that finished; <code>/status</code> shows the ones that still need something from you (running or failed)."
+          ]
+        },
+        {
+          "titulo": "Check each result",
+          "sub": "5 to 10 min",
+          "texto": [
+            "Open the file or text and compare it with what you expected. Mark it: right on the first try, right with adjustments, wrong, or failed.",
+            "Don't fix anything yet. First look at the whole batch: the pattern in the errors appears when you see them all together."
+          ]
+        },
+        {
+          "titulo": "Handle the failures",
+          "sub": "the reason first",
+          "texto": [
+            "Read the reason. <code>código 143</code> means it restarted, not that the agent made an error: <code>/refazer</code>. For an input error (broken link, wrong file), fix the input and send it again.",
+            "If the agent got it wrong, doing the same thing again isn’t enough: you need a new rule."
+          ]
+        },
+        {
+          "titulo": "Write the rule",
+          "sub": "one line",
+          "texto": [
+            "A good rule is short, concrete, and testable. It says what to do, not just what to avoid. Add it to the project’s AGENTS.md (step 1) or the skill prompt.",
+            "Run the same task again with the rule and compare. If it improved, keep the rule; if not, rewrite it."
+          ],
+          "exemplo": {
+            "rot": "Example",
+            "texto": "Meeting summaries: start with decisions made and who is responsible, in no more than 8 lines."
+          }
+        }
+      ]
+    },
+    {
+      "tipo": "codigo",
+      "titulo": "The morning spreadsheet and the request for a rule",
+      "sub": "One line per task. Keep each morning’s results in the same file so you can see how things change.",
+      "blocos": [
+        {
+          "rot": "conferencia.md",
+          "icone": "arquivo",
+          "conteudo": "## Morning of YYYY-MM-DD\n\n| # | Task | Result | Right the first time? | What went wrong | Action |\n|---|---|---|---|---|---|\n| 1 | Transcribe Monday’s meeting | text | yes | — | — |\n| 2 | Queue explainer | video | no | too long | new rule |\n| 3 |  |  |  |  |  |\n\nRight the first time: __ of __\nTask that failed most: __\nNew rule: __"
+        },
+        {
+          "rot": "Ask your agent to propose a rule",
+          "icone": "chat",
+          "conteudo": "Read conferencia.md. For the task that failed most:\n1. Describe the error in one sentence, with an example of the result.\n2. Propose ONE concrete, testable, one-line rule for AGENTS.md or the skill prompt.\n3. Tell me how to check tomorrow whether the rule worked.\nDon’t change any files; only make a proposal."
+        },
+        {
+          "rot": "Telegram · check what finished and free up space",
+          "icone": "lupa",
+          "conteudo": "/completos\n/jobs\n/espaco\n/limpar artefatos 14    # only shows what would be removed (more than 14 days old)"
+        }
+      ],
+      "saida": {
+        "selo": "simulacao",
+        "abas": [
+          {
+            "rot": "Morning example",
+            "html": "<p><b>Right the first time: 7 of 10.</b> Two were right after an adjustment (summaries were too long), and one failed because of a broken link.</p><p><b>New rule:</b> \"Meeting summaries: decisions and who is responsible first, no more than 8 lines.\"</p><p>The next night: 9 of 10.</p>"
+          },
+          {
+            "rot": "Common morning mistakes",
+            "html": "<ul><li>Fixing it by hand without writing it down: the same failure comes back tomorrow.</li><li>Measuring only what failed: what matters is the share that was right the first time.</li><li>Writing a vague rule (\"do better\"): there’s no way to check it.</li><li>Restarting the bot while a task is still running to \"clean up.\"</li></ul>"
+          }
+        ]
+      }
+    },
+    {
+      "tipo": "pratica",
+      "titulo": "Practice",
+      "sub": "The morning after E4.",
+      "exercicios": [
+        {
+          "id": "e6",
+          "titulo": "E6 · The morning review",
+          "min": "20 min",
+          "texto": "Fill in conferencia.md with every task from the night: the result, whether it was right the first time, and what went wrong. Address failures based on their cause.",
+          "pronto": "each task in the batch has a line, and you noted how many were right the first time."
+        },
+        {
+          "id": "e7",
+          "titulo": "E7 · The new rule",
+          "min": "30 min",
+          "dias": 1,
+          "texto": "Write a rule for the task that failed most (in AGENTS.md or the skill prompt). Run the same task again the next night and compare.",
+          "pronto": "the rule is written, the task ran again, and you noted whether the result improved."
+        }
+      ],
+      "fonte": "Extra challenge for sequence 3: <a href=\"https://github.com/inematds/jornada-agentes/blob/main/exercicios/03-filas.md\" target=\"_blank\" rel=\"noopener\">03-filas.md</a>."
+    },
+    {
+      "tipo": "gerador",
+      "titulo": "Generate your step 3 plan",
+      "sub": "Choose a start date and how much time you have each week. The plan accounts for exercises that require a night with the queue.",
+      "curso": "Queues: ten tasks and go to sleep",
+      "horas_padrao": 3,
+      "degraus": [
+        {
+          "titulo": "Decide what goes in",
+          "aula": "o-que-vai"
+        },
+        {
+          "titulo": "Homegrown Queue",
+          "aula": "fila-caseira"
+        },
+        {
+          "titulo": "Install the bot",
+          "aula": "instalar"
+        },
+        {
+          "titulo": "Send the batch",
+          "aula": "mandar-tarefas"
+        },
+        {
+          "titulo": "Gates",
+          "aula": "portoes"
+        },
+        {
+          "titulo": "The next day",
+          "aula": "dia-seguinte"
+        }
+      ],
+      "txt": {
+        "titulo": "Plan — Queues: Ten tasks and go to sleep",
+        "inicio": "Start",
+        "ritmo": "Pace",
+        "termino": "Estimated finish",
+        "ate": "up to",
+        "pronto": "done when",
+        "semanas": "weeks",
+        "travou": "## What got stuck and the rule I created",
+        "h": "hours per week",
+        "exs": "exercises"
+      }
+    },
+    {
+      "tipo": "resumo",
+      "titulo": "Step 3 in three sentences",
+      "itens": [
+        {
+          "t": "Save it before running",
+          "texto": "Durable queue: the request stays on disk, runs one at a time, resumes after a crash, and separates done from failed."
+        },
+        {
+          "t": "A gate before what matters",
+          "texto": "After what needs your eyes and before what is expensive or public. Read, fix, and only then approve."
+        },
+        {
+          "t": "The morning makes the night better",
+          "texto": "Review, measure what was right the first time, and turn the most repeated failure into a new rule."
+        }
+      ]
+    },
+    {
+      "tipo": "video",
+      "titulo": "The full training in video",
+      "sub": "Where step 3 fits between the terminal, your Jarvis, and automated social media.",
+      "chave": "jornada-ia"
+    },
+    {
+      "tipo": "quiz",
+      "titulo": "Test what you learned",
+      "sub": "The explanation appears after your answer.",
+      "perguntas": [
+        {
+          "p": "Which number should you write down every morning?",
+          "opcoes": [
+            "How many tasks were sent.",
+            "How many were completed correctly on the first try, out of the total.",
+            "How long the queue took.",
+            "How many messages the bot sent."
+          ],
+          "certa": 1,
+          "explica": "The share completed correctly on the first try shows whether the queue is improving. Sending more tasks says nothing about quality.",
+          "cert": true,
+          "ref": "diagrama"
+        },
+        {
+          "p": "A summary came out too long for the third night in a row. What should you do?",
+          "opcoes": [
+            "Shorten it by hand every morning.",
+            "Write a specific rule in the skill prompt or AGENTS.md and compare the result the next night.",
+            "Remove this task from the queue forever.",
+            "Switch models without changing anything else."
+          ],
+          "certa": 1,
+          "explica": "Fixing it by hand solves today's problem. The new rule solves it for future nights and can be checked.",
+          "ref": "passos"
+        },
+        {
+          "p": "A task failed with <code>código 143</code>. What should you check?",
+          "opcoes": [
+            "A new rule for the agent.",
+            "Restart failure: /refazer and don't restart while a batch is running.",
+            "Change the skill prompt.",
+            "Delete the task."
+          ],
+          "certa": 1,
+          "explica": "143 means the service shut down, not that the agent made an error. A rule for the agent wouldn't fix it; the precaution is about restarting.",
+          "ref": "passos"
+        }
+      ]
+    },
+    {
+      "tipo": "links",
+      "titulo": "Next steps",
+      "links": [
+        {
+          "t": "Return to the overview: From chat to agent",
+          "href": "https://inematds.github.io/do-chat-ao-agente-v72/",
+          "icone": "voltar"
+        },
+        {
+          "t": "Training area in events",
+          "href": "https://eventos.inema.pro/do-chat-ao-agente/",
+          "icone": "camadas"
+        },
+        {
+          "t": "inemaccbot guide",
+          "href": "https://inematds.github.io/inemaccbot/guia/",
+          "icone": "fila"
+        }
+      ]
+    }
+  ]
+}

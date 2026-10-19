@@ -1,0 +1,184 @@
+{
+  "id": "do-chat-ao-agente-filas-v72",
+  "lang": "es",
+  "url": "https://inematds.github.io/do-chat-ao-agente-filas-v72/es/",
+  "nome": "Colas: diez tareas y vete a dormir",
+  "sub": "Del chat al agente · nivel 3",
+  "volta": {
+    "t": "Vista general: Del chat al agente",
+    "href": "https://inematds.github.io/do-chat-ao-agente-v72/"
+  },
+  "lado_card": {
+    "rot": "Práctica de este nivel",
+    "t": "Siete ejercicios con «listo cuando»",
+    "texto": "De la cola en papel a la revisión de la mañana. Pasa al siguiente solo cuando «listo cuando» sea verdad.",
+    "link": "Ejercicios de la secuencia 3",
+    "href": "https://github.com/inematds/jornada-agentes/blob/main/exercicios/03-filas.md"
+  },
+  "rodape": "INEMA.CLUB · contenido abierto y gratuito · formato INEMA Learning v7.2 · nivel 3 de la formación <a href=\"https://inematds.github.io/do-chat-ao-agente-v72/\">Del chat al agente</a> · <a href=\"https://inematds.github.io/inemaccbot/guia/\">guía de inemaccbot</a> · <a href=\"https://eventos.inema.pro/do-chat-ao-agente/\">eventos.inema.pro/do-chat-ao-agente</a> · <a href=\"https://inema.club/\">inema.club</a> · <a href=\"https://www.inema.club/cursos/326-do-chat-ao-agente-degrau-3-filas-dez-tarefas-e-va-dormir-inemaccbot/\">Ficha completa de este curso en INEMA.CLUB</a> · <a href=\"https://www.inema.club/aprender-inteligencia-artificial/\">Guía: cómo aprender inteligencia artificial</a>",
+  "videos": {
+    "jornada-ia": {
+      "titulo": "Del chat al agente: la vista general",
+      "duracao": "2 min 27 s",
+      "mp4": "https://github.com/inematds/jornada-agentes/releases/download/video-v2.0.0/jornada-jornada-ia-16x9.mp4",
+      "vtt": "assets/vtt/jornada-ia.vtt",
+      "poster": "assets/img/jornada-ia.jpg",
+      "pagina": "https://inematds.github.io/jornada-agentes/serie/jornada-ia/"
+    },
+    "seq3-filas": {
+      "titulo": "Diez tareas y vete a dormir",
+      "duracao": "1 min 33 s",
+      "mp4": "https://github.com/inematds/jornada-agentes/releases/download/video-v2.0.0/jornada-seq3-filas-16x9.mp4",
+      "vtt": "assets/vtt/seq3-filas.vtt",
+      "poster": "assets/img/seq3-filas.jpg",
+      "pagina": "https://inematds.github.io/jornada-agentes/serie/seq3-filas/"
+    }
+  },
+  "inicio": {
+    "kicker": "Curso · nivel 3 de Del chat al agente · 7 clases",
+    "titulo": "Colas: envía diez tareas, vete a dormir y revisa el resultado por la mañana",
+    "lead": "Un agente en el chat hace una cosa a la vez y solo mientras lo miras. En este curso armas tu cola: decides qué entra, entiendes la cola casera, instalas inemaccbot, pones compuertas antes de lo importante y aprendes a revisar el lote al día siguiente.",
+    "cta": "Empezar por la clase 1",
+    "cta2": {
+      "t": "Volver a la vista general de la formación",
+      "href": "https://inematds.github.io/do-chat-ao-agente-v72/"
+    },
+    "capa_alt": "Oficina de noche con una laptop que muestra una lista de tareas completadas y un celular al lado.",
+    "numeros": [
+      {
+        "v": "7",
+        "t": "clases"
+      },
+      {
+        "v": "7",
+        "t": "ejercicios prácticos"
+      },
+      {
+        "v": "1",
+        "t": "noche con una cola real"
+      },
+      {
+        "v": "2",
+        "t": "videos"
+      }
+    ],
+    "aulas_titulo": "Las clases",
+    "aulas_sub": "En el orden en que lo haces: primero entender y decidir, después instalar, enviar, poner compuertas y revisar. Requisito previo: niveles 1 (terminal) y 2 (tu Jarvis) de la formación.",
+    "blocos": [
+      {
+        "t": "Para quién es",
+        "itens": [
+          "Para quien ya usa un agente en la terminal (nivel 1) y tiene un asistente con reglas (nivel 2).",
+          "Para quien repite las mismas tareas cada semana: transcribir, resumir, hacer borradores, generar videos.",
+          "Para quien quiere dejar la computadora trabajando de noche sin miedo a perder lo que se hizo."
+        ]
+      },
+      {
+        "t": "Lo que podrás hacer",
+        "itens": [
+          "Separar tus tareas en: va a la cola, va con compuerta, queda contigo.",
+          "Ejecutar una cola casera y ver cómo se retoma después de una interrupción.",
+          "Instalar inemaccbot hasta que /ping responda en tu Telegram.",
+          "Enviar un lote una noche, aprobarlo en la compuerta y medir por la mañana cuántas tareas salieron bien a la primera.",
+          "Convertir la tarea que más falló en una regla nueva."
+        ]
+      }
+    ]
+  },
+  "ui": {
+    "pular": "Saltar al contenido",
+    "aulas": "Clases",
+    "concluido": "completado",
+    "aula": "Clase",
+    "nesta_aula": "En esta clase, aprenderás:",
+    "objetivo": "Objetivo:",
+    "proxima_aula": "Clase siguiente",
+    "aula_anterior": "Clase anterior",
+    "voltar_inicio": "Volver al inicio del curso",
+    "marcar_concluida": "Marcar clase como completada",
+    "dg_dica": "Haz clic en cada bloque del diagrama para ver qué hace.",
+    "copiar": "Copiar",
+    "copiado": "Copiado",
+    "selo_simulacao": "Simulación: ejemplo ilustrativo",
+    "selo_real": "Ejemplo del repositorio",
+    "pronto_quando": "Listo cuando:",
+    "fiz": "Hice este ejercicio",
+    "video_pagina": "Página del video con guion",
+    "pergunta": "Pregunta",
+    "de": "de",
+    "cert_tag": "competencia",
+    "correto": "Correcto",
+    "errado": "No es esa",
+    "quiz_aguarda": "Elige una alternativa. La explicación aparece después de tu intento.",
+    "proxima_pergunta": "Siguiente pregunta",
+    "quiz_ver": "Ver resultado",
+    "quiz_fim": "Prueba completada",
+    "quiz_total": "Acertaste {a} de {n}. Si aciertas todas, la clase se marca como completada.",
+    "aparencia": "Apariencia",
+    "tamanho_texto": "Tamaño del texto",
+    "tema": "Tema",
+    "tema_escuro": "Oscuro",
+    "tema_papel": "Papel claro",
+    "role_dica": "Desplázate por la página: cada etapa de abajo ilumina su parte del diagrama.",
+    "pre_requisito": "requiere",
+    "ver_aula": "Ver la clase",
+    "mapa_dica": "Haz clic en un ejercicio para ver qué hacer y el \"listo cuando\".",
+    "etapas": "Etapas",
+    "exercicios": "ejercicios",
+    "rever": "Repasar:",
+    "revisar_erradas": "Revisar las incorrectas",
+    "refazer": "Repetir la prueba",
+    "h_semana": "h por semana",
+    "data_inicio": "Fecha de inicio",
+    "ritmo": "Tiempo disponible",
+    "gerar_plano": "Generar mi plan",
+    "baixar_md": "Descargar plan.md",
+    "baixar_ics": "Descargar para el calendario (.ics)",
+    "ind_estudo": "Estudio (clases)",
+    "ind_pratica": "Práctica declarada",
+    "ind_nota": "Práctica = ejercicios que marcaste como hechos. La comprobación se realiza en el examen de certificación.",
+    "estudo": {
+      "titulo": "Tu estudio",
+      "continuar": "Continuar desde donde me quedé",
+      "comecar": "Empezar por la clase 1",
+      "cta_continuar": "Continuar la clase {n}",
+      "hoje": "hoy",
+      "ontem": "ayer",
+      "ha_dias": "hace {n} días",
+      "desempenho": "Rendimiento en las pruebas",
+      "notas": "Mis notas",
+      "dados": "Copiar mis datos",
+      "sem_testes": "Aún no hiciste ninguna prueba. La prueba está al final de cada lección.",
+      "nao_fez": "prueba aún no realizada",
+      "ultimo": "Último",
+      "melhor": "Mejor",
+      "tentativas": "intentos",
+      "tentativa": "intento",
+      "tudo_certo": "Acertaste todo en la última prueba.",
+      "rever": "Para repasar",
+      "resposta": "Respuesta correcta:",
+      "ir_teste": "Repetir la prueba",
+      "sem_notas": "Aún no tienes notas. En la lección, selecciona un fragmento del texto y toca Marcar o Anotar.",
+      "so_marcado": "(solo marcado)",
+      "marcar": "Marcar",
+      "anotar": "Anotar",
+      "salvar": "Guardar",
+      "apagar": "Borrar marca",
+      "fechar": "Cerrar",
+      "nota_ph": "Escribe tu nota sobre este fragmento…",
+      "um_bloco": "Marca dentro de un solo párrafo.",
+      "nao_marca": "Este fragmento no se puede marcar.",
+      "dados_exp": "Tu progreso, tus notas y los resultados de las pruebas se guardan solo en este navegador. Descarga una copia (.json) para guardarla o para continuar en otra computadora o navegador; allí, carga la copia. Al cargarla, se suma a lo que ya existe y no se borra nada.",
+      "exportar": "Descargar copia",
+      "importar": "Cargar copia",
+      "import_ok": "Copia cargada ({n} elementos). Actualizando la página…",
+      "import_erro": "Archivo no reconocido. No se modificó nada.",
+      "import_outro": "Esta copia es de otro curso. No se modificó nada.",
+      "export_ok": "Copia descargada."
+    },
+    "comecar": "Empezar la lección",
+    "nesta_vai": "En esta lección vas a",
+    "trocar_tema": "Cambiar tema claro/oscuro"
+  },
+  "icone": "fila"
+}

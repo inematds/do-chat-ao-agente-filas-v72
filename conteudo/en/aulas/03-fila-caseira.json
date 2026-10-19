@@ -1,0 +1,239 @@
+{
+  "slug": "fila-caseira",
+  "num": 3,
+  "titulo": "A Homegrown Queue in 30 Lines",
+  "titulo_curto": "Homegrown Queue",
+  "menu": "Homegrown",
+  "minutos": 20,
+  "lead": "Before the bot, you’ll see the whole idea in a short script from the jornada-agentes repository: four folders, one task at a time, resume after Ctrl+C, and failures kept separate with the reason.",
+  "objetivo": "run the homegrown queue, interrupt it halfway through, and explain why the second run doesn’t redo what’s already done.",
+  "hero_alt": "Notebook with a dark terminal beside four paper folders on a desk.",
+  "competencias": [
+    "resume-task",
+    "read-queue-script",
+    "explain-durable-queue"
+  ],
+  "aprende": [
+    {
+      "icone": "pasta",
+      "t": "The four folders and a task’s path"
+    },
+    {
+      "icone": "relogio",
+      "t": "Resuming, in practice"
+    },
+    {
+      "icone": "terminal",
+      "t": "The script, line by line"
+    },
+    {
+      "icone": "robo",
+      "t": "Switch the engine: claude or codex"
+    }
+  ],
+  "secoes": [
+    {
+      "tipo": "diagrama",
+      "titulo": "A file’s path",
+      "sub": "Each request is a .md file that moves between folders.",
+      "nos": [
+        {
+          "icone": "pasta",
+          "titulo": "entrada/",
+          "sub": "Requests waiting",
+          "itens": [
+            {
+              "icone": "arquivo",
+              "t": "01.md, 02.md…"
+            }
+          ],
+          "detalhe": "Each .md file is a request, written the way you’d write it in chat. The order follows the file names."
+        },
+        {
+          "icone": "relogio",
+          "titulo": "rodando/",
+          "sub": "The current task",
+          "itens": [
+            {
+              "icone": "robo",
+              "t": "Just one at a time"
+            }
+          ],
+          "detalhe": "The script moves the file here before calling the agent. If you press Ctrl+C or the computer crashes, it stays here, which makes it possible to resume.",
+          "forte": true
+        },
+        {
+          "icone": "check",
+          "titulo": "feito/",
+          "sub": "Request + response",
+          "itens": [
+            {
+              "icone": "arquivo",
+              "t": "original text, ---, response"
+            }
+          ],
+          "detalhe": "It worked (exit code 0 and a non-empty response): the final file contains the request, a line with ---, and the agent’s response."
+        },
+        {
+          "icone": "x",
+          "titulo": "falhou/",
+          "sub": "Request + reason",
+          "itens": [
+            {
+              "icone": "arquivo",
+              "t": "ERROR (rc=…) and the output"
+            }
+          ],
+          "detalhe": "It failed or the response was empty: the file goes here with the exit code and what the agent printed. The queue moves on to the next task."
+        }
+      ],
+      "volta": "When you run it again: rodando/ → entrada/",
+      "legenda": "Click each folder. The key is rodando/: the task only leaves that folder when it finishes, moving to feito/ or falhou/.",
+      "rolagem": true,
+      "rolagem_fim": {
+        "titulo": "Running it again only picks up what’s left",
+        "texto": "At startup, the script returns anything left in rodando/ to entrada/. Anything already in feito/ is never redone."
+      }
+    },
+    {
+      "tipo": "simfila",
+      "titulo": "See the queue in action",
+      "sub": "Run it, interrupt it halfway through with the Ctrl+C button, then run it again.",
+      "tarefas": [
+        "01 · Transcribe Monday’s meeting",
+        "02 · Summarize the client’s 3 PDFs",
+        "03 · Draft this week’s post",
+        "04 · 2-minute product explainer",
+        "05 · FAQ list"
+      ],
+      "falha": 3,
+      "rot": {
+        "entrada": "entrada/",
+        "rodando": "rodando/",
+        "feito": "feito/",
+        "falhou": "falhou/",
+        "rodar": "Run the queue",
+        "parar": "Interrupt (Ctrl+C)",
+        "zerar": "Start again"
+      },
+      "msg": {
+        "inicio": "5 tasks in entrada/. Click “Run the queue”.",
+        "rodando": "Running: one task at a time, from entrada/ to rodando/ and then feito/ or falhou/.",
+        "parou": "Interrupted. The task in progress stayed in rodando/. Run it again to see the resume.",
+        "retoma": "Resumed: what was in rodando/ went back to entrada/. What was already in feito/ is not redone.",
+        "fim": "Queue empty: everything is in feito/.",
+        "fimfalha": "Queue empty. One task went to falhou/ with this reason: that’s what you check in the morning."
+      },
+      "legenda": "Illustrative browser simulation: the tasks don’t actually run. The failure is intentional, to show the falhou/ folder."
+    },
+    {
+      "tipo": "codigo",
+      "titulo": "The script and how to use it",
+      "sub": "It’s in ferramentas/fila-caseira.sh in the jornada-agentes repository. Both engines run through your subscription.",
+      "blocos": [
+        {
+          "rot": "Terminal · set up and run",
+          "icone": "terminal",
+          "conteudo": "git clone https://github.com/inematds/jornada-agentes.git\ncd jornada-agentes\nmkdir -p fila/entrada\necho \"Summarize in 5 lines what a task queue is.\" > fila/entrada/01.md\necho \"List 3 risks of leaving an agent running on its own.\" > fila/entrada/02.md\n./ferramentas/fila-caseira.sh fila          # default engine: claude\n./ferramentas/fila-caseira.sh fila codex    # or codex"
+        },
+        {
+          "rot": "Inside fila-caseira.sh (shortened for reading)",
+          "icone": "arquivo",
+          "conteudo": "mkdir -p \"$PASTA/entrada\" \"$PASTA/rodando\" \"$PASTA/feito\" \"$PASTA/falhou\"\n\n# resume: anything left in \"rodando\" (crash, Ctrl+C) goes back to the queue\nfor f in \"$PASTA\"/rodando/*.md; do [ -e \"$f\" ] && mv \"$f\" \"$PASTA/entrada/\"; done\n\nfor f in \"$PASTA\"/entrada/*.md; do\n  [ -e \"$f\" ] || { echo \"empty queue\"; break; }\n  nome=$(basename \"$f\")\n  mv \"$f\" \"$PASTA/rodando/$nome\"          # picks up the task (only one at a time)\n  saida=$(claude -p \"$(cat \"$PASTA/rodando/$nome\")\" < /dev/null 2>&1); rc=$?\n  if [ $rc -eq 0 ] && [ -n \"$saida\" ]; then\n    # request + --- + response go to feito/\n  else\n    # request + ERROR (rc) + output go to falhou/\n  fi\ndone"
+        }
+      ],
+      "saida": {
+        "selo": "real",
+        "abas": [
+          {
+            "rot": "What appears in the terminal",
+            "html": "<pre>→ 01.md\n  feito\n→ 02.md\n  feito\nentrada: 0 · feito: 2 · falhou: 0</pre>"
+          },
+          {
+            "rot": "Line-by-line walkthrough",
+            "html": "<ol><li>Creates the four folders (running it again won’t break anything).</li><li>Returns anything left in <code>rodando/</code> to <code>entrada/</code>.</li><li>Picks up one file at a time and moves it to <code>rodando/</code> before calling the agent.</li><li>Exit code 0 and a non-empty response: <code>feito/</code>. Otherwise: <code>falhou/</code> with the exit code.</li><li>At the end, counts how many are in each folder.</li></ol>"
+          },
+          {
+            "rot": "What the bot does in addition",
+            "html": "<ul><li>Receives requests through Telegram, not just from files.</li><li>Five queues with different limits, and automatic retries.</li><li>A deadline for each task and a chat notification when it’s done.</li><li>An approval gate in the middle of flows.</li></ul>"
+          }
+        ]
+      }
+    },
+    {
+      "tipo": "pratica",
+      "titulo": "Practice",
+      "sub": "Use two tasks from your queue on paper (lesson 2).",
+      "exercicios": [
+        {
+          "id": "e2",
+          "titulo": "E2 · A homemade queue in 30 lines",
+          "min": "30 min",
+          "texto": "Create two or three tasks in fila/entrada and run fila-caseira.sh. In a second run, interrupt with Ctrl+C while a task is in rodando/, check the folder, and run it again.",
+          "pronto": "the tasks are in fila/feito with their responses, and you saw the queue continue where it left off after Ctrl+C."
+        }
+      ],
+      "fonte": "Script: <a href=\"https://github.com/inematds/jornada-agentes/blob/main/ferramentas/fila-caseira.sh\" target=\"_blank\" rel=\"noopener\">jornada-agentes/ferramentas/fila-caseira.sh</a>."
+    },
+    {
+      "tipo": "quiz",
+      "titulo": "Test what you learned",
+      "sub": "The explanation appears after your answer.",
+      "perguntas": [
+        {
+          "p": "You interrupted the queue in the middle of a task. What happens when you run it again?",
+          "opcoes": [
+            "Everything starts over from the beginning.",
+            "The interrupted task goes back to entrada/ and the queue continues with what’s left.",
+            "The interrupted task is lost.",
+            "The queue only starts working again the next day."
+          ],
+          "certa": 1,
+          "explica": "That’s what makes it a durable queue: anything left in rodando/ goes back to entrada/, and anything already in feito/ isn’t redone.",
+          "cert": true,
+          "ref": "simfila"
+        },
+        {
+          "p": "Why does the script move the file to rodando/ BEFORE calling the agent?",
+          "opcoes": [
+            "So the agent can read it faster.",
+            "To mark which task is in progress; if there’s a crash, it stays there and gets picked up again.",
+            "To hide the task from you.",
+            "Because the agent only reads files in that folder."
+          ],
+          "certa": 1,
+          "explica": "Moving it first is the record that says, “I’m working on this.” It’s the homemade version of inemaccbot’s lease.",
+          "ref": "diagrama"
+        },
+        {
+          "p": "The agent responded, but the response was empty. Where does the task go?",
+          "opcoes": [
+            "feito/, because there was no error.",
+            "falhou/, because an empty response also counts as a failure.",
+            "It stays in rodando/.",
+            "It goes back to entrada/."
+          ],
+          "certa": 1,
+          "explica": "The script requires exit code 0 AND a non-empty response. Without a response, there’s nothing to check, so it’s a failure.",
+          "ref": "codigo"
+        }
+      ]
+    },
+    {
+      "tipo": "links",
+      "titulo": "To learn more",
+      "links": [
+        {
+          "t": "jornada-agentes repository (homemade queue)",
+          "href": "https://github.com/inematds/jornada-agentes",
+          "icone": "git"
+        },
+        {
+          "t": "Training guide with the 23 exercises",
+          "href": "https://inematds.github.io/jornada-agentes/guia/",
+          "icone": "lista"
+        }
+      ]
+    }
+  ]
+}

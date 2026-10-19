@@ -4,6 +4,8 @@ Curso completo do **degrau 3** da formação [Do chat ao agente](https://inematd
 
 **Abrir o curso:** https://inematds.github.io/do-chat-ao-agente-filas-v72/
 
+**Other languages:** [English](https://inematds.github.io/do-chat-ao-agente-filas-v72/en/) · [Español](https://inematds.github.io/do-chat-ao-agente-filas-v72/es/)
+
 ## As 7 aulas
 
 1. **Do chat à fila** — as quatro garantias de uma fila durável.
@@ -26,6 +28,14 @@ Curso completo do **degrau 3** da formação [Do chat ao agente](https://inematd
 
 ```bash
 python3 gerar.py && python3 validar.py --links
+```
+
+EN e ES (`en/`, `es/`): textos em `conteudo/en|es/`, gerados por `traduzir.py` da skill (Codex da assinatura, cache em `i18n/`); capa com texto em `assets/img/capa-en.jpg` e `capa-es.jpg`.
+
+```bash
+python3 ~/.claude/skills/formato-curso-v72/scripts/traduzir.py . en es
+python3 gerar.py --lang en && python3 gerar.py --lang es
+python3 validar.py --lang en && python3 validar.py --lang es
 ```
 
 HTML estático, sem build e sem backend. O progresso fica só no navegador de quem estuda.

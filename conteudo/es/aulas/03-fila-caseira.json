@@ -1,0 +1,239 @@
+{
+  "slug": "fila-caseira",
+  "num": 3,
+  "titulo": "La cola casera en 30 líneas",
+  "titulo_curto": "Cola casera",
+  "menu": "Casera",
+  "minutos": 20,
+  "lead": "Antes del bot, verás la idea completa en un script corto del repositorio jornada-agentes: cuatro carpetas, una tarea a la vez, reanudación después de Ctrl+C y fallos separados con su motivo.",
+  "objetivo": "ejecutar la cola casera, interrumpirla a mitad y explicar por qué la segunda ejecución no repite lo que ya se hizo.",
+  "hero_alt": "Laptop con una terminal oscura junto a cuatro carpetas de papel sobre la mesa.",
+  "competencias": [
+    "retomar-tarefa",
+    "ler-script-de-fila",
+    "explicar-fila-duravel"
+  ],
+  "aprende": [
+    {
+      "icone": "pasta",
+      "t": "Las cuatro carpetas y el recorrido de una tarea"
+    },
+    {
+      "icone": "relogio",
+      "t": "La reanudación, en la práctica"
+    },
+    {
+      "icone": "terminal",
+      "t": "El script línea por línea"
+    },
+    {
+      "icone": "robo",
+      "t": "Cambiar el motor: claude o codex"
+    }
+  ],
+  "secoes": [
+    {
+      "tipo": "diagrama",
+      "titulo": "El recorrido de un archivo",
+      "sub": "Cada pedido es un .md que cambia de carpeta.",
+      "nos": [
+        {
+          "icone": "pasta",
+          "titulo": "entrada/",
+          "sub": "Pedidos en espera",
+          "itens": [
+            {
+              "icone": "arquivo",
+              "t": "01.md, 02.md…"
+            }
+          ],
+          "detalhe": "Cada archivo .md es un pedido, escrito como lo escribirías en el chat. El orden lo determina el nombre del archivo."
+        },
+        {
+          "icone": "relogio",
+          "titulo": "rodando/",
+          "sub": "La tarea actual",
+          "itens": [
+            {
+              "icone": "robo",
+              "t": "Solo una a la vez"
+            }
+          ],
+          "detalhe": "El script mueve el archivo aquí antes de llamar al agente. Si presionas Ctrl+C o la computadora se apaga, el archivo se queda aquí, y eso permite reanudar la tarea.",
+          "forte": true
+        },
+        {
+          "icone": "check",
+          "titulo": "feito/",
+          "sub": "Pedido + respuesta",
+          "itens": [
+            {
+              "icone": "arquivo",
+              "t": "texto original, ---, respuesta"
+            }
+          ],
+          "detalhe": "Salió bien (código 0 y respuesta no vacía): el archivo final contiene el pedido, una línea --- y la respuesta del agente."
+        },
+        {
+          "icone": "x",
+          "titulo": "falhou/",
+          "sub": "Pedido + motivo",
+          "itens": [
+            {
+              "icone": "arquivo",
+              "t": "ERROR (rc=…) y la salida"
+            }
+          ],
+          "detalhe": "Hubo un error o la respuesta llegó vacía: el archivo va aquí con el código de salida y lo que imprimió el agente. La cola sigue con el siguiente."
+        }
+      ],
+      "volta": "Al volver a ejecutarlo: rodando/ → entrada/",
+      "legenda": "Haz clic en cada carpeta. El truco está en rodando/: la tarea solo sale de ahí cuando termina, para ir a feito/ o a falhou/.",
+      "rolagem": true,
+      "rolagem_fim": {
+        "titulo": "Al volver a ejecutarlo, solo toma lo que quedó pendiente",
+        "texto": "Al iniciar, el script devuelve a entrada/ lo que quedó en rodando/. Lo que ya está en feito/ nunca se repite."
+      }
+    },
+    {
+      "tipo": "simfila",
+      "titulo": "Mira la cola en funcionamiento",
+      "sub": "Ejecútala, interrúmpela a mitad con el botón de Ctrl+C y vuelve a ejecutarla.",
+      "tarefas": [
+        "01 · Transcribir la reunión del lunes",
+        "02 · Resumir los 3 PDF del cliente",
+        "03 · Borrador de la publicación de la semana",
+        "04 · Explicación de 2 min del producto",
+        "05 · Lista de preguntas frecuentes"
+      ],
+      "falha": 3,
+      "rot": {
+        "entrada": "entrada/",
+        "rodando": "rodando/",
+        "feito": "feito/",
+        "falhou": "falhou/",
+        "rodar": "Ejecutar la cola",
+        "parar": "Interrumpir (Ctrl+C)",
+        "zerar": "Volver a empezar"
+      },
+      "msg": {
+        "inicio": "5 tareas en entrada/. Haz clic en «Ejecutar la cola».",
+        "rodando": "En ejecución: una tarea a la vez, de entrada/ a rodando/ y después a hecho/ o falhou/.",
+        "parou": "Interrumpido. La tarea que estaba en curso quedó en rodando/. Vuelve a ejecutarlo para ver la reanudación.",
+        "retoma": "Reanudación: lo que estaba en rodando/ volvió a entrada/. Lo que ya estaba en feito/ no se repite.",
+        "fim": "Cola vacía: todo está en feito/.",
+        "fimfalha": "Cola vacía. Una tarea pasó a falhou/ con el motivo: es la que revisas por la mañana."
+      },
+      "legenda": "Simulación ilustrativa en el navegador: las tareas no se ejecutan de verdad. El fallo es intencional para mostrar la carpeta falhou/."
+    },
+    {
+      "tipo": "codigo",
+      "titulo": "El script y cómo usarlo",
+      "sub": "Está en ferramentas/fila-caseira.sh en el repositorio jornada-agentes. Los dos motores funcionan con tu suscripción.",
+      "blocos": [
+        {
+          "rot": "Terminal · preparar y ejecutar",
+          "icone": "terminal",
+          "conteudo": "git clone https://github.com/inematds/jornada-agentes.git\ncd jornada-agentes\nmkdir -p fila/entrada\necho \"Resume en 5 líneas qué es una cola de tareas.\" > fila/entrada/01.md\necho \"Enumera 3 riesgos de dejar un agente funcionando solo.\" > fila/entrada/02.md\n./ferramentas/fila-caseira.sh fila          # motor por defecto: claude\n./ferramentas/fila-caseira.sh fila codex    # o codex"
+        },
+        {
+          "rot": "El núcleo de fila-caseira.sh (resumido para facilitar la lectura)",
+          "icone": "arquivo",
+          "conteudo": "mkdir -p \"$PASTA/entrada\" \"$PASTA/rodando\" \"$PASTA/feito\" \"$PASTA/falhou\"\n\n# reanudación: lo que quedó en \"rodando\" (caída, Ctrl+C) vuelve a la entrada\nfor f in \"$PASTA\"/rodando/*.md; do [ -e \"$f\" ] && mv \"$f\" \"$PASTA/entrada/\"; done\n\nfor f in \"$PASTA\"/entrada/*.md; do\n  [ -e \"$f\" ] || { echo \"fila vazia\"; break; }\n  nome=$(basename \"$f\")\n  mv \"$f\" \"$PASTA/rodando/$nome\"          # toma la tarea (solo una a la vez)\n  saida=$(claude -p \"$(cat \"$PASTA/rodando/$nome\")\" < /dev/null 2>&1); rc=$?\n  if [ $rc -eq 0 ] && [ -n \"$saida\" ]; then\n    # el pedido + --- + la respuesta van a feito/\n  else\n    # el pedido + ERRO (rc) + la salida van a falhou/\n  fi\ndone"
+        }
+      ],
+      "saida": {
+        "selo": "real",
+        "abas": [
+          {
+            "rot": "Lo que aparece en la terminal",
+            "html": "<pre>→ 01.md\n  hecho\n→ 02.md\n  hecho\nentrada: 0 · feito: 2 · falhou: 0</pre>"
+          },
+          {
+            "rot": "Lectura línea por línea",
+            "html": "<ol><li>Crea las cuatro carpetas (volver a ejecutarlo no causa problemas).</li><li>Devuelve a <code>entrada/</code> lo que quedó en <code>rodando/</code>.</li><li>Toma un archivo a la vez y lo mueve a <code>rodando/</code> antes de llamar al agente.</li><li>Código 0 y respuesta no vacía: <code>feito/</code>. Si no, <code>falhou/</code> con el código.</li><li>Al final, cuenta cuántos hay en cada carpeta.</li></ol>"
+          },
+          {
+            "rot": "Qué hace el bot además",
+            "html": "<ul><li>Recibe pedidos por Telegram, no solo por archivo.</li><li>Cinco colas con distintos límites y reintentos automáticos.</li><li>Plazo por tarea y aviso en el chat cuando termina.</li><li>Compuerta de aprobación en medio de los flujos.</li></ul>"
+          }
+        ]
+      }
+    },
+    {
+      "tipo": "pratica",
+      "titulo": "Práctica",
+      "sub": "Usa dos tareas de tu cola en papel (clase 2).",
+      "exercicios": [
+        {
+          "id": "e2",
+          "titulo": "E2 · Cola casera en 30 líneas",
+          "min": "30 min",
+          "texto": "Crea dos o tres tareas en fila/entrada y ejecuta fila-caseira.sh. En una segunda ronda, interrúmpelo con Ctrl+C mientras una tarea está en rodando/, revisa la carpeta y vuelve a ejecutarlo.",
+          "pronto": "las tareas están en fila/feito con la respuesta y viste que la cola continuó desde donde se había detenido después de Ctrl+C."
+        }
+      ],
+      "fonte": "Script: <a href=\"https://github.com/inematds/jornada-agentes/blob/main/ferramentas/fila-caseira.sh\" target=\"_blank\" rel=\"noopener\">jornada-agentes/ferramentas/fila-caseira.sh</a>."
+    },
+    {
+      "tipo": "quiz",
+      "titulo": "Pon a prueba lo que aprendiste",
+      "sub": "La explicación aparece después de tu respuesta.",
+      "perguntas": [
+        {
+          "p": "Interrumpiste la cola a mitad de una tarea. ¿Qué pasa cuando vuelves a ejecutarla?",
+          "opcoes": [
+            "Todo se repite desde el principio.",
+            "La tarea interrumpida vuelve a entrada/ y la cola sigue con lo que queda.",
+            "La tarea interrumpida se pierde.",
+            "La cola solo vuelve a funcionar al día siguiente."
+          ],
+          "certa": 1,
+          "explica": "Eso es lo que hace que la cola sea durable: lo que quedó en rodando/ vuelve a entrada/, y lo que ya está en feito/ no se repite.",
+          "cert": true,
+          "ref": "simfila"
+        },
+        {
+          "p": "¿Por qué el script mueve el archivo a rodando/ ANTES de llamar al agente?",
+          "opcoes": [
+            "Para que el agente lo lea más rápido.",
+            "Para indicar qué tarea está en curso; si se interrumpe, queda ahí y se reanuda.",
+            "Para ocultarte la tarea.",
+            "Porque el agente solo lee archivos de esa carpeta."
+          ],
+          "certa": 1,
+          "explica": "Moverlo antes es el registro de «estoy trabajando en esto». Es la versión casera del lease de inemaccbot.",
+          "ref": "diagrama"
+        },
+        {
+          "p": "El agente respondió, pero la respuesta llegó vacía. ¿A dónde va la tarea?",
+          "opcoes": [
+            "feito/, porque no hubo error.",
+            "falhou/, porque una respuesta vacía también cuenta como fallo.",
+            "Se queda en rodando/.",
+            "Vuelve a entrada/."
+          ],
+          "certa": 1,
+          "explica": "El script exige código 0 Y una respuesta no vacía. Sin respuesta no hay nada que revisar, así que se considera un fallo.",
+          "ref": "codigo"
+        }
+      ]
+    },
+    {
+      "tipo": "links",
+      "titulo": "Para ir más allá",
+      "links": [
+        {
+          "t": "Repositorio jornada-agentes (cola casera)",
+          "href": "https://github.com/inematds/jornada-agentes",
+          "icone": "git"
+        },
+        {
+          "t": "Guía de la formación con los 23 ejercicios",
+          "href": "https://inematds.github.io/jornada-agentes/guia/",
+          "icone": "lista"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,300 @@
+{
+  "slug": "portoes",
+  "num": 6,
+  "titulo": "Where the gates go: stop before what matters",
+  "titulo_curto": "Gates",
+  "menu": "Gates",
+  "minutos": 18,
+  "lead": "A flow is a task with several stages, with the state saved at each one. The gate is the stage that ends and pauses: the bot shows you what it did and waits for you. Approving, correcting, or rejecting is when you manage the work instead of doing it yourself.",
+  "objetivo": "put the gate in the right place in a flow and decide whether to approve, reject with a correction, or cancel.",
+  "hero_alt": "A slim metal gate, slightly open in a dark hallway, outlined by neutral light.",
+  "competencias": [
+    "define-human-gate",
+    "operate-flow",
+    "reject-and-correct"
+  ],
+  "aprende": [
+    {
+      "icone": "camadas",
+      "t": "Skill × flow: when it makes sense to save state"
+    },
+    {
+      "icone": "portao",
+      "t": "How the gate pauses and what it shows"
+    },
+    {
+      "icone": "check",
+      "t": "Approve, reject with a correction, redo, or cancel"
+    },
+    {
+      "icone": "lupa",
+      "t": "Practice with | sombra before spending"
+    }
+  ],
+  "secoes": [
+    {
+      "tipo": "diagrama",
+      "titulo": "A flow with a gate: /promoavatar",
+      "sub": "The domain flow running in production in inemaccbot.",
+      "nos": [
+        {
+          "icone": "chat",
+          "titulo": "Request",
+          "sub": "/promoavatar subject",
+          "itens": [
+            {
+              "icone": "arquivo",
+              "t": "becomes flow A#9"
+            }
+          ],
+          "detalhe": "The command creates a numbered flow (A#9) and a list of stages. Each stage has its own state; /status shows each stage and each audience."
+        },
+        {
+          "icone": "caneta",
+          "titulo": "Texts",
+          "sub": "Agent stage",
+          "itens": [
+            {
+              "icone": "usuario",
+              "t": "one script per audience"
+            }
+          ],
+          "detalhe": "The agent writes a script for each audience (young people, women…). You don’t want to lose this work if a later stage fails, which is why this is a flow, not a skill."
+        },
+        {
+          "icone": "portao",
+          "titulo": "Gate",
+          "sub": "pause_after",
+          "itens": [
+            {
+              "icone": "lupa",
+              "t": "shows the copy in chat"
+            },
+            {
+              "icone": "check",
+              "t": "/pronto releases"
+            }
+          ],
+          "detalhe": "The phase ends, and the bot sends what it declared to show in the chat, then STOPS. You read it, make corrections, and save the avatars. The flow continues only with /pronto (or /aprovar, /ok).",
+          "forte": true
+        },
+        {
+          "icone": "video",
+          "titulo": "Video",
+          "sub": "Next phases",
+          "itens": [
+            {
+              "icone": "baixar",
+              "t": "download the avatar"
+            },
+            {
+              "icone": "video",
+              "t": "assemble the reel"
+            }
+          ],
+          "detalhe": "After the gate come the costly phases or those with consequences: downloading the avatar video, assembling the reel, and delivering it to the channel. If one fails, /refazer resumes from that phase without redoing the text."
+        }
+      ],
+      "legenda": "Click each block. The gate goes after the work you need to review and before anything that costs money or goes public.",
+      "rolagem": true,
+      "rolagem_fim": {
+        "titulo": "Where to put the gate",
+        "texto": "After what needs your eyes, before what is costly or public. A gate at the start has nothing to show; a gate at the end comes too late."
+      }
+    },
+    {
+      "tipo": "simportao",
+      "titulo": "Simulate the gate",
+      "sub": "Run the flow, read the text that stopped at the gate, and decide.",
+      "fases": [
+        "Texts",
+        "Gate",
+        "Video",
+        "Publish"
+      ],
+      "rascunho": "Durable queue: your agent works all night. We guarantee 100% accuracy on every task.",
+      "corrigido": "Durable queue: your agent works all night, and in the morning you check what worked and what failed.",
+      "rot": {
+        "rodar": "Run the flow",
+        "aprovar": "/pronto (approve)",
+        "reprovar": "Reject with a correction",
+        "sempor": "Run with | sem-portao",
+        "zerar": "Start again"
+      },
+      "msg": {
+        "inicio": "Flow A#9 created. Click \"Run the flow\".",
+        "portao": "The Texts phase finished and the flow STOPPED at the gate. Read the text below before deciding.",
+        "reprovado": "You rejected it with the correction \"no promise of 100%\". The Texts phase reopened and delivered a new version. It stopped at the gate again.",
+        "aprovado_ruim": "Approved without corrections: the text with the false promise moved on to the video and was published. This is where the gate mattered.",
+        "aprovado_bom": "Approved after the correction: the flow moved on to the video and published the corrected text.",
+        "sem_portao": "With | sem-portao, the flow ran to the end without waiting for you. The text reached the chat, but only after it was published."
+      },
+      "legenda": "Illustrative browser simulation: nothing is generated or published. The text with the error is intentional."
+    },
+    {
+      "tipo": "passos",
+      "titulo": "Decisions at the gate",
+      "sub": "Each command does something different. Mixing them up costs work.",
+      "passos": [
+        {
+          "titulo": "Approve",
+          "sub": "/pronto",
+          "texto": [
+            "<code>/pronto A#9</code> releases the gate. <code>/aprovar</code>, <code>/aprovado</code>, and <code>/ok</code> are synonyms, and <code>A#9</code>, <code>a9</code>, and <code>A9</code> refer to the same item.",
+            "Without a reference, <code>/pronto</code> releases the flow when only one is waiting; with several, it lists them."
+          ]
+        },
+        {
+          "titulo": "Reject with a correction",
+          "sub": "gate response",
+          "texto": [
+            "When the flow declares gate responses, you can reply with more than \"yes\": enter a word, such as <code>reprova</code>, followed by what to correct. The bot runs the domain command, and the phase REOPENS with the new material.",
+            "It's the \"redo it and show it to me until I approve\" process. Each flow declares which responses it accepts; <code>/ajuda &lt;fluxo&gt;</code> shows which ones."
+          ]
+        },
+        {
+          "titulo": "Retry a failed phase",
+          "sub": "/refazer",
+          "texto": [
+            "<code>/refazer A#9 [público]</code> resumes from the phase that FAILED, without redoing earlier phases.",
+            "This doesn't work for a phase stopped at the gate: it hasn't failed; it's waiting for you. To continue, approve it or reject it with a correction."
+          ]
+        },
+        {
+          "titulo": "Cancel",
+          "sub": "/cancelar",
+          "texto": [
+            "<code>/cancelar A#9</code> stops the entire flow and removes it from <code>/status</code>. Use it as a last resort: if you want to change one text, you lose every phase.",
+            "To permanently delete the flow's files, use <code>/limpar A#9</code>. It only shows what would be deleted until you type <code>confirmar</code>."
+          ]
+        }
+      ]
+    },
+    {
+      "tipo": "codigo",
+      "titulo": "Flow commands",
+      "sub": "Practice with | sombra before spending anything.",
+      "blocos": [
+        {
+          "rot": "Telegram · practice, run, and track",
+          "icone": "chat",
+          "conteudo": "/promoavatar Don’t start by learning tools | shadow\n# shows stage × audience × queue and does NOT enqueue anything\n\n/promoavatar Don’t start by learning tools --alvo=jovens\n/status\n/status A#9"
+        },
+        {
+          "rot": "Telegram · decide at the gate",
+          "icone": "portao",
+          "conteudo": "/pronto A#9           # approves and continues\n/refazer A#9 jovens   # resumes from the stage that failed\n/cancelar A#9         # stops the entire flow\n/limpar A#9           # shows what it would delete\n/limpar A#9 confirmar # actually deletes"
+        },
+        {
+          "rot": "flow.json · how the domain declares a gate",
+          "icone": "arquivo",
+          "conteudo": "{ \"id\": \"plano\", \"kind\": \"function\", \"tarefa\": \"cli.rodar\",\n  \"comando\": \"bash {{repo}}/musicavideo.sh plano {{input}} --bruto\",\n  \"pausa_apos\": true,\n  \"portao\": { \"mostrar\": [\"{{artefato:plano}}\"] } }"
+        }
+      ],
+      "saida": {
+        "selo": "real",
+        "abas": [
+          {
+            "rot": "What the gate shows",
+            "html": "<p>The stage declares in <code>portao.mostrar</code> what goes to the chat: text goes in the message, audio and images go as files, and video goes as a link (a video lasting several minutes exceeds Telegram’s 50 MB limit).</p>"
+          },
+          {
+            "rot": "| sem-portao",
+            "html": "<p>Runs to the end without stopping for approval, but still sends to the chat what each gate would show. Use it only when you already trust that flow, and never before publishing something you haven’t read.</p>"
+          },
+          {
+            "rot": "Approve in batches, with care",
+            "html": "<p>The project documentation records the risk: approving several flows at once without checking can trigger pointless waits (the stage that downloads the avatar waits up to 90 minutes before failing when the video hasn’t been recorded). Check before approving.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "tipo": "pratica",
+      "titulo": "Practice",
+      "sub": "Use a flow with a gate. If /promoavatar isn’t configured yet, start with | shadow.",
+      "exercicios": [
+        {
+          "id": "e5",
+          "titulo": "E5 · The gate",
+          "min": "30 min",
+          "texto": "Run a flow with a gate (such as /promoavatar), first with | shadow to see the stages. When it stops, read what arrived in the chat, make corrections if needed, and only then send /pronto.",
+          "pronto": "you rejected or corrected at least one text before approving."
+        }
+      ],
+      "fonte": "Domain flows: <a href=\"https://github.com/inematds/promoavatar3\" target=\"_blank\" rel=\"noopener\">promoavatar3</a> (active) and <a href=\"https://github.com/inematds/promoavatar\" target=\"_blank\" rel=\"noopener\">promoavatar</a> (frozen)."
+    },
+    {
+      "tipo": "quiz",
+      "titulo": "Test what you learned",
+      "sub": "The explanation appears after your answer.",
+      "perguntas": [
+        {
+          "p": "Where should the gate go in a video flow for social media?",
+          "opcoes": [
+            "Before the first stage, to approve the topic.",
+            "After the texts and before the costly stages and publishing.",
+            "After publishing, to review.",
+            "At every stage."
+          ],
+          "certa": 1,
+          "explica": "After the parts that need your eye, before the parts that cost money or go out into the world. At the start, there’s nothing to read; after publishing, it’s too late.",
+          "cert": true,
+          "ref": "diagrama"
+        },
+        {
+          "p": "The flow stopped at the gate with incorrect text. You send <code>/refazer A#9</code>. What happens?",
+          "opcoes": [
+            "The text stage is redone with your correction.",
+            "Nothing: /refazer only works on a failed stage, and the gate stage is waiting for you.",
+            "The flow is canceled.",
+            "The text is published."
+          ],
+          "certa": 1,
+          "explica": "A stage at the gate hasn’t failed. To change the text, reply to the gate with the correction (when the flow allows it) or, as a last resort, cancel.",
+          "ref": "passos"
+        },
+        {
+          "p": "What is <code>| sombra</code> for?",
+          "opcoes": [
+            "Run the flow without a gate.",
+            "Show the plan (stages, audiences, and queues) without enqueueing anything.",
+            "Hide the flow from /status.",
+            "Run with a cheaper model."
+          ],
+          "certa": 1,
+          "explica": "It’s a rehearsal before spending: you see what would happen. Don’t confuse it with | sem-portao, which runs everything without stopping.",
+          "ref": "codigo"
+        },
+        {
+          "p": "In the simulation, what shows that you’re managing, not just using?",
+          "opcoes": [
+            "Approve quickly to keep the flow moving.",
+            "Read the text at the gate, reject it with a correction, and approve only the right version.",
+            "Run with | sem-portao to save time.",
+            "Cancel and start over."
+          ],
+          "certa": 1,
+          "explica": "The gate only protects you if you read. Approving without reading let the false promise through; rejecting it with a correction reopened the stage and published the right text.",
+          "ref": "simportao"
+        }
+      ]
+    },
+    {
+      "tipo": "links",
+      "titulo": "To learn more",
+      "links": [
+        {
+          "t": "INEMACCBOT Course with Promoavatar",
+          "href": "https://eventos.inema.pro/inemaccbot.html",
+          "icone": "lista"
+        },
+        {
+          "t": "Architecture map (flows and gates)",
+          "href": "https://inematds.github.io/inemaccbot/guia/arquitetura.html",
+          "icone": "camadas"
+        }
+      ]
+    }
+  ]
+}

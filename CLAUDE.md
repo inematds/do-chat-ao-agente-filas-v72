@@ -6,6 +6,7 @@ Autor dos commits: `inematds <inematds@gmail.com>`. Publicação = commit + push
 Fonte do conteúdo (só leitura): `~/projetos/inemaccbot` (README, docs/), `~/projetos/jornada-agentes/exercicios/03-filas.md`. Não inventar comando, número ou fato além dela.
 
 Diferença do motor da skill: `gerar.py` tem o tipo de seção `simportao` (simulação do portão de um fluxo: aprovar, reprovar com correção, `| sem-portao`), com comportamento em `assets/filas.js` e estilo em `assets/filas.css` (carregados só na aula que usa).
+EN/ES (motor 7.3.1, 19/10/2026): o `simportao` carrega `filas.css`/`filas.js` por `ativo(prefixo)` (raiz do repo; `PREFIXO` já é `ativo(prefixo)`), nunca `prefixo` — senão quebra em `en/` e `es/`. Todo texto visível dele (fases, botões `rot`, mensagens `msg`, rascunho/corrigido, legenda) vem do JSON da seção; `filas.js` não tem texto fixo. O ícone do portão é a fase 1 (`PORTAO` no JS), não depende do nome. Comandos do bot (`/pronto`, `| sem-portao`, `transcrever:`, `explicativo:`, `imagem:`) e as pastas `entrada/ rodando/ feito/ falhou/` ficam em PT nas traduções; correção de tradução vai em `i18n/<lang>.json` + `traduzir.py` de novo (não editar `conteudo/en|es` à mão).
 
 ## Self-learning
 

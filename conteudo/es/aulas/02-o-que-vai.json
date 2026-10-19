@@ -1,0 +1,276 @@
+{
+  "slug": "o-que-vai",
+  "num": 2,
+  "titulo": "Qué va a la cola (y qué queda a tu cargo)",
+  "titulo_curto": "Qué va a la cola",
+  "menu": "Qué va",
+  "minutos": 15,
+  "lead": "No todas las tareas deben ir a la cola. Antes de instalar cualquier cosa, analizas tu lista con tres preguntas y obtienes una tabla: se ejecuta sola, se ejecuta con compuerta o queda a tu cargo.",
+  "objetivo": "clasificar diez tareas tuyas como se ejecuta sola, con compuerta o queda a tu cargo, e indicar dónde va cada compuerta.",
+  "hero_alt": "Manos separando tarjetas de papel en tres montones sobre la mesa.",
+  "competencias": [
+    "desenhar-fila",
+    "classificar-tarefa",
+    "definir-compuerta-humana"
+  ],
+  "aprende": [
+    {
+      "icone": "lupa",
+      "t": "Las tres preguntas del triaje"
+    },
+    {
+      "icone": "portao",
+      "t": "Dónde tiene sentido la compuerta"
+    },
+    {
+      "icone": "usuario",
+      "t": "Qué no debe ir a la cola"
+    },
+    {
+      "icone": "lista",
+      "t": "Tu cola en papel, con diez líneas"
+    }
+  ],
+  "secoes": [
+    {
+      "tipo": "diagrama",
+      "titulo": "El triaje de una tarea",
+      "sub": "Tres preguntas, tres destinos.",
+      "nos": [
+        {
+          "icone": "arquivo",
+          "titulo": "Tarea",
+          "sub": "De tu semana",
+          "itens": [
+            {
+              "icone": "arquivo",
+              "t": "Transcribir una reunión"
+            },
+            {
+              "icone": "arquivo",
+              "t": "Publicación de la semana"
+            },
+            {
+              "icone": "arquivo",
+              "t": "Responder a un cliente"
+            }
+          ],
+          "detalhe": "Empieza por lo que repites. Una tarea que aparece cada semana, con el mismo tipo de entrada, es una candidata natural."
+        },
+        {
+          "icone": "lupa",
+          "titulo": "Tres preguntas",
+          "sub": "Antes de enviar",
+          "itens": [
+            {
+              "icone": "arquivo",
+              "t": "¿La entrada es clara?",
+              "sub": "un enlace, un archivo, un tema"
+            },
+            {
+              "icone": "check",
+              "t": "¿Puedes revisar el resultado?",
+              "sub": "un archivo o texto que lees"
+            },
+            {
+              "icone": "megafone",
+              "t": "¿Tiene consecuencias fuera?",
+              "sub": "publicar, enviar, gastar"
+            }
+          ],
+          "detalhe": "Entrada clara y resultado que puedes revisar: va a la cola. Si, además, el resultado sale al mundo (publica, envía, gasta créditos), necesita una compuerta antes de ese paso.",
+          "forte": true
+        },
+        {
+          "icone": "fila",
+          "titulo": "Solo cola",
+          "sub": "Sin compuerta",
+          "itens": [
+            {
+              "icone": "check",
+              "t": "Transcribir, resumir para ti"
+            }
+          ],
+          "detalhe": "Uso interno y errores baratos: si sale mal, solo tienes que repetirlo. Se ejecuta toda la noche sin pedir nada."
+        },
+        {
+          "icone": "portao",
+          "titulo": "Cola con compuerta",
+          "sub": "Se detiene antes de lo importante",
+          "itens": [
+            {
+              "icone": "usuario",
+              "t": "Publicación, video, campaña"
+            }
+          ],
+          "detalhe": "El agente hace el trabajo pesado y se detiene. Lees, corriges y apruebas. Solo entonces continúa para publicar o gastar."
+        },
+        {
+          "icone": "usuario",
+          "titulo": "Te toca a ti",
+          "sub": "Por ahora",
+          "itens": [
+            {
+              "icone": "x",
+              "t": "Entrada imprecisa o decisión delicada"
+            }
+          ],
+          "detalhe": "Pedido que requiere conversar (\"mejora esto\"), decisión de negocio o acción irreversible que no puedes revisar. Vuelve a la cola cuando puedas describir la entrada y el resultado."
+        }
+      ],
+      "legenda": "Haz clic en cada bloque. La pregunta que más cambia el destino es la tercera: las consecuencias fuera requieren una compuerta."
+    },
+    {
+      "tipo": "passos",
+      "titulo": "Las tres preguntas, una por una",
+      "sub": "Con ejemplos de lo que funciona hoy en inemaccbot.",
+      "passos": [
+        {
+          "titulo": "¿La entrada es clara?",
+          "sub": "pregunta 1",
+          "texto": [
+            "La cola no conversa contigo en medio. La tarea tiene que caber en una línea: un enlace, una ruta de archivo o un tema.",
+            "Las skills de inemaccbot muestran el formato (los comandos del bot quedan en portugués): <code>transcrever: https://…</code>, <code>explicativo: &lt;asunto&gt; | vertical</code>, <code>imagem: un zorro rojo en la nieve | ratio=16:9</code>."
+          ],
+          "exemplo": {
+            "rot": "Demasiado imprecisa",
+            "texto": "\"Dale una mejorada a la presentación.\" ¿Qué hay que mejorar y hasta dónde? Te toca a ti o se convierte en una entrada concreta."
+          }
+        },
+        {
+          "titulo": "¿Puedes revisar el resultado?",
+          "sub": "pregunta 2",
+          "texto": [
+            "Por la mañana vas a revisar el resultado. Si es un archivo (texto, video, imagen), puedes revisarlo en minutos. Si es \"hice varias cosas\", no hay forma de saber si salió bien.",
+            "En el bot, esto es un contrato: el agente termina con <code>RESULT: &lt;caminho&gt;</code>, y el bot comprueba que el archivo exista y tenga la extensión esperada."
+          ]
+        },
+        {
+          "titulo": "¿Tiene consecuencias fuera?",
+          "sub": "pregunta 3",
+          "texto": [
+            "Publicar en nombre de la empresa, enviar algo a un cliente o gastar crédito pagado: aquí entra la compuerta. El agente prepara y se detiene; tú apruebas.",
+            "Transcribir una reunión para que la leas tú no tiene consecuencias externas. Se ejecuta sola."
+          ],
+          "exemplo": {
+            "rot": "En inemaccbot",
+            "texto": "El /promoavatar escribe los textos para cada público y se detiene. Solo después de que lo apruebes, sigue con el video y el reel."
+          }
+        },
+        {
+          "titulo": "¿Está bien rehacerlo desde cero?",
+          "sub": "bono",
+          "texto": [
+            "Esta pregunta no cambia si va a la cola; cambia el tipo. Si rehacerlo desde cero es barato, basta con una <b>skill</b> (una etapa). Si hay trabajo parcial que sería absurdo tirar, lo correcto es un <b>flujo</b> (varias fases, con estado y reanudación).",
+            "Usarás las dos en las clases 5 y 6."
+          ]
+        }
+      ]
+    },
+    {
+      "tipo": "codigo",
+      "titulo": "Tu cola en papel",
+      "sub": "Copia la tabla, complétala con tus diez tareas y guárdala: es la lista que enviarás en la clase 5.",
+      "blocos": [
+        {
+          "rot": "fila-no-papel.md",
+          "icone": "arquivo",
+          "conteudo": "| # | Tarea | Entrada (1 línea) | Resultado verificable | Destino | Dónde va la compuerta |\n|---|---|---|---|---|---|\n| 1 | Transcribir la reunión del lunes | enlace de la grabación | texto .txt | cola sola | — |\n| 2 | Publicación de la semana | tema | texto de la publicación | cola con compuerta | antes de publicar |\n| 3 |  |  |  |  |  |\n| 4 |  |  |  |  |  |\n| 5 |  |  |  |  |  |\n| 6 |  |  |  |  |  |\n| 7 |  |  |  |  |  |\n| 8 |  |  |  |  |  |\n| 9 |  |  |  |  |  |\n| 10 |  |  |  |  |  |"
+        },
+        {
+          "rot": "Pedido para que tu agente revise la tabla",
+          "icone": "chat",
+          "conteudo": "Lee el archivo fila-no-papel.md. Para cada fila, revisa:\n1. ¿La entrada cabe en una línea (enlace, archivo o tema)?\n2. ¿El resultado es un archivo o texto que se puede verificar?\n3. ¿Tiene consecuencias externas (publicar, enviar, gastar)? Si sí, ¿tiene marcada una compuerta?\nSeñala las filas cuyo destino debería cambiar y explica por qué. No modifiques el archivo."
+        }
+      ],
+      "saida": {
+        "selo": "simulacao",
+        "abas": [
+          {
+            "rot": "Ejemplo de revisión",
+            "html": "<ul><li><b>Fila 4</b> (\"organizar la agenda\"): entrada imprecisa. Sugiero \"te la quedas tú\" o reescribirla como \"listar los conflictos de la agenda de esta semana\".</li><li><b>Fila 7</b> (\"responder correos de clientes\"): consecuencia externa sin compuerta. Sugiero \"cola con compuerta\": el agente redacta el borrador y tú lo envías.</li><li>Las demás son coherentes.</li></ul>"
+          },
+          {
+            "rot": "Señales de alerta",
+            "html": "<ul><li>Ninguna compuerta en diez filas: revisa que no haya nada que publicar o enviar.</li><li>Todas tienen compuerta: pasarás la mañana aprobando; revisa cuáles son solo para uso interno.</li><li>Resultado \"varios archivos\" o \"mejorar\": difícil de verificar.</li></ul>"
+          }
+        ]
+      }
+    },
+    {
+      "tipo": "pratica",
+      "titulo": "Práctica",
+      "sub": "Requisito previo: niveles 1 y 2 de la formación.",
+      "exercicios": [
+        {
+          "id": "e1",
+          "titulo": "E1 · La cola en papel",
+          "min": "15 min",
+          "texto": "Completa la tabla con diez tareas repetitivas de tu trabajo. Para cada una: entrada en una línea, resultado verificable, destino y dónde va la compuerta. Pídele a tu agente que la revise con el modelo anterior.",
+          "pronto": "Las 10 filas están completas y al menos dos tienen compuerta."
+        }
+      ],
+      "fonte": "Ejercicio original: <a href=\"https://github.com/inematds/jornada-agentes/blob/main/exercicios/03-filas.md\" target=\"_blank\" rel=\"noopener\">jornada-agentes/exercicios/03-filas.md</a> (E1)."
+    },
+    {
+      "tipo": "quiz",
+      "titulo": "Pon a prueba lo que aprendiste",
+      "sub": "La explicación aparece después de tu respuesta.",
+      "perguntas": [
+        {
+          "p": "¿En qué tarea es más importante la compuerta humana?",
+          "opcoes": [
+            "Transcribir una reunión interna.",
+            "Resumir PDFs para que los leas tú.",
+            "Publicar una publicación en nombre de la empresa.",
+            "Listar los archivos de una carpeta."
+          ],
+          "certa": 2,
+          "explica": "La compuerta va antes de lo que tiene consecuencias externas: publicar, enviar, gastar. Las tareas de uso interno con poco costo de error pueden ejecutarse solas.",
+          "cert": true,
+          "ref": "diagrama"
+        },
+        {
+          "p": "¿\"Mejora la presentación\" debería ir a la cola?",
+          "opcoes": [
+            "Sí, con compuerta.",
+            "Sí, sin compuerta.",
+            "Todavía no: la entrada es imprecisa. O te la quedas tú, o la conviertes en un pedido concreto.",
+            "Sí, siempre que use el modelo más caro."
+          ],
+          "certa": 2,
+          "explica": "La cola no puede consultarte en mitad de la noche. Sin una entrada clara, no hay forma de verificar si el resultado salió bien.",
+          "ref": "passos"
+        },
+        {
+          "p": "Una tarea tiene varias etapas y la del medio es costosa. Si falla la última etapa, no quieres rehacer todo. ¿Qué tipo usar?",
+          "opcoes": [
+            "Una skill, porque es más sencilla.",
+            "Un flujo, que guarda el estado de cada fase y reanuda desde la que falló.",
+            "Ninguno: las tareas costosas no van a la cola.",
+            "Dos colas separadas."
+          ],
+          "certa": 1,
+          "explica": "Una skill sirve cuando está bien rehacer desde cero. Si el trabajo parcial tiene valor, el flujo guarda cada fase y /refazer reanuda desde la que falló.",
+          "ref": "passos"
+        }
+      ]
+    },
+    {
+      "tipo": "links",
+      "titulo": "Para ir más allá",
+      "links": [
+        {
+          "t": "Ejercicios de la secuencia 3 (jornada-agentes)",
+          "href": "https://github.com/inematds/jornada-agentes/blob/main/exercicios/03-filas.md",
+          "icone": "lista"
+        },
+        {
+          "t": "Curso INEMACCBOT con Promoavatar: ¿skill o flujo?",
+          "href": "https://eventos.inema.pro/inemaccbot.html",
+          "icone": "camadas"
+        }
+      ]
+    }
+  ]
+}

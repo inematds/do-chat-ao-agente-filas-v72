@@ -1,0 +1,255 @@
+{
+  "slug": "por-que-fila",
+  "num": 1,
+  "titulo": "From chat to queue: why save tasks",
+  "titulo_curto": "Why a queue",
+  "menu": "Why",
+  "minutos": 12,
+  "lead": "In chat, the agent does one thing at a time and only while the window is open. A durable queue stores each request, runs one at a time, resumes after a crash, and separates what worked from what failed.",
+  "objetivo": "explain the four guarantees of a durable queue and why they let you step away.",
+  "hero_alt": "A row of paper cards arranged in sequence on a dark table, with one card highlighted.",
+  "competencias": [
+    "explain-durable-queue",
+    "distinguish-chat-from-queue",
+    "read-task-status"
+  ],
+  "aprende": [
+    {
+      "icone": "chat",
+      "t": "The limit of chat: you have to keep watching"
+    },
+    {
+      "icone": "memoria",
+      "t": "The four guarantees of a durable queue"
+    },
+    {
+      "icone": "relogio",
+      "t": "Task states, from request to result"
+    },
+    {
+      "icone": "robo",
+      "t": "Where inemaccbot fits in step 3"
+    }
+  ],
+  "secoes": [
+    {
+      "tipo": "diagrama",
+      "titulo": "Chat × queue",
+      "sub": "The same request, in two different places.",
+      "nos": [
+        {
+          "icone": "chat",
+          "titulo": "Chat",
+          "sub": "You in front",
+          "itens": [
+            {
+              "icone": "usuario",
+              "t": "One request at a time"
+            },
+            {
+              "icone": "x",
+              "t": "Close the window, lose the work"
+            }
+          ],
+          "detalhe": "In chat, you type, wait, copy, and paste. If you close the window or the computer shuts down, the work in progress disappears. Ten tasks = ten waits with you in front."
+        },
+        {
+          "icone": "fila",
+          "titulo": "Durable queue",
+          "sub": "Stored on disk",
+          "itens": [
+            {
+              "icone": "arquivo",
+              "t": "Each request becomes a task"
+            },
+            {
+              "icone": "memoria",
+              "t": "Survives crashes"
+            }
+          ],
+          "detalhe": "The request is saved before it runs. In inemaccbot, the queue is a SQLite database on disk; in the homemade queue, it’s one file per task in a folder. Shut down? The task is still there.",
+          "forte": true
+        },
+        {
+          "icone": "robo",
+          "titulo": "Worker",
+          "sub": "Picks up one at a time",
+          "itens": [
+            {
+              "icone": "relogio",
+              "t": "Resumes what was interrupted"
+            }
+          ],
+          "detalhe": "A worker picks up a task, hands it to the agent, and waits. If the process crashes midway, on the next startup it recovers what was in flight before accepting new work."
+        },
+        {
+          "icone": "check",
+          "titulo": "Result",
+          "sub": "Separate and trackable",
+          "itens": [
+            {
+              "icone": "check",
+              "t": "Done, with the result"
+            },
+            {
+              "icone": "x",
+              "t": "Failed, with the reason"
+            }
+          ],
+          "detalhe": "Each task ends in a clear state: it worked (with the file or text) or it failed (with the reason). That’s what you check in the morning."
+        }
+      ],
+      "volta": "Running it again only picks up what’s left",
+      "legenda": "In inemaccbot, the request comes through Telegram; in the homemade queue from lesson 3, it’s an .md file in a folder. The idea is the same.",
+      "rolagem": true,
+      "rolagem_fim": {
+        "titulo": "Why this lets you step away",
+        "texto": "Save before running, one at a time, resume after a crash, and separate done from failed: with these four guarantees, turning off the screen doesn’t cost you work."
+      }
+    },
+    {
+      "tipo": "passos",
+      "titulo": "The four guarantees",
+      "sub": "What you should expect from any queue, homemade or otherwise.",
+      "passos": [
+        {
+          "titulo": "Save before running",
+          "sub": "durable",
+          "texto": [
+            "The request becomes a record on disk as soon as it arrives. It doesn’t depend on an open window or the program’s memory.",
+            "In inemaccbot, each request becomes a <b>job</b> in a database table. It has a number (<code>j13</code>), a queue, a status, and a number of attempts remaining."
+          ],
+          "exemplo": {
+            "rot": "What this looks like day to day",
+            "texto": "You send the request from your phone, the computer restarts, and the request is still in the list."
+          }
+        },
+        {
+          "titulo": "One at a time (per queue)",
+          "sub": "order",
+          "texto": [
+            "Each worker picks up a task, finishes it, and only then picks up the next one. This keeps two jobs from competing for the same machine.",
+            "In inemaccbot, there are five queues with different limits: the render queue runs <b>one at a time on purpose</b> because it uses the graphics card; the network queue accepts ten."
+          ]
+        },
+        {
+          "titulo": "Resume after a crash",
+          "sub": "recovery",
+          "texto": [
+            "If the process crashes midway, the task isn’t lost or left half done forever. On the next startup, anything in progress goes back into the queue.",
+            "inemaccbot does this before accepting new work and writes to the log: <code>boot: recuperação de leases — requeued=N failed=M</code>. <i>Requeued</i> means it went back into the queue; <i>failed</i> means it had already used up all its attempts."
+          ]
+        },
+        {
+          "titulo": "Separate done from failed",
+          "sub": "tracking",
+          "texto": [
+            "A task that errors doesn’t disappear or block the queue: it goes to the failures side, with the reason recorded, and the queue moves on.",
+            "inemaccbot prompts require the agent to finish with <code>RESULT: &lt;path&gt;</code> or <code>ERRO: &lt;short reason&gt;</code>. This contract lets you know how each task ended without opening anything."
+          ]
+        }
+      ]
+    },
+    {
+      "tipo": "codigo",
+      "titulo": "Task states",
+      "sub": "The names change from one queue to another; the idea is the same.",
+      "blocos": [
+        {
+          "rot": "Homemade queue (folders)",
+          "icone": "pasta",
+          "conteudo": "fila/\n  entrada/   # requests waiting their turn\n  rodando/   # the task the agent is working on now\n  feito/     # request + response\n  falhou/    # request + ERRO and the reason"
+        },
+        {
+          "rot": "inemaccbot (job status in the database)",
+          "icone": "memoria",
+          "conteudo": "queued    # in the queue, waiting its turn\nrunning   # a worker picked it up and is running it\ndone      # finished with a result\nfailed    # ran out of attempts, with the reason\ncanceled  # you canceled it (/cancelar)"
+        }
+      ],
+      "saida": {
+        "selo": "real",
+        "abas": [
+          {
+            "rot": "How each one resumes",
+            "html": "<ul><li><b>Homemade queue:</b> when you run it again, anything in <code>rodando/</code> goes back to <code>entrada/</code>.</li><li><b>inemaccbot:</b> the worker renews a task “lease” while it works. If the lease expires because the process crashed, the task goes back to <code>queued</code> as long as attempts remain.</li></ul>"
+          },
+          {
+            "rot": "What counts as a failure",
+            "html": "<p>In the homemade queue: an empty response or an error code from the agent. In inemaccbot: the agent didn't finish with <code>RESULT:</code>, the deadline (<code>timeout</code>) expired, or the attempts (<code>max_tentativas</code>, 2 to 4 in the catalog skills) ran out.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "tipo": "video",
+      "titulo": "Step 3 in video",
+      "sub": "inemaccbot's durable queue and approval gate, in a minute and a half.",
+      "chave": "seq3-filas"
+    },
+    {
+      "tipo": "quiz",
+      "titulo": "Test what you learned",
+      "sub": "The explanation appears after your answer.",
+      "perguntas": [
+        {
+          "p": "What's the essential difference between asking in chat and sending something to a durable queue?",
+          "opcoes": [
+            "The queue uses a better AI model.",
+            "The queue request is saved to disk before it runs, so it doesn't depend on you or on the window staying open.",
+            "The queue responds faster.",
+            "You can't ask for long tasks in chat."
+          ],
+          "certa": 1,
+          "explica": "The model can be the same. What changes is where the request goes: it becomes a durable record, so it survives crashes and can run while you're away.",
+          "cert": true,
+          "ref": "diagrama"
+        },
+        {
+          "p": "The bot log showed <code>requeued=2 failed=1</code> on startup. What happened?",
+          "opcoes": [
+            "Three new tasks arrived overnight.",
+            "The previous process crashed while work was in progress: two tasks went back to the queue, and one had already run out of attempts.",
+            "Two tasks succeeded and one failed.",
+            "The database was deleted and recreated."
+          ],
+          "certa": 1,
+          "explica": "This line appears on startup and shows there was work in progress when the process crashed. Requeued means it went back to the queue; failed means there were no attempts left.",
+          "ref": "passos"
+        },
+        {
+          "p": "A task failed at 3 a.m. What does a good queue do?",
+          "opcoes": [
+            "Stops everything until you wake up.",
+            "Deletes the task so it doesn't get in the way.",
+            "Records the failure and the reason, then moves on to the next task.",
+            "Keeps retrying forever until it works."
+          ],
+          "certa": 2,
+          "explica": "The failure is recorded separately with a reason, and the queue keeps moving. Retrying forever would burn through the night (and money), so there's a maximum number of attempts.",
+          "ref": "codigo"
+        }
+      ]
+    },
+    {
+      "tipo": "links",
+      "titulo": "To learn more",
+      "links": [
+        {
+          "t": "inemaccbot guide: what it is and how it works",
+          "href": "https://inematds.github.io/inemaccbot/guia/",
+          "icone": "fila"
+        },
+        {
+          "t": "inemaccbot architecture map",
+          "href": "https://inematds.github.io/inemaccbot/guia/arquitetura.html",
+          "icone": "camadas"
+        },
+        {
+          "t": "Overview of the From chat to agent course",
+          "href": "https://inematds.github.io/do-chat-ao-agente-v72/",
+          "icone": "voltar"
+        }
+      ]
+    }
+  ]
+}
