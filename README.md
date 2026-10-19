@@ -33,3 +33,9 @@ HTML estático, sem build e sem backend. O progresso fica só no navegador de qu
 Vídeos da série *Do chat ao agente* ([jornada-agentes](https://github.com/inematds/jornada-agentes), release `video-v2.0.0`). Exercícios originais em [`exercicios/03-filas.md`](https://github.com/inematds/jornada-agentes/blob/main/exercicios/03-filas.md).
 
 Conteúdo aberto e gratuito · [INEMA.CLUB](https://inema.club)
+
+## Mais no INEMA.CLUB
+
+- [Ficha completa deste curso](https://www.inema.club/cursos/326-do-chat-ao-agente-degrau-3-filas-dez-tarefas-e-va-dormir-inemaccbot/)
+- [Guia: como aprender inteligência artificial](https://www.inema.club/aprender-inteligencia-artificial/)
+- [Todos os cursos](https://www.inema.club/cursos/)
