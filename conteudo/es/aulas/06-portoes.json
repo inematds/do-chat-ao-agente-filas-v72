@@ -1,22 +1,22 @@
 {
   "slug": "portoes",
   "num": 6,
-  "titulo": "Dónde van las compuertas: detenerse antes de lo importante",
+  "titulo": "Dónde van las compuertas: detenerse antes de lo que importa",
   "titulo_curto": "Compuertas",
   "menu": "Compuertas",
   "minutos": 18,
-  "lead": "Un flujo es una tarea con varias fases, cada una con su estado guardado. La compuerta es la fase que termina y se detiene: el bot muestra lo que hizo y te espera. Aprobar, corregir o rechazar es el momento en que gestionas en vez de hacer.",
-  "objetivo": "poner la compuerta en el lugar correcto de un flujo y decidir entre aprobar, rechazar con una corrección o cancelar.",
-  "hero_alt": "Compuerta metálica delgada entreabierta en un pasillo oscuro, recortada por luz neutra.",
+  "lead": "Un flujo es una tarea en varias fases, con el estado guardado en cada una. La compuerta es la fase que termina y se detiene: el bot muestra lo que hizo y te espera. Aprobar, corregir o rechazar es el momento en que gestionas, en vez de hacer.",
+  "objetivo": "poner la compuerta en el lugar correcto de un flujo y decidir entre aprobar, reprobar con corrección o cancelar.",
+  "hero_alt": "Compuerta de metal fino entreabierta en un pasillo oscuro, recortada por luz neutra.",
   "competencias": [
-    "definir-compuerta-humana",
-    "operar-flujo",
-    "rechazar-y-corregir"
+    "definir-portao-humano",
+    "operar-fluxo",
+    "recusar-e-corrigir"
   ],
   "aprende": [
     {
       "icone": "camadas",
-      "t": "Skill × flujo: cuándo conviene guardar el estado"
+      "t": "Skill × flujo: cuándo vale la pena guardar el estado"
     },
     {
       "icone": "portao",
@@ -24,7 +24,7 @@
     },
     {
       "icone": "check",
-      "t": "Aprobar, rechazar con una corrección, rehacer o cancelar"
+      "t": "Aprobar, reprobar con corrección, rehacer o cancelar"
     },
     {
       "icone": "lupa",
@@ -34,32 +34,32 @@
   "secoes": [
     {
       "tipo": "diagrama",
-      "titulo": "Un flujo con compuerta: /promoavatar",
-      "sub": "El flujo de dominio que se ejecuta en producción en inemaccbot.",
+      "titulo": "Un flujo con compuerta: el /promoavatar",
+      "sub": "El flujo de dominio que corre en producción en el inemaccbot.",
       "nos": [
         {
           "icone": "chat",
-          "titulo": "Pedido",
-          "sub": "/promoavatar asunto",
+          "titulo": "Solicitud",
+          "sub": "/promoavatar tema",
           "itens": [
             {
               "icone": "arquivo",
               "t": "se convierte en el flujo A#9"
             }
           ],
-          "detalhe": "El comando crea un flujo numerado (A#9) y una lista de fases. Cada fase tiene su propio estado; /status muestra cada fase y cada público."
+          "detalhe": "El comando crea un flujo con número (A#9) y una lista de fases. Cada fase tiene su propio estado; el /status muestra fase por fase y público por público."
         },
         {
           "icone": "caneta",
           "titulo": "Textos",
-          "sub": "Fase del agente",
+          "sub": "Fase de agente",
           "itens": [
             {
               "icone": "usuario",
               "t": "un guion por público"
             }
           ],
-          "detalhe": "El agente escribe un texto para cada público (jóvenes, mujeres…). Es un trabajo que no quieres perder si falla una fase posterior: por eso es un flujo, no una skill."
+          "detalhe": "El agente escribe un texto para cada público (jóvenes, mujeres…). Es trabajo que no quieres tirar si una fase posterior falla: por eso es flujo, no skill."
         },
         {
           "icone": "portao",
@@ -75,7 +75,7 @@
               "t": "/pronto libera"
             }
           ],
-          "detalhe": "La fase termina, el bot envía al chat lo que declaró que mostraría y SE DETIENE. Tú lees, corriges y guardas los avatares. Solo con /pronto (o /aprovar, /ok) el flujo continúa.",
+          "detalhe": "La fase termina, el bot manda al chat lo que ella declaró para mostrar y SE DETIENE. Tú lees, corriges y grabas los avatares. Solo con /pronto (o /aprovar, /ok) el flujo sigue.",
           "forte": true
         },
         {
@@ -92,18 +92,19 @@
               "t": "arma el reel"
             }
           ],
-          "detalhe": "Después de la compuerta vienen las fases costosas o con consecuencias: descargar el video del avatar, armar el reel y entregarlo en el canal. Si una falla, /refazer la retoma sin rehacer los textos."
+          "detalhe": "Después de la compuerta vienen las fases caras o con consecuencias: descargar el video del avatar, armar el reel y entregarlo en el canal. Si una falla, /refazer retoma desde ahí, sin rehacer los textos."
         }
       ],
       "legenda": "Haz clic en cada bloque. La compuerta va después del trabajo que necesitas leer y antes de lo que cuesta o sale al mundo.",
       "rolagem": true,
       "rolagem_fim": {
-        "titulo": "La regla para ubicar la compuerta",
-        "texto": "Después de lo que necesita tu atención, antes de lo que es costoso o público. Al principio, la compuerta no tiene nada que mostrar; al final, llega tarde."
+        "titulo": "La regla del lugar de la compuerta",
+        "texto": "Después de lo que necesita tu ojo, antes de lo que es caro o público. Una compuerta al inicio no tiene qué mostrar; una compuerta al final llega tarde."
       }
     },
     {
       "tipo": "simportao",
+      "arquivo": "textos/A#9/jovens.md",
       "titulo": "Simula la compuerta",
       "sub": "Ejecuta el flujo, lee el texto que se detuvo en la compuerta y decide.",
       "fases": [
@@ -112,44 +113,44 @@
         "Video",
         "Publicar"
       ],
-      "rascunho": "Cola durable: tu agente trabaja toda la noche. Garantizamos un 100% de aciertos en todas las tareas.",
-      "corrigido": "Cola durable: tu agente trabaja toda la noche y por la mañana revisas qué salió bien y qué falló.",
+      "rascunho": "Cola durable: tu agente trabaja toda la noche. Garantizamos 100% de acierto en todas las tareas.",
+      "corrigido": "Cola durable: tu agente trabaja toda la noche, y por la mañana revisas qué salió bien y qué falló.",
       "rot": {
         "rodar": "Ejecutar el flujo",
         "aprovar": "/pronto (aprobar)",
         "reprovar": "Rechazar con corrección",
         "sempor": "Ejecutar con | sem-portao",
-        "zerar": "Volver a empezar"
+        "zerar": "Reiniciar"
       },
       "msg": {
         "inicio": "Flujo A#9 creado. Haz clic en \"Ejecutar el flujo\".",
         "portao": "La fase Textos terminó y el flujo SE DETUVO en la compuerta. Lee el texto de abajo antes de decidir.",
-        "reprovado": "Lo rechazaste con la corrección \"sin promesa de 100%\". La fase Textos se reabrió y entregó una nueva versión. Volvió a detenerse en la compuerta.",
-        "aprovado_ruim": "Aprobado sin corregir: el texto con la promesa falsa pasó al video y se publicó. Para eso servía la compuerta.",
+        "reprovado": "Rechazaste con la corrección \"sin promesa de 100%\". La fase Textos se reabrió y entregó la versión nueva. Se detuvo otra vez en la compuerta.",
+        "aprovado_ruim": "Aprobado sin corregir: el texto con la promesa falsa siguió al video y se publicó. Para esto servía la compuerta.",
         "aprovado_bom": "Aprobado después de la corrección: el flujo siguió al video y publicó el texto correcto.",
-        "sem_portao": "Con | sem-portao, el flujo llegó hasta el final sin esperarte. El texto llegó al chat, pero solo después de publicarse."
+        "sem_portao": "Con | sem-portao el flujo llegó hasta el final sin esperarte. El texto llegó al chat, pero solo después de publicado."
       },
-      "legenda": "Simulación ilustrativa en el navegador: no se genera ni se publica nada. El error en el texto es intencional."
+      "legenda": "Simulación ilustrativa en el navegador: no se genera ni se publica nada. El texto con error es intencional."
     },
     {
       "tipo": "passos",
       "titulo": "Las decisiones en la compuerta",
-      "sub": "Cada comando hace algo distinto. Confundirlos cuesta trabajo.",
+      "sub": "Cada comando hace una cosa distinta. Confundirlos cuesta trabajo.",
       "passos": [
         {
           "titulo": "Aprobar",
           "sub": "/pronto",
           "texto": [
             "<code>/pronto A#9</code> libera la compuerta. <code>/aprovar</code>, <code>/aprovado</code> y <code>/ok</code> son sinónimos, y <code>A#9</code>, <code>a9</code> y <code>A9</code> son la misma referencia.",
-            "Sin referencia, <code>/pronto</code> libera el flujo cuando solo uno está esperando; si hay varios, te muestra cuáles."
+            "Sin referencia, <code>/pronto</code> libera el flujo cuando solo hay uno esperando; si hay varios, lista cuáles."
           ]
         },
         {
           "titulo": "Rechazar con corrección",
           "sub": "respuesta a la compuerta",
           "texto": [
-            "Cuando el flujo declara respuestas en la compuerta, puedes responder algo más que «sí»: una palabra, como <code>reprova</code>, seguida de lo que hay que corregir. El bot ejecuta el comando del dominio y la fase SE REABRE con el material nuevo.",
-            "Es «lo rehace y me lo presenta hasta que lo apruebe». Cada flujo declara las respuestas que acepta; <code>/ajuda &lt;fluxo&gt;</code> muestra cuáles."
+            "Cuando el flujo declara respuestas en la compuerta, puedes responder además de \"sí\": una palabra, como <code>reprova</code>, seguida de lo que se debe corregir. El bot ejecuta el comando del dominio y la fase SE REABRE con el material nuevo.",
+            "Es el \"rehaz y preséntamelo hasta que apruebe\". Cada flujo declara las respuestas que acepta; <code>/ajuda &lt;fluxo&gt;</code> muestra cuáles."
           ]
         },
         {
@@ -157,15 +158,15 @@
           "sub": "/refazer",
           "texto": [
             "<code>/refazer A#9 [público]</code> retoma desde la fase que FALLÓ, sin rehacer las anteriores.",
-            "No sirve para una fase detenida en la compuerta: no falló, te está esperando. En ese caso, puedes aprobar o rechazar con una corrección."
+            "No sirve para una fase detenida en la compuerta: no falló, te está esperando. Para esa, la salida es aprobar o rechazar con corrección."
           ]
         },
         {
           "titulo": "Cancelar",
           "sub": "/cancelar",
           "texto": [
-            "<code>/cancelar A#9</code> detiene todo el flujo y lo quita de <code>/status</code>. Es el último recurso: si quieres cambiar un texto, pierdes todas las fases.",
-            "Para borrar definitivamente los archivos del flujo, usa <code>/limpar A#9</code>. Solo muestra lo que se borraría hasta que escribas <code>confirmar</code>."
+            "<code>/cancelar A#9</code> detiene el flujo completo y lo saca de <code>/status</code>. Es el último recurso: para cambiar un texto, pierdes todas las fases.",
+            "Para borrar definitivamente los archivos del flujo, <code>/limpar A#9</code>, que solo muestra lo que saldría hasta que escribas <code>confirmar</code>."
           ]
         }
       ]
@@ -173,17 +174,17 @@
     {
       "tipo": "codigo",
       "titulo": "Los comandos del flujo",
-      "sub": "Ensaya con | sombra antes de gastar nada.",
+      "sub": "Ensaya con | sombra antes de gastar cualquier cosa.",
       "blocos": [
         {
           "rot": "Telegram · ensayar, ejecutar y seguir",
           "icone": "chat",
-          "conteudo": "/promoavatar No empieces aprendiendo herramientas | sombra\n# muestra fase × público × cola y NO pone nada en cola\n\n/promoavatar No empieces aprendiendo herramientas --alvo=jovens\n/status\n/status A#9"
+          "conteudo": "/promoavatar Não comece aprendendo ferramentas | sombra\n# muestra fase × público × cola y NO encola nada\n\n/promoavatar Não comece aprendendo ferramentas --alvo=jovens\n/status\n/status A#9"
         },
         {
           "rot": "Telegram · decidir en la compuerta",
           "icone": "portao",
-          "conteudo": "/pronto A#9           # aprueba y continúa\n/refazer A#9 jovens   # retoma desde la fase que falló\n/cancelar A#9         # detiene todo el flujo\n/limpar A#9           # muestra qué borraría\n/limpar A#9 confirmar # borra de verdad"
+          "conteudo": "/pronto A#9           # aprueba y sigue\n/refazer A#9 jovens   # retoma desde la fase que falló\n/cancelar A#9         # detiene el flujo completo\n/limpar A#9           # muestra lo que borraría\n/limpar A#9 confirmar # borra de verdad"
         },
         {
           "rot": "flow.json · cómo el dominio declara una compuerta",
@@ -195,16 +196,16 @@
         "selo": "real",
         "abas": [
           {
-            "rot": "Qué muestra la compuerta",
-            "html": "<p>La fase declara en <code>portao.mostrar</code> qué se envía al chat: el texto va en el mensaje, el audio y la imagen se envían como archivo, y el video va como enlace (un video de varios minutos supera el límite de 50 MB de Telegram).</p>"
+            "rot": "Lo que muestra la compuerta",
+            "html": "<p>La fase declara en <code>portao.mostrar</code> lo que va al chat: el texto va en el mensaje, el audio y la imagen van como archivo, el video va como enlace (un video de minutos pasa del límite de 50 MB de Telegram).</p>"
           },
           {
             "rot": "| sem-portao",
-            "html": "<p>Continúa hasta el final sin detenerse para pedir aprobación, pero sigue enviando al chat lo que mostraría cada compuerta. Úsalo solo cuando ya confíes en ese flujo, y nunca antes de publicar algo que todavía no has leído.</p>"
+            "html": "<p>Llega hasta el final sin detenerse a pedir aprobación, pero sigue enviando al chat lo que mostraría cada compuerta. Úsalo solo cuando ya confíes en ese flujo, y nunca antes de publicar algo que aún no leíste.</p>"
           },
           {
-            "rot": "Aprobar varios de una vez, con cuidado",
-            "html": "<p>La documentación del proyecto registra el riesgo: aprobar varios flujos de una vez sin revisarlos puede activar esperas innecesarias (la fase que descarga el avatar espera hasta 90 minutos antes de fallar si el video no se grabó). Revisa antes de aprobar.</p>"
+            "rot": "Aprobar en lote, con cuidado",
+            "html": "<p>La documentación del proyecto registra el riesgo: aprobar varios flujos a la vez sin revisar puede disparar esperas inútiles (la fase que descarga el avatar espera hasta 90 minutos antes de fallar cuando el video no fue grabado). Revisa antes de liberar.</p>"
           }
         ]
       }
@@ -212,13 +213,13 @@
     {
       "tipo": "pratica",
       "titulo": "Práctica",
-      "sub": "Usa un flujo con compuerta. Si todavía no tienes /promoavatar configurado, empieza por | sombra.",
+      "sub": "Usa un flujo con compuerta. Si aún no tienes el /promoavatar configurado, empieza por | sombra.",
       "exercicios": [
         {
           "id": "e5",
           "titulo": "E5 · La compuerta",
           "min": "30 min",
-          "texto": "Ejecuta un flujo con compuerta (como /promoavatar), primero con | sombra para ver las fases. Cuando se detenga, lee lo que llegó al chat, corrige si hace falta y solo entonces envía /pronto.",
+          "texto": "Ejecuta un flujo con compuerta (como el /promoavatar), primero con | sombra para ver las fases. Cuando se detenga, lee lo que llegó al chat, corrige si hace falta y solo entonces envía /pronto.",
           "pronto": "rechazaste o corregiste al menos un texto antes de aprobar."
         }
       ],
@@ -226,56 +227,56 @@
     },
     {
       "tipo": "quiz",
-      "titulo": "Pon a prueba lo que aprendiste",
+      "titulo": "Prueba lo que aprendiste",
       "sub": "La explicación aparece después de tu respuesta.",
       "perguntas": [
         {
-          "p": "¿Dónde debe estar la compuerta de un flujo de video para redes?",
+          "p": "¿Dónde debe ir la compuerta de un flujo de video para redes?",
           "opcoes": [
-            "Antes de la primera fase, para aprobar el tema.",
-            "Después de los textos y antes de las fases costosas y de la publicación.",
             "Después de la publicación, para revisar.",
+            "Antes de la primera fase, para aprobar el tema.",
+            "Después de los textos y antes de las fases caras y de la publicación.",
             "En todas las fases."
           ],
-          "certa": 1,
-          "explica": "Después de lo que necesita tu revisión y antes de lo que cuesta o sale al mundo. Al principio no hay nada que leer; después de publicar, ya es tarde.",
+          "certa": 2,
+          "explica": "Después de lo que necesita tu ojo, antes de lo que cuesta o sale al mundo. Al principio no hay nada que leer; después de publicar ya es tarde.",
           "cert": true,
           "ref": "diagrama"
         },
         {
-          "p": "El flujo se detuvo en la compuerta con un texto incorrecto. Envías <code>/refazer A#9</code>. ¿Qué pasa?",
+          "p": "El flujo se detuvo en la compuerta con un texto equivocado. Envías <code>/refazer A#9</code>. ¿Qué pasa?",
           "opcoes": [
-            "Se vuelve a hacer la fase de textos con tu corrección.",
-            "Nada: /refazer solo sirve para fases que fallaron, y la fase de la compuerta está esperando que la revises.",
-            "Se cancela el flujo.",
-            "Se publica el texto."
+            "El flujo se cancela.",
+            "El texto se publica.",
+            "Nada: /refazer solo toma una fase que falló, y la de la compuerta está esperándote a ti.",
+            "La fase de textos se rehace con tu corrección."
           ],
-          "certa": 1,
-          "explica": "La fase de la compuerta no falló. Para cambiar el texto, responde a la compuerta con la corrección (cuando el flujo lo permite) o, como último recurso, cancela.",
+          "certa": 2,
+          "explica": "Una fase en la compuerta no falló. Para cambiar el texto, responde a la compuerta con la corrección (cuando el flujo lo acepta) o, como último recurso, cancela.",
           "ref": "passos"
         },
         {
           "p": "¿Para qué sirve <code>| sombra</code>?",
           "opcoes": [
-            "Ejecutar el flujo sin compuerta.",
             "Mostrar el plan (fases, públicos y colas) sin poner nada en cola.",
-            "Ocultar el flujo de /status.",
-            "Ejecutarlo con un modelo más barato."
+            "Ejecutar con un modelo más barato.",
+            "Ocultar el flujo del /status.",
+            "Ejecutar el flujo sin compuerta."
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "Es el ensayo antes de gastar: ves lo que se haría. No lo confundas con | sem-portao, que ejecuta todo sin detenerse.",
           "ref": "codigo"
         },
         {
-          "p": "En la simulación, ¿qué demuestra que estás gestionando y no solo usando?",
+          "p": "En la simulación, ¿qué muestra que estás gestionando y no solo usando?",
           "opcoes": [
-            "Aprobar rápido para que avance el flujo.",
-            "Leer el texto en la compuerta, rechazarlo con una corrección y aprobar solo la versión correcta.",
+            "Aprobar rápido para que el flujo avance.",
             "Ejecutar con | sem-portao para ahorrar tiempo.",
+            "Leer el texto en la compuerta, rechazarlo con la corrección y aprobar solo la versión correcta.",
             "Cancelar y empezar de nuevo."
           ],
-          "certa": 1,
-          "explica": "La compuerta solo protege si lees. Aprobar sin leer dejó pasar la promesa falsa; rechazar con una corrección permitió rehacer la fase y publicar el texto correcto.",
+          "certa": 2,
+          "explica": "La compuerta solo protege si lees. Aprobar sin leer dejó pasar la promesa falsa; rechazar con corrección reabrió la fase y publicó el texto correcto.",
           "ref": "simportao"
         }
       ]

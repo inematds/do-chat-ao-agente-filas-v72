@@ -220,12 +220,12 @@
         {
           "p": "Em qual tarefa o portão humano é mais importante?",
           "opcoes": [
-            "Transcrever uma reunião interna.",
             "Resumir PDFs para você mesmo ler.",
             "Publicar um post em nome da empresa.",
+            "Transcrever uma reunião interna.",
             "Listar os arquivos de uma pasta."
           ],
-          "certa": 2,
+          "certa": 1,
           "explica": "Portão vai antes do que tem consequência fora: publicar, enviar, gastar. Uso interno com erro barato pode rodar sozinho.",
           "cert": true,
           "ref": "diagrama"
@@ -233,22 +233,22 @@
         {
           "p": "\"Dá uma melhorada na apresentação\" deve ir para a fila?",
           "opcoes": [
-            "Sim, com portão.",
             "Sim, sem portão.",
-            "Ainda não: a entrada é vaga. Ou fica com você, ou vira um pedido concreto.",
-            "Sim, desde que use o modelo mais caro."
+            "Sim, com portão.",
+            "Sim, desde que use o modelo mais caro.",
+            "Ainda não: a entrada é vaga. Ou fica com você, ou vira um pedido concreto."
           ],
-          "certa": 2,
+          "certa": 3,
           "explica": "A fila não conversa com você no meio da noite. Sem entrada clara, não há como conferir se o resultado saiu certo.",
           "ref": "passos"
         },
         {
           "p": "Uma tarefa tem várias etapas e a do meio é cara. Se a última etapa falhar, você não quer refazer tudo. Qual tipo usar?",
           "opcoes": [
-            "Uma skill, porque é mais simples.",
+            "Duas filas separadas.",
             "Um fluxo, que guarda o estado de cada fase e retoma da que falhou.",
             "Nenhum: tarefas caras não vão para a fila.",
-            "Duas filas separadas."
+            "Uma skill, porque é mais simples."
           ],
           "certa": 1,
           "explica": "Skill vale quando refazer do zero é aceitável. Com trabalho parcial valioso, o fluxo guarda cada fase e o /refazer retoma da que falhou.",

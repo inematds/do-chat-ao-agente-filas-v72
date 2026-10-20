@@ -185,8 +185,8 @@
           "opcoes": [
             "Tudo é refeito desde o começo.",
             "A tarefa interrompida volta para entrada/ e a fila segue com o que sobrou.",
-            "A tarefa interrompida é perdida.",
-            "A fila só volta a funcionar no dia seguinte."
+            "A fila só volta a funcionar no dia seguinte.",
+            "A tarefa interrompida é perdida."
           ],
           "certa": 1,
           "explica": "É o que torna a fila durável: o que ficou em rodando/ volta para entrada/, e o que já está em feito/ não é refeito.",
@@ -196,9 +196,9 @@
         {
           "p": "Por que o script move o arquivo para rodando/ ANTES de chamar o agente?",
           "opcoes": [
-            "Para o agente ler mais rápido.",
-            "Para marcar qual tarefa está em andamento; se cair, ela fica ali e é retomada.",
             "Para esconder a tarefa de você.",
+            "Para marcar qual tarefa está em andamento; se cair, ela fica ali e é retomada.",
+            "Para o agente ler mais rápido.",
             "Porque o agente só lê arquivos dessa pasta."
           ],
           "certa": 1,
@@ -208,12 +208,12 @@
         {
           "p": "O agente respondeu, mas a resposta veio vazia. Para onde vai a tarefa?",
           "opcoes": [
-            "feito/, porque não houve erro.",
-            "falhou/, porque resposta vazia também conta como falha.",
             "Fica em rodando/.",
-            "Volta para entrada/."
+            "Volta para entrada/.",
+            "falhou/, porque resposta vazia também conta como falha.",
+            "feito/, porque não houve erro."
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "O script exige código 0 E resposta não vazia. Sem resposta não há o que conferir, então é falha.",
           "ref": "codigo"
         }

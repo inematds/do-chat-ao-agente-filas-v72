@@ -1,17 +1,17 @@
 {
   "slug": "mandar-tarefas",
   "num": 5,
-  "titulo": "Ten tasks and go to sleep",
+  "titulo": "Ten Tasks: Send the Batch and Go to Sleep",
   "titulo_curto": "Send the batch",
   "menu": "Send",
   "minutos": 18,
-  "lead": "With the bot running, your paper queue becomes messages. Each line is a skill with an input; the bot puts each request in the right queue, runs it within that skill’s limits, and lets you know in the chat when it’s done.",
-  "objetivo": "send 5 to 10 tasks in skill format and track the batch with /fila and /jobs.",
-  "hero_alt": "A hand holding a phone with messages sent one after another, with a blurred monitor in the background.",
+  "lead": "With the bot up and running, your queue on paper becomes messages. Each line is a skill with an input; the bot puts each request in the right queue, runs it within each queue's limit, and tells you in the chat when it finishes.",
+  "objetivo": "send 5 to 10 tasks in the skill format and follow the batch with /fila and /jobs.",
+  "hero_alt": "A hand holding a phone with messages sent in sequence, blurred monitor in the background.",
   "competencias": [
-    "send-batch",
-    "track-queue",
-    "prevent-loss-on-restart"
+    "enviar-lote",
+    "acompanhar-fila",
+    "evitar-perda-por-restart"
   ],
   "aprende": [
     {
@@ -20,11 +20,11 @@
     },
     {
       "icone": "fila",
-      "t": "The five queues and why the render queue runs one at a time"
+      "t": "The five queues and why render runs one at a time"
     },
     {
       "icone": "lupa",
-      "t": "Track with /fila, /jobs, and /status"
+      "t": "Follow along with /fila, /jobs, and /status"
     },
     {
       "icone": "relogio",
@@ -34,20 +34,20 @@
   "secoes": [
     {
       "tipo": "diagrama",
-      "titulo": "From a message to a notification",
-      "sub": "The path each batch request takes.",
+      "titulo": "From a message to a notice",
+      "sub": "The path of each request in the batch.",
       "nos": [
         {
           "icone": "chat",
           "titulo": "Message",
-          "sub": "skill: input | field",
+          "sub": "skill: entrada | campo",
           "itens": [
             {
               "icone": "arquivo",
               "t": "transcrever: https://…"
             }
           ],
-          "detalhe": "One line per task. The name before the colon is the skill; the input comes after it; optional fields go after a vertical bar."
+          "detalhe": "One line per task. The name before the colon is the skill; the input comes after; optional fields go after a vertical bar."
         },
         {
           "icone": "lista",
@@ -56,15 +56,15 @@
           "itens": [
             {
               "icone": "check",
-              "t": "queue, deadline, attempts"
+              "t": "queue, deadline, retries"
             }
           ],
-          "detalhe": "The bot looks up the skill in the catalog. It lists which queue the skill runs in, the maximum deadline, and how many attempts it gets. A skill that isn’t in the catalog is rejected right away."
+          "detalhe": "The bot looks up the skill in the catalog. It says there which queue the skill runs in, the maximum deadline, and how many retries it gets. A skill that isn't in the catalog is refused right away."
         },
         {
           "icone": "fila",
-          "titulo": "Queue type",
-          "sub": "text · render · io · cpu",
+          "titulo": "Queue of the type",
+          "sub": "texto · render · io · cpu",
           "itens": [
             {
               "icone": "relogio",
@@ -72,27 +72,27 @@
             },
             {
               "icone": "relogio",
-              "t": "text: 2 at a time"
+              "t": "texto: 2 at a time"
             }
           ],
-          "detalhe": "Each queue has its own limit. All ten video requests can be added, but the render queue runs one at a time because they share the graphics card.",
+          "detalhe": "Each queue has its own limit. Ten video requests all get in, but the render queue runs one at a time, because it shares the graphics card.",
           "forte": true
         },
         {
           "icone": "robo",
           "titulo": "Agent",
-          "sub": "With the skill prompt",
+          "sub": "With the skill's prompt",
           "itens": [
             {
               "icone": "terminal",
               "t": "ends with RESULT: or ERRO:"
             }
           ],
-          "detalhe": "The worker builds the skill prompt with your input and calls the agent. It works on its own, without asking for confirmation, and ends with RESULT or ERRO."
+          "detalhe": "The worker builds the skill's prompt with your input and calls the agent. It works on its own, without asking for confirmation, and ends with RESULT or ERRO."
         },
         {
           "icone": "megafone",
-          "titulo": "Notification",
+          "titulo": "Notice",
           "sub": "In your chat",
           "itens": [
             {
@@ -100,46 +100,46 @@
               "t": "result or reason"
             }
           ],
-          "detalhe": "When it finishes, the bot sends the result or the reason for failure in the chat. In the morning, the conversation is your report."
+          "detalhe": "When it finishes, the bot tells you in the chat with the result or the reason for the failure. In the morning, the conversation is your report."
         }
       ],
-      "legenda": "Click each block. Queue and limit numbers come from the inemaccbot documentation.",
+      "legenda": "Click each block. The queue and limit numbers come from the inemaccbot documentation.",
       "rolagem": true,
       "rolagem_fim": {
         "titulo": "Ten messages, one night",
-        "texto": "You send the whole list at once. The bot distributes tasks across queues, respects the limits, and replies to each one when it’s done."
+        "texto": "You send the whole list at once. The bot spreads it across the queues, respects the limits, and replies to each one when it finishes."
       }
     },
     {
       "tipo": "passos",
-      "titulo": "How to write and track the batch",
+      "titulo": "How to write and follow the batch",
       "passos": [
         {
           "titulo": "The request format",
-          "sub": "skill: input",
+          "sub": "skill: entrada",
           "texto": [
             "<code>&lt;skill&gt;: &lt;input&gt; [| field]</code>. The input is what you put in the \"Input\" column of your queue on paper.",
-            "<code>/skills</code> lists the installed skills, and <code>/ajuda &lt;skill&gt;</code> shows each skill’s fields. A field written without the bar is rejected; it won’t silently become part of the input."
+            "<code>/skills</code> lists the installed skills and <code>/ajuda &lt;skill&gt;</code> shows the fields of each one. A field written without the bar is refused; it doesn't silently become part of the input."
           ],
           "exemplo": {
             "rot": "Example",
-            "texto": "explicativo: what is a durable queue | vertical"
+            "texto": "explicativo: what a durable queue is | vertical"
           }
         },
         {
-          "titulo": "Fields that apply to all skills",
+          "titulo": "Fields that apply to every task",
           "sub": "model, effort, engine",
           "texto": [
-            "<code>| modelo=haiku</code> and <code>| esforco=high</code> change the model and reasoning for that request only. <code>| motor=codex</code> runs that request through codex instead of claude.",
-            "Use these to test one request. The effective model is recorded in the job, so in the morning you know what was used for each result."
+            "<code>| modelo=haiku</code> and <code>| esforco=high</code> change the model and the reasoning for that one request only. <code>| motor=codex</code> runs that request through codex instead of claude.",
+            "Use it to test on a single request. The model actually used is saved in the job, so in the morning you know what each result was made with."
           ]
         },
         {
-          "titulo": "Track",
+          "titulo": "Follow along",
           "sub": "/fila · /jobs · /status",
           "texto": [
-            "<code>/fila</code> shows, for each queue, what’s running, how many are waiting, their age, errors from the last 24 hours, and retries. <code>/jobs</code> lists jobs that are running and those that are finished.",
-            "<code>/status j13</code> gives you details about a job. A number alone always means a job; a letter and # (<code>A#9</code>) means a flow, covered in the next lesson."
+            "<code>/fila</code> shows, for each queue, what is running, how many are waiting, their age, the errors from the last 24 h, and the retried ones. <code>/jobs</code> lists the jobs that are running and the ones that have finished.",
+            "<code>/status j13</code> gives the detail of one job. A bare number is always a job; with a letter and # (<code>A#9</code>) it is a flow, the subject of the next lesson."
           ]
         },
         {
@@ -147,50 +147,50 @@
           "sub": "/furar · /cancelar",
           "texto": [
             "<code>/furar j13</code> moves a pending job to the front of the queue. <code>/cancelar j13</code> stops a pending or running job.",
-            "Canceling applies to the queue, not the world: anything already created outside it (a delivered file, a published video) stays there."
+            "Canceling affects the queue, not the world: whatever was already created outside (a delivered file, a published video) stays there."
           ]
         },
         {
-          "titulo": "Don’t restart while the batch is running",
+          "titulo": "Don't restart while the batch is running",
           "sub": "code 143",
           "texto": [
-            "If a job fails with <code>code 143</code>, it wasn’t the agent: the service restarted in the middle (143 = 128 + 15, the shutdown signal). The job goes back in the queue if it has attempts left; otherwise, it fails.",
-            "A render takes 10 to 15 min. Two restarts in a row can use up both attempts for the same job. Before restarting or updating, check that the queue is empty."
+            "If a job fails with <code>código 143</code>, it wasn't the agent: the service was restarted in the middle (143 = 128 + 15, the shutdown signal). The job goes back to the queue if it still has an attempt left; otherwise, it fails.",
+            "A render takes 10 to 15 min. Two restarts in a row can use up both attempts of the same job. Before restarting or updating, check that the queue is empty."
           ]
         }
       ]
     },
     {
       "tipo": "codigo",
-      "titulo": "The overnight batch",
-      "sub": "Replace the examples with lines from your queue on paper. One message per task.",
+      "titulo": "A night's batch",
+      "sub": "Swap the examples for the lines of your queue on paper. One message per task.",
       "blocos": [
         {
           "rot": "Telegram · messages to the bot",
           "icone": "chat",
-          "conteudo": "transcrever: https://link-da-gravacao-de-segunda\ntranscrever: https://link-da-aula-gravada\nexplicativo: what is a durable queue | vertical\ndublar: https://link-do-video-em-ingles\ntranscrever: https://link-do-podcast | modelo=haiku"
+          "conteudo": "transcrever: https://link-da-gravacao-de-segunda\ntranscrever: https://link-da-aula-gravada\nexplicativo: what a durable queue is | vertical\ndublar: https://link-do-video-em-ingles\ntranscrever: https://link-do-podcast | modelo=haiku"
         },
         {
-          "rot": "Telegram · track and intervene",
+          "rot": "Telegram · follow along and step in",
           "icone": "lupa",
           "conteudo": "/fila\n/jobs\n/status j13\n/furar j15\n/cancelar j14"
         },
         {
           "rot": "Terminal · before restarting the bot",
           "icone": "terminal",
-          "conteudo": "sqlite3 inemaccbot.db \\\n  \"select id,fila,tarefa,status,flow_ref from jobs where status in ('queued','running');\"\n# vazio → pode reiniciar. Com render rodando → espere."
+          "conteudo": "sqlite3 inemaccbot.db \\\n  \"select id,fila,tarefa,status,flow_ref from jobs where status in ('queued','running');\"\n# empty → safe to restart. Render running → wait."
         }
       ],
       "saida": {
         "selo": "simulacao",
         "abas": [
           {
-            "rot": "Example /fila response",
-            "html": "<pre>text   · running 2 · waiting 1 · errors 24h 0\nrender  · running 1 · waiting 2 · errors 24h 0\nio      · running 0 · waiting 0 · errors 24h 0</pre><p>Illustration of the kind of information; the bot’s exact text may vary.</p>"
+            "rot": "Reply from /fila (illustration)",
+            "html": "<pre>texto   · running 2 · waiting 1 · errors 24h 0\nrender  · running 1 · waiting 2 · errors 24h 0\nio      · running 0 · waiting 0 · errors 24h 0</pre><p>Illustration of the type of information; the bot's exact text may vary.</p>"
           },
           {
             "rot": "Catalog skills",
-            "html": "<ul><li><code>transcrever</code> · text queue · audio → text (local Whisper)</li><li><code>dublar</code> · text queue · translates and dubs</li><li><code>explicativo</code> · render queue · explainer video</li><li><code>curso</code>, <code>demo</code>, <code>reel</code> · render queue</li><li><code>imagem</code> · io queue · standalone image</li></ul><p>Some depend on other projects installed on the machine. <code>/skills</code> shows what your bot has.</p>"
+            "html": "<ul><li><code>transcrever</code> · texto queue · audio → text (local Whisper)</li><li><code>dublar</code> · texto queue · translates and dubs</li><li><code>explicativo</code> · render queue · explainer video</li><li><code>curso</code>, <code>demo</code>, <code>reel</code> · render queue</li><li><code>imagem</code> · io queue · single image</li></ul><p>Some depend on other projects installed on the machine. <code>/skills</code> shows what your bot has.</p>"
           }
         ]
       }
@@ -198,15 +198,15 @@
     {
       "tipo": "pratica",
       "titulo": "Practice",
-      "sub": "Use your queue on paper. Start with tasks without a gate.",
+      "sub": "Use your queue on paper. Start with tasks that have no gate.",
       "exercicios": [
         {
           "id": "e4",
           "titulo": "E4 · Ten tasks and go to sleep",
           "min": "1 night",
           "dias": 1,
-          "texto": "Send the bot 5 to 10 tasks from your list (transcribe, summarize, explainer…). Check /fila once, then go do something else. Don’t restart the bot until the queue is empty.",
-          "pronto": "`/fila` showed the distributed batch, and the next day, each task has a reply in the chat (result or reason for failure)."
+          "texto": "Send the bot 5 to 10 tasks from your list (transcribe, summarize, explainer…). Check /fila once and go do something else. Don't restart the bot until the queue is empty.",
+          "pronto": "/fila showed the batch distributed and, the next day, each task has a reply in the chat (a result or the reason it failed)."
         }
       ],
       "fonte": "The morning check is lesson 7. Original exercise: <a href=\"https://github.com/inematds/jornada-agentes/blob/main/exercicios/03-filas.md\" target=\"_blank\" rel=\"noopener\">03-filas.md</a> (E4)."
@@ -217,50 +217,50 @@
       "sub": "The explanation appears after your answer.",
       "perguntas": [
         {
-          "p": "You sent four explainer video requests. Why is only one showing as running?",
+          "p": "You sent four explainer video requests. Why does only one show up as running?",
           "opcoes": [
+            "The render queue runs one at a time on purpose, because it shares the graphics card.",
             "The other three failed.",
-            "The render queue runs one job at a time on purpose because it shares the graphics card.",
             "The bot only accepts one message at a time.",
-            "The subscription hasn’t been paid for."
+            "The subscription hasn't been paid."
           ],
-          "certa": 1,
-          "explica": "All four are saved; the render queue limit is 1. The others wait their turn, and /fila shows how many are waiting.",
+          "certa": 0,
+          "explica": "All four are saved; the render queue has a limit of 1. The others wait their turn, and /fila shows how many are waiting.",
           "ref": "diagrama"
         },
         {
-          "p": "A job failed with <code>code 143</code>. What does that indicate?",
+          "p": "A job failed with <code>código 143</code>. What does that indicate?",
           "opcoes": [
-            "The skill prompt is wrong.",
-            "The service restarted while the job was running.",
+            "The service was restarted while the job was running.",
+            "The skill's prompt is wrong.",
             "The model refused the task.",
-            "The disk ran out of space."
+            "You ran out of disk space."
           ],
-          "certa": 1,
-          "explica": "143 is the shutdown signal. Check the queue before restarting. The work wasn’t corrupted; it just didn’t finish, and you can run it again.",
+          "certa": 0,
+          "explica": "143 is the shutdown signal. Check the queue before restarting. The work wasn't corrupted; it just didn't finish, and it can be redone.",
           "cert": true,
           "ref": "passos"
         },
         {
-          "p": "You want to try a cheaper model for just one request. How?",
+          "p": "You want to test a cheaper model on just one request. How?",
           "opcoes": [
-            "Change the default model in .env and restart.",
             "Add <code>| modelo=haiku</code> to that request.",
-            "Create a new skill.",
-            "Send the request twice."
+            "Change the default model in .env and restart.",
+            "Send the request twice.",
+            "Create a new skill."
           ],
-          "certa": 1,
-          "explica": "The field applies only to that job and is saved with it. Changing .env would affect everything and require a restart, which could put the current batch at risk.",
+          "certa": 0,
+          "explica": "The field applies only to that job and is saved with it. Changing .env would change everything and require a restart, putting the batch in progress at risk.",
           "ref": "passos"
         }
       ]
     },
     {
       "tipo": "links",
-      "titulo": "To learn more",
+      "titulo": "Going further",
       "links": [
         {
-          "t": "Using the chat: commands and skills (inemaccbot README)",
+          "t": "Using it in chat: commands and skills (inemaccbot README)",
           "href": "https://github.com/inematds/inemaccbot#uso-no-chat",
           "icone": "chat"
         },

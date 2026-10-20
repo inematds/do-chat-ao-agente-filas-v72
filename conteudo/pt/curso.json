@@ -13,7 +13,7 @@
     "t": "Sete exercícios com \"pronto quando\"",
     "texto": "Da fila no papel à conferência da manhã. Só passe para o próximo quando o \"pronto quando\" for verdade.",
     "link": "Exercícios da sequência 3",
-    "href": "https://github.com/inematds/jornada-agentes/blob/main/exercicios/03-filas.md"
+    "href": "https://github.com/inematds/jornada-agentes/blob/main/exercicios/03-filas.md", "href_en": "https://github.com/inematds/jornada-agentes/blob/main/exercicios/en/03-filas.md", "href_es": "https://github.com/inematds/jornada-agentes/blob/main/exercicios/es/03-filas.md"
   },
   "rodape": "INEMA.CLUB · conteúdo aberto e gratuito · formato INEMA Learning v7.2 · degrau 3 da formação <a href=\"https://inematds.github.io/do-chat-ao-agente-v72/\">Do chat ao agente</a> · <a href=\"https://inematds.github.io/inemaccbot/guia/\">guia do inemaccbot</a> · <a href=\"https://eventos.inema.pro/do-chat-ao-agente/\">eventos.inema.pro/do-chat-ao-agente</a> · <a href=\"https://inema.club/\">inema.club</a> · <a href=\"https://www.inema.club/cursos/326-do-chat-ao-agente-degrau-3-filas-dez-tarefas-e-va-dormir-inemaccbot/\">Ficha completa deste curso no INEMA.CLUB</a> · <a href=\"https://www.inema.club/aprender-inteligencia-artificial/\">Guia: como aprender inteligência artificial</a>",
   "videos": {
@@ -23,7 +23,7 @@
       "mp4": "https://github.com/inematds/jornada-agentes/releases/download/video-v2.0.0/jornada-jornada-ia-16x9.mp4",
       "vtt": "assets/vtt/jornada-ia.vtt",
       "poster": "assets/img/jornada-ia.jpg",
-      "pagina": "https://inematds.github.io/jornada-agentes/serie/jornada-ia/"
+      "pagina": "https://inematds.github.io/jornada-agentes/serie/jornada-ia/", "idiomas": {"en": {"vtt": "assets/vtt/jornada-ia-en.vtt", "pagina": "https://inematds.github.io/jornada-agentes/serie/jornada-ia/en/"}, "es": {"vtt": "assets/vtt/jornada-ia-es.vtt", "pagina": "https://inematds.github.io/jornada-agentes/serie/jornada-ia/es/"}}
     },
     "seq3-filas": {
       "titulo": "Dez tarefas e vá dormir",
@@ -31,7 +31,7 @@
       "mp4": "https://github.com/inematds/jornada-agentes/releases/download/video-v2.0.0/jornada-seq3-filas-16x9.mp4",
       "vtt": "assets/vtt/seq3-filas.vtt",
       "poster": "assets/img/seq3-filas.jpg",
-      "pagina": "https://inematds.github.io/jornada-agentes/serie/seq3-filas/"
+      "pagina": "https://inematds.github.io/jornada-agentes/serie/seq3-filas/", "idiomas": {"en": {"vtt": "assets/vtt/seq3-filas-en.vtt", "pagina": "https://inematds.github.io/jornada-agentes/serie/seq3-filas/en/"}, "es": {"vtt": "assets/vtt/seq3-filas-es.vtt", "pagina": "https://inematds.github.io/jornada-agentes/serie/seq3-filas/es/"}}
     }
   },
   "inicio": {

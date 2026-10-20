@@ -104,6 +104,7 @@
     },
     {
       "tipo": "simportao",
+      "arquivo": "textos/A#9/jovens.md",
       "titulo": "Simule o portão",
       "sub": "Rode o fluxo, leia o texto que parou no portão e decida.",
       "fases": [
@@ -232,12 +233,12 @@
         {
           "p": "Onde o portão de um fluxo de vídeo para redes deve ficar?",
           "opcoes": [
+            "Depois da publicação, para conferir.",
             "Antes da primeira fase, para aprovar o assunto.",
             "Depois dos textos e antes das fases caras e da publicação.",
-            "Depois da publicação, para conferir.",
             "Em todas as fases."
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "Depois do que precisa do seu olho, antes do que custa ou sai para o mundo. No começo não há o que ler; depois de publicar já é tarde.",
           "cert": true,
           "ref": "diagrama"
@@ -245,24 +246,24 @@
         {
           "p": "O fluxo parou no portão com um texto errado. Você manda <code>/refazer A#9</code>. O que acontece?",
           "opcoes": [
-            "A fase de textos é refeita com a sua correção.",
-            "Nada: /refazer só pega fase que falhou, e a do portão está esperando você.",
             "O fluxo é cancelado.",
-            "O texto é publicado."
+            "O texto é publicado.",
+            "Nada: /refazer só pega fase que falhou, e a do portão está esperando você.",
+            "A fase de textos é refeita com a sua correção."
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "Fase no portão não falhou. Para mudar o texto, responda ao portão com a correção (quando o fluxo aceita) ou, em último caso, cancele.",
           "ref": "passos"
         },
         {
           "p": "Para que serve <code>| sombra</code>?",
           "opcoes": [
-            "Rodar o fluxo sem portão.",
             "Mostrar o plano (fases, públicos e filas) sem enfileirar nada.",
+            "Rodar com um modelo mais barato.",
             "Esconder o fluxo do /status.",
-            "Rodar com um modelo mais barato."
+            "Rodar o fluxo sem portão."
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "É o ensaio antes de gastar: você vê o que seria feito. Não confunda com | sem-portao, que roda tudo sem parar.",
           "ref": "codigo"
         },
@@ -270,11 +271,11 @@
           "p": "Na simulação, o que mostra que você está gerenciando, e não só usando?",
           "opcoes": [
             "Aprovar rápido para o fluxo andar.",
-            "Ler o texto no portão, reprovar com a correção e só aprovar a versão certa.",
             "Rodar com | sem-portao para economizar tempo.",
+            "Ler o texto no portão, reprovar com a correção e só aprovar a versão certa.",
             "Cancelar e começar de novo."
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "O portão só protege se você lê. Aprovar sem ler deixou passar a promessa falsa; reprovar com correção reabriu a fase e publicou o texto certo.",
           "ref": "simportao"
         }

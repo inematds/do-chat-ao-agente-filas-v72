@@ -1,4 +1,4 @@
-/* Curso filas: simulação do portão (sec_simportao). Usa os tokens de v71/v72. */
+/* 7.14.19: portão humano simulado (tipo simportao, sec_simportao em gerar.py) — veio do curso do-chat-ao-agente-filas-v72. Usa os tokens de v71/v72. */
 .simportao .sp-fases{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
 .simportao .sp-fase{display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:12px;background:var(--bg2);padding:12px;font:700 14.5px var(--sora);color:var(--txt2);min-width:0}
 .simportao .sp-fase span{overflow-wrap:anywhere}

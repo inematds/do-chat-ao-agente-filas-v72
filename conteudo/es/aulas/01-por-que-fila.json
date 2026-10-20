@@ -7,16 +7,16 @@
   "minutos": 12,
   "lead": "En el chat, el agente hace una cosa a la vez y solo mientras la ventana está abierta. Una cola durable guarda cada pedido, ejecuta uno a la vez, retoma después de una caída y separa lo que salió bien de lo que falló.",
   "objetivo": "explicar las cuatro garantías de una cola durable y por qué te permiten alejarte.",
-  "hero_alt": "Fila de fichas de papel en secuencia sobre una mesa oscura, una de ellas destacada.",
+  "hero_alt": "Fila de fichas de papel en secuencia sobre una mesa oscura, una de ellas resaltada.",
   "competencias": [
     "explicar-fila-duravel",
     "distinguir-chat-de-fila",
-    "leer-estado-de-la-tarea"
+    "ler-estado-da-tarefa"
   ],
   "aprende": [
     {
       "icone": "chat",
-      "t": "El límite del chat: tienes que estar pendiente"
+      "t": "El límite del chat: tienes que estar mirando"
     },
     {
       "icone": "memoria",
@@ -24,7 +24,7 @@
     },
     {
       "icone": "relogio",
-      "t": "Los estados de una tarea, desde el pedido hasta el resultado"
+      "t": "Los estados de una tarea, del pedido al resultado"
     },
     {
       "icone": "robo",
@@ -35,7 +35,7 @@
     {
       "tipo": "diagrama",
       "titulo": "Chat × cola",
-      "sub": "El mismo pedido, en dos lugares distintos.",
+      "sub": "El mismo pedido, en dos lugares diferentes.",
       "nos": [
         {
           "icone": "chat",
@@ -48,10 +48,10 @@
             },
             {
               "icone": "x",
-              "t": "Cierras la ventana y lo pierdes"
+              "t": "Cerraste la ventana, perdiste"
             }
           ],
-          "detalhe": "En el chat escribes, esperas, copias y pegas. Si cierras la ventana o se apaga la computadora, el trabajo en curso desaparece. Diez tareas = diez esperas contigo al frente."
+          "detalhe": "En el chat escribes, esperas, copias y pegas. Si cierras la ventana o el computador se apaga, el trabajo en curso desaparece. Diez tareas = diez esperas contigo al frente."
         },
         {
           "icone": "fila",
@@ -60,7 +60,7 @@
           "itens": [
             {
               "icone": "arquivo",
-              "t": "Cada pedido se convierte en una tarea"
+              "t": "Cada pedido se convierte en tarea"
             },
             {
               "icone": "memoria",
@@ -80,7 +80,7 @@
               "t": "Retoma lo que quedó a medias"
             }
           ],
-          "detalhe": "Un trabajador (worker) toma una tarea, se la entrega al agente y espera. Si el proceso se cae a mitad del trabajo, al iniciar de nuevo recupera lo que estaba en curso antes de aceptar trabajo nuevo."
+          "detalhe": "Un trabajador (worker) toma una tarea, se la entrega al agente y espera. Si el proceso se cae a la mitad, en el siguiente arranque recupera lo que estaba en curso antes de aceptar trabajo nuevo."
         },
         {
           "icone": "check",
@@ -99,12 +99,12 @@
           "detalhe": "Cada tarea termina en un estado claro: salió bien (con el archivo o el texto) o falló (con el motivo). Eso es lo que revisas por la mañana."
         }
       ],
-      "volta": "Al volver a ejecutarlo, solo toma lo que quedó pendiente",
-      "legenda": "En inemaccbot, el pedido llega por Telegram; en la cola casera de la clase 3, es un archivo .md en una carpeta. La idea es la misma.",
+      "volta": "Ejecutar de nuevo solo toma lo que quedó",
+      "legenda": "En inemaccbot el pedido llega por Telegram; en la cola casera de la clase 3, es un archivo .md en una carpeta. La idea es la misma.",
       "rolagem": true,
       "rolagem_fim": {
-        "titulo": "Por qué esto te permite alejarte",
-        "texto": "Guardar antes de ejecutar, una tarea a la vez, retomar después de una caída y separar lo hecho de lo que falló: con estas cuatro garantías, apagar la pantalla no te hace perder trabajo."
+        "titulo": "Por qué esto te deja alejarte",
+        "texto": "Guardar antes de ejecutar, una a la vez, retomar después de una caída y separar hecho de falló: con estas cuatro garantías, apagar la pantalla no cuesta trabajo."
       }
     },
     {
@@ -116,36 +116,36 @@
           "titulo": "Guardar antes de ejecutar",
           "sub": "durable",
           "texto": [
-            "El pedido se convierte en un registro en el disco en cuanto llega. No depende de una ventana abierta ni de la memoria del programa.",
-            "En inemaccbot, cada pedido se convierte en un <b>job</b> en una tabla de la base de datos. Tiene un número (<code>j13</code>), una cola, un estado y un número de intentos restantes."
+            "El pedido se convierte en un registro en disco en el momento en que llega. No depende de una ventana abierta ni de la memoria del programa.",
+            "En inemaccbot, cada pedido se convierte en un <b>job</b> en una tabla de la base de datos. Tiene número (<code>j13</code>), cola, situación y cuántos intentos le quedan."
           ],
           "exemplo": {
             "rot": "Señal en el día a día",
-            "texto": "Envías el pedido desde el celular, la computadora se reinicia y el pedido sigue en la lista."
+            "texto": "Mandas el pedido desde el celular, la computadora se reinicia, y el pedido sigue en la lista."
           }
         },
         {
           "titulo": "Una a la vez (por cola)",
           "sub": "orden",
           "texto": [
-            "Cada trabajador toma una tarea, la termina y solo entonces toma la siguiente. Así se evita que dos trabajos compitan por la misma máquina.",
-            "En inemaccbot hay cinco colas con límites distintos: la de renderizado ejecuta <b>una a la vez a propósito</b>, porque usa la tarjeta gráfica; la de red acepta diez."
+            "Cada trabajador toma una tarea, la termina y solo entonces toma la siguiente. Esto evita que dos trabajos peleen por la misma máquina.",
+            "En inemaccbot hay cinco colas con límites diferentes: la de renderizado corre <b>una a la vez a propósito</b>, porque usa la tarjeta de video; la de red acepta diez."
           ]
         },
         {
           "titulo": "Retomar después de una caída",
           "sub": "recuperación",
           "texto": [
-            "Si el proceso se cae a mitad del trabajo, la tarea no se pierde ni queda a medias para siempre. Al iniciar de nuevo, lo que estaba en curso vuelve a la cola.",
-            "inemaccbot hace esto antes de aceptar trabajo nuevo y lo registra en el log: <code>boot: recuperação de leases — requeued=N failed=M</code>. <i>Requeued</i> es lo que volvió a la cola; <i>failed</i> es lo que ya había agotado todos sus intentos."
+            "Si el proceso se cae a la mitad, la tarea no queda perdida ni a medias para siempre. En el siguiente arranque, lo que estaba en curso vuelve a la cola.",
+            "inemaccbot hace esto antes de aceptar trabajo nuevo y lo escribe en el log: <code>boot: recuperação de leases — requeued=N failed=M</code>. <i>Requeued</i> es lo que volvió a la cola; <i>failed</i> es lo que ya había gastado todos los intentos."
           ]
         },
         {
-          "titulo": "Separar lo hecho de lo que falló",
-          "sub": "seguimiento",
+          "titulo": "Separar hecho de falló",
+          "sub": "rastreo",
           "texto": [
-            "La tarea que da error no desaparece ni bloquea la cola: pasa al lado de los fallos, con el motivo registrado, y la cola sigue.",
-            "Los prompts de inemaccbot exigen que el agente termine con <code>RESULT: &lt;caminho&gt;</code> o <code>ERRO: &lt;motivo curto&gt;</code>. Ese contrato permite saber, sin abrir nada, cómo terminó cada tarea."
+            "Una tarea que dio error no desaparece ni traba la cola: va al lado de las fallas, con el motivo escrito, y la cola sigue.",
+            "Los prompts de inemaccbot exigen que el agente termine con <code>RESULT: &lt;caminho&gt;</code> o <code>ERRO: &lt;motivo curto&gt;</code>. Ese contrato es lo que permite saber, sin abrir nada, cómo terminó cada tarea."
           ]
         }
       ]
@@ -158,10 +158,10 @@
         {
           "rot": "Cola casera (carpetas)",
           "icone": "pasta",
-          "conteudo": "fila/\n  entrada/   # solicitudes esperando su turno\n  rodando/   # la tarea que el agente está ejecutando ahora\n  feito/     # solicitud + respuesta\n  falhou/    # solicitud + ERRO y el motivo"
+          "conteudo": "fila/\n  entrada/   # pedidos esperando su turno\n  rodando/   # la tarea que está con el agente ahora\n  feito/     # pedido + respuesta\n  falhou/    # pedido + ERRO y el motivo"
         },
         {
-          "rot": "inemaccbot (estado del job en la base de datos)",
+          "rot": "inemaccbot (situación del job en la base de datos)",
           "icone": "memoria",
           "conteudo": "queued    # en la cola, esperando su turno\nrunning   # un trabajador la tomó y la está ejecutando\ndone      # terminó con resultado\nfailed    # agotó los intentos, con el motivo\ncanceled  # tú la cancelaste (/cancelar)"
         }
@@ -170,11 +170,11 @@
         "selo": "real",
         "abas": [
           {
-            "rot": "Cómo se reanuda cada una",
-            "html": "<ul><li><b>Cola casera:</b> al ejecutarla de nuevo, lo que esté en <code>rodando/</code> vuelve a <code>entrada/</code>.</li><li><b>inemaccbot:</b> el trabajador renueva el \"alquiler\" (lease) de la tarea mientras trabaja. Si el alquiler vence porque el proceso se cayó, la tarea vuelve a <code>queued</code> mientras queden intentos.</li></ul>"
+            "rot": "Cómo retoma cada una",
+            "html": "<ul><li><b>Cola casera:</b> al ejecutar de nuevo, lo que esté en <code>rodando/</code> vuelve a <code>entrada/</code>.</li><li><b>inemaccbot:</b> el trabajador renueva un \"alquiler\" (lease) de la tarea mientras trabaja. Si el alquiler vence porque el proceso se cayó, la tarea vuelve a <code>queued</code> mientras queden intentos.</li></ul>"
           },
           {
-            "rot": "Quién decide qué es un fallo",
+            "rot": "Quién decide qué es una falla",
             "html": "<p>En la cola casera: respuesta vacía o código de error del agente. En inemaccbot: el agente no terminó con <code>RESULT:</code>, se agotó el plazo (<code>timeout</code>) o se acabaron los intentos (<code>max_tentativas</code>, de 2 a 4 en las skills del catálogo).</p>"
           }
         ]
@@ -188,44 +188,44 @@
     },
     {
       "tipo": "quiz",
-      "titulo": "Pon a prueba lo que aprendiste",
+      "titulo": "Prueba lo que aprendiste",
       "sub": "La explicación aparece después de tu respuesta.",
       "perguntas": [
         {
-          "p": "¿Cuál es la diferencia esencial entre pedir algo en el chat y enviarlo a una cola durable?",
+          "p": "¿Cuál es la diferencia esencial entre pedir en el chat y enviar a una cola durable?",
           "opcoes": [
+            "En la cola el pedido se guarda en disco antes de ejecutarse, así que no depende de ti ni de la ventana abierta.",
             "La cola usa un modelo de IA mejor.",
-            "En la cola, la solicitud se guarda en disco antes de ejecutarse, así que no depende de ti ni de que la ventana esté abierta.",
             "La cola responde más rápido.",
-            "En el chat no se pueden pedir tareas largas."
+            "En el chat no es posible pedir tareas largas."
           ],
-          "certa": 1,
-          "explica": "El modelo puede ser el mismo. Lo que cambia es el lugar: la solicitud se convierte en un registro durable y, por eso, sobrevive a las caídas y puede ejecutarse mientras estás lejos.",
+          "certa": 0,
+          "explica": "El modelo puede ser el mismo. Lo que cambia es el lugar: el pedido se vuelve un registro durable, y por eso sobrevive a caídas y puede ejecutarse aunque tú estés lejos.",
           "cert": true,
           "ref": "diagrama"
         },
         {
-          "p": "El registro del bot mostró <code>requeued=2 failed=1</code> al iniciar. ¿Qué pasó?",
+          "p": "El log del bot mostró <code>requeued=2 failed=1</code> al iniciar. ¿Qué pasó?",
           "opcoes": [
-            "Durante la noche llegaron tres tareas nuevas.",
-            "El proceso anterior se cayó mientras había trabajo en curso: dos tareas volvieron a la cola y una ya había agotado sus intentos.",
-            "Dos tareas salieron bien y una falló.",
-            "La base de datos se borró y se creó de nuevo."
+            "La base de datos fue borrada y recreada.",
+            "Llegaron tres tareas nuevas durante la noche.",
+            "El proceso anterior se cayó con trabajo en curso: dos tareas volvieron a la cola y una ya había agotado los intentos.",
+            "Dos tareas salieron bien y una falló."
           ],
-          "certa": 1,
-          "explica": "Esa línea aparece al iniciar y es la evidencia de que había trabajo en curso cuando se cayó el proceso. Requeued vuelve a la cola; failed ya no tenía más intentos.",
+          "certa": 2,
+          "explica": "Esa línea aparece al iniciar y es la evidencia de que había trabajo en curso cuando el proceso se cayó. Requeued vuelve a la cola; failed ya no tenía intentos.",
           "ref": "passos"
         },
         {
-          "p": "Una tarea falló a las 3 h de la mañana. ¿Qué hace una buena cola?",
+          "p": "Una tarea falló a las 3 h de la madrugada. ¿Qué hace una buena cola?",
           "opcoes": [
-            "Detiene todo hasta que te despiertes.",
-            "Borra la tarea para que no estorbe.",
-            "Registra el fallo con el motivo y sigue con la siguiente tarea.",
-            "Vuelve a intentarlo para siempre hasta que salga bien."
+            "Reintenta para siempre hasta que salga bien.",
+            "Se detiene por completo hasta que tú despiertes.",
+            "Registra la falla con el motivo y sigue con la siguiente tarea.",
+            "Borra la tarea para que no estorbe."
           ],
           "certa": 2,
-          "explica": "El fallo queda registrado por separado y con el motivo, y la cola sigue avanzando. Intentarlo para siempre consumiría la noche (y dinero); por eso hay un número máximo de intentos.",
+          "explica": "La falla queda separada y con motivo, y la cola sigue avanzando. Reintentar para siempre gastaría la noche (y dinero); por eso hay un número máximo de intentos.",
           "ref": "codigo"
         }
       ]
@@ -245,8 +245,8 @@
           "icone": "camadas"
         },
         {
-          "t": "Descripción general de la formación Del chat al agente",
-          "href": "https://inematds.github.io/do-chat-ao-agente-v72/",
+          "t": "Visión general de la formación Del chat al agente",
+          "href": "https://inematds.github.io/do-chat-ao-agente-v72/es/",
           "icone": "voltar"
         }
       ]

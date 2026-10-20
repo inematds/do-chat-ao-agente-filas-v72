@@ -236,8 +236,8 @@
           "opcoes": [
             "Para liberar o bot para qualquer pessoa para sempre.",
             "Para o primeiro /ping cadastrar o seu chat como dono e fechar a porta.",
-            "Para desligar a fila.",
-            "Para testar sem o token."
+            "Para testar sem o token.",
+            "Para desligar a fila."
           ],
           "certa": 1,
           "explica": "É o modo pareamento. Por isso é preciso parear logo: enquanto estiver 0, quem mandar /ping primeiro vira o dono.",
@@ -247,9 +247,9 @@
         {
           "p": "Onde deve ficar a chave de um serviço de terceiros que uma tarefa usa?",
           "opcoes": [
-            "No README, para ninguém esquecer.",
-            "Num cofre separado, com chmod 600, fora do Git.",
             "No texto do pedido enviado pelo Telegram.",
+            "Num cofre separado, com chmod 600, fora do Git.",
+            "No README, para ninguém esquecer.",
             "Dentro do prompt da skill."
           ],
           "certa": 1,

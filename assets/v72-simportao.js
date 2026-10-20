@@ -1,4 +1,4 @@
-/* Curso filas: simulação do portão (sec_simportao em gerar.py). Ilustrativa: nada é gerado nem publicado. */
+/* 7.14.19: portão humano simulado (tipo simportao, sec_simportao em gerar.py). Ilustrativa: nada é gerado nem publicado. */
 (function () {
   document.querySelectorAll(".simportao").forEach(function (sim) {
     var d; try { d = JSON.parse(sim.getAttribute("data-sim")); } catch (e) { return; }

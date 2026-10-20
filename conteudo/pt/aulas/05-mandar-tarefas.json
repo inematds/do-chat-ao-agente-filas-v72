@@ -219,24 +219,24 @@
         {
           "p": "Você mandou quatro pedidos de vídeo explicativo. Por que só um aparece rodando?",
           "opcoes": [
-            "Os outros três falharam.",
             "A fila de render roda um por vez de propósito, porque divide a placa de vídeo.",
+            "Os outros três falharam.",
             "O bot só aceita uma mensagem por vez.",
             "Falta pagar a assinatura."
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "Os quatro estão guardados; a fila de render tem limite 1. Os outros esperam a vez, e o /fila mostra quantos estão esperando.",
           "ref": "diagrama"
         },
         {
           "p": "Um job falhou com <code>código 143</code>. O que isso indica?",
           "opcoes": [
-            "O prompt da skill está errado.",
             "O serviço foi reiniciado com o job rodando.",
+            "O prompt da skill está errado.",
             "O modelo recusou a tarefa.",
             "Acabou o espaço em disco."
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "143 é o sinal de desligamento. Confira a fila antes de reiniciar. O trabalho não corrompeu; ele só não terminou, e pode ser refeito.",
           "cert": true,
           "ref": "passos"
@@ -244,12 +244,12 @@
         {
           "p": "Você quer testar um modelo mais barato só num pedido. Como?",
           "opcoes": [
-            "Trocar o modelo padrão no .env e reiniciar.",
             "Acrescentar <code>| modelo=haiku</code> naquele pedido.",
-            "Criar uma skill nova.",
-            "Mandar o pedido duas vezes."
+            "Trocar o modelo padrão no .env e reiniciar.",
+            "Mandar o pedido duas vezes.",
+            "Criar uma skill nova."
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "O campo vale só para aquele job e fica gravado nele. Mudar o .env mudaria tudo e exigiria reiniciar, com risco para o lote em andamento.",
           "ref": "passos"
         }

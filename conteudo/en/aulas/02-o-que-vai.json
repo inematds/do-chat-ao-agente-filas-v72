@@ -5,13 +5,13 @@
   "titulo_curto": "What goes to the queue",
   "menu": "What goes",
   "minutos": 15,
-  "lead": "Not every task should go to the queue. Before installing anything, you run your list through three questions and get a table: runs on its own, runs with a gate, or stays with you.",
-  "objetivo": "Classify ten of your tasks as runs on its own, runs with a gate, or stays with you, and say where each gate goes.",
+  "lead": "Not every task should go to the queue. Before you install anything, you run your list through three questions and come away with a table: runs on its own, runs with a gate, or stays with you.",
+  "objetivo": "sort ten of your tasks into runs on its own, with a gate, or stays with you, and say where each gate goes.",
   "hero_alt": "Hands sorting paper cards into three piles on a table.",
   "competencias": [
-    "draw-queue",
-    "classify-task",
-    "define-human-gate"
+    "desenhar-fila",
+    "classificar-tarefa",
+    "definir-portao-humano"
   ],
   "aprende": [
     {
@@ -24,17 +24,17 @@
     },
     {
       "icone": "usuario",
-      "t": "What should not go in the queue"
+      "t": "What should not go to the queue"
     },
     {
       "icone": "lista",
-      "t": "Your queue on paper, with ten lines"
+      "t": "Your queue on paper, with ten rows"
     }
   ],
   "secoes": [
     {
       "tipo": "diagrama",
-      "titulo": "Triaging a task",
+      "titulo": "The triage of one task",
       "sub": "Three questions, three destinations.",
       "nos": [
         {
@@ -55,7 +55,7 @@
               "t": "Reply to a customer"
             }
           ],
-          "detalhe": "Start with what you repeat. A task that comes up every week, with the same kind of input, is a natural candidate."
+          "detalhe": "Start with what you repeat. A task that shows up every week, with the same kind of input, is a natural candidate."
         },
         {
           "icone": "lupa",
@@ -65,12 +65,12 @@
             {
               "icone": "arquivo",
               "t": "Is the input clear?",
-              "sub": "a link, a file, a subject"
+              "sub": "a link, a file, a topic"
             },
             {
               "icone": "check",
               "t": "Can you check the result?",
-              "sub": "a file or text you can read"
+              "sub": "a file or text that you read"
             },
             {
               "icone": "megafone",
@@ -78,20 +78,20 @@
               "sub": "publish, send, spend"
             }
           ],
-          "detalhe": "Clear input and a result you can check: it goes in the queue. If the result also goes out into the world (publishes, sends, spends credits), add a gate before that step.",
+          "detalhe": "Clear input and a result you can check: it goes into the queue. If the result also goes out into the world (it publishes, sends, spends credit), it gets a gate before that step.",
           "forte": true
         },
         {
           "icone": "fila",
           "titulo": "Queue only",
-          "sub": "Without a gate",
+          "sub": "No gate",
           "itens": [
             {
               "icone": "check",
-              "t": "Transcribe, summarize for yourself"
+              "t": "Transcribe, summarize for you"
             }
           ],
-          "detalhe": "Internal use and low-cost errors: if the result is poor, you just redo it. It runs all night without asking for anything."
+          "detalhe": "Internal use and a cheap mistake: if it comes out bad, you just redo it. It runs all night without asking for anything."
         },
         {
           "icone": "portao",
@@ -103,7 +103,7 @@
               "t": "Post, video, campaign"
             }
           ],
-          "detalhe": "The agent does the heavy work and stops. You read, correct, and approve. Only then does it continue to publish or spend."
+          "detalhe": "The agent does the heavy part and stops. You read, fix, and approve. Only then does it go on to publish or spend."
         },
         {
           "icone": "usuario",
@@ -115,53 +115,53 @@
               "t": "Vague input or a delicate decision"
             }
           ],
-          "detalhe": "A request that needs a conversation (\"make this better\"), a business decision, or an irreversible action you can't review. It can go back in the queue when you know how to describe the input and the result."
+          "detalhe": "A request that needs a conversation (\"improve this\"), a business decision, or an irreversible action with no way to review it. It goes back to the queue when you can describe the input and the result."
         }
       ],
-      "legenda": "Click each block. The question that changes the destination most is the third: consequences outside call for a gate."
+      "legenda": "Tap each block. The question that changes the outcome the most is the third one: a consequence outside calls for a gate."
     },
     {
       "tipo": "passos",
-      "titulo": "The three questions, one at a time",
+      "titulo": "The three questions, one by one",
       "sub": "With examples of what runs today in inemaccbot.",
       "passos": [
         {
           "titulo": "Is the input clear?",
           "sub": "question 1",
           "texto": [
-            "The queue doesn't talk with you along the way. The task needs to fit on one line: a link, a file path, or a subject.",
-            "inemaccbot skills show the format (the bot's commands stay in Portuguese): <code>transcrever: https://…</code>, <code>explicativo: &lt;subject&gt; | vertical</code>, <code>imagem: a red fox in the snow | ratio=16:9</code>."
+            "The queue doesn't chat with you in the middle. The task has to fit on one line: a link, a file path, or a topic.",
+            "The inemaccbot skills show the format: <code>transcrever: https://…</code>, <code>explicativo: &lt;assunto&gt; | vertical</code>, <code>imagem: uma raposa ruiva na neve | ratio=16:9</code>."
           ],
           "exemplo": {
             "rot": "Too vague",
-            "texto": "\"Give the presentation a little polish.\" What should be improved, and how much? Keep it with you or turn it into a concrete input."
+            "texto": "\"Give the presentation a polish.\" Improve what, and how far? It stays with you, or it becomes a concrete input."
           }
         },
         {
           "titulo": "Can you check the result?",
           "sub": "question 2",
           "texto": [
-            "In the morning, you'll check the result. If it's a file (text, video, image), you can review it in minutes. If it's \"I did several things,\" there's no way to tell whether it came out right.",
-            "In the bot, this is a contract: the agent finishes with <code>RESULT: &lt;path&gt;</code>, and the bot checks that the file exists and has the expected extension."
+            "In the morning you'll look at the result. If it's a file (text, video, image), you check it in minutes. If it's \"I did a bunch of things\", there's no way to know whether it came out right.",
+            "In the bot, this is a contract: the agent ends with <code>RESULT: &lt;caminho&gt;</code>, and the bot checks that the file exists and has the expected extension."
           ]
         },
         {
           "titulo": "Does it have consequences outside?",
           "sub": "question 3",
           "texto": [
-            "Publishing on behalf of the company, sending something to a client, spending paid credits: this is where the gate comes in. The agent prepares it and stops; you approve.",
-            "Transcribing a meeting for you to read yourself has no outside consequences. It runs on its own."
+            "Publishing on behalf of the company, sending to a customer, spending paid credit: this is where the gate comes in. The agent prepares and stops; you approve.",
+            "Transcribing a meeting for you to read yourself has no consequences outside. It runs on its own."
           ],
           "exemplo": {
             "rot": "In inemaccbot",
-            "texto": "The /promoavatar writes the copy for each audience and stops. Only after you approve does it move on to the video and reel."
+            "texto": "/promoavatar writes the texts for each audience and stops. Only after your approval does it move on to the video and the reel."
           }
         },
         {
-          "titulo": "Is it okay to start over from scratch?",
+          "titulo": "Is redoing it from scratch acceptable?",
           "sub": "bonus",
           "texto": [
-            "This question doesn't change whether it goes in the queue; it changes the type. If starting over from scratch is cheap, one <b>skill</b> (one step) is enough. If there's partial work you'd hate to throw away, the right choice is a <b>flow</b> (several phases, with state and resumption).",
+            "This question doesn't change whether it goes into the queue; it changes the type. If redoing from scratch is cheap, a single <b>skill</b> (one step) is enough. If there's partial work that would be absurd to throw away, the right choice is a <b>flow</b> (several phases, with state and resume).",
             "You'll use both in lessons 5 and 6."
           ]
         }
@@ -170,29 +170,29 @@
     {
       "tipo": "codigo",
       "titulo": "Your queue on paper",
-      "sub": "Copy the table, fill it in with your ten tasks, and save it: it's the list you'll send in lesson 5.",
+      "sub": "Copy the table, fill it in with your ten tasks, and keep it: it's the list you send in lesson 5.",
       "blocos": [
         {
           "rot": "fila-no-papel.md",
           "icone": "arquivo",
-          "conteudo": "| # | Task | Input (1 line) | Verifiable result | Destination | Where the gate goes |\n|---|---|---|---|---|---|\n| 1 | Transcribe Monday's meeting | recording link | .txt text | queue runs on its own | — |\n| 2 | Post of the week | topic | post copy | queue with gate | before publishing |\n| 3 |  |  |  |  |  |\n| 4 |  |  |  |  |  |\n| 5 |  |  |  |  |  |\n| 6 |  |  |  |  |  |\n| 7 |  |  |  |  |  |\n| 8 |  |  |  |  |  |\n| 9 |  |  |  |  |  |\n| 10 |  |  |  |  |  |"
+          "conteudo": "| # | Task | Input (1 line) | Checkable result | Destination | Where the gate goes |\n|---|---|---|---|---|---|\n| 1 | Transcribe Monday's meeting | recording link | .txt text | queue on its own | — |\n| 2 | Post of the week | topic | post text | queue with gate | before publishing |\n| 3 |  |  |  |  |  |\n| 4 |  |  |  |  |  |\n| 5 |  |  |  |  |  |\n| 6 |  |  |  |  |  |\n| 7 |  |  |  |  |  |\n| 8 |  |  |  |  |  |\n| 9 |  |  |  |  |  |\n| 10 |  |  |  |  |  |"
         },
         {
-          "rot": "Ask your agent to review the table",
+          "rot": "Request for your agent to review the table",
           "icone": "chat",
-          "conteudo": "Read the fila-no-papel.md file. For each row, check:\n1. Does the input fit on one line (link, file, or topic)?\n2. Is the result a file or text you can check?\n3. Does it have outside consequences (publishing, sending, spending)? If so, is a gate marked?\nPoint out any rows that should have a different destination and explain why. Don't edit the file."
+          "conteudo": "Read the file fila-no-papel.md. For each line, check:\n1. Does the input fit on one line (link, file, or subject)?\n2. Is the result a file or text that can be checked?\n3. Is there an outside consequence (publishing, sending, spending)? If so, is there a gate marked?\nPoint out the lines that should change destination and say why. Do not change the file."
         }
       ],
       "saida": {
         "selo": "simulacao",
         "abas": [
           {
-            "rot": "Sample review",
-            "html": "<ul><li><b>Row 4</b> (\"organize the calendar\"): vague input. I suggest \"stays with you\" or rewriting it as \"list this week's calendar conflicts.\"</li><li><b>Row 7</b> (\"reply to client emails\"): outside consequences without a gate. I suggest \"queue with gate\": the agent drafts, you send.</li><li>The others look good.</li></ul>"
+            "rot": "Example of a review",
+            "html": "<ul><li><b>Row 4</b> (\"organize the calendar\"): vague input. I suggest \"stays with you\" or rewriting it as \"list this week's calendar conflicts\".</li><li><b>Row 7</b> (\"reply to customer emails\"): outside consequence with no gate. I suggest \"queue with gate\": the agent drafts, you send.</li><li>The rest are consistent.</li></ul>"
           },
           {
             "rot": "Warning signs",
-            "html": "<ul><li>No gates in ten rows: check that nothing is being published or sent.</li><li>Every row has a gate: you'll spend the morning approving things; see what is for internal use only.</li><li>Results like \"multiple files\" or \"improve\": hard to check.</li></ul>"
+            "html": "<ul><li>No gate in ten rows: check that nothing is published or sent.</li><li>Every row has a gate: you'll spend the morning approving; see what is internal use only.</li><li>Result \"several files\" or \"improve\": hard to check.</li></ul>"
           }
         ]
       }
@@ -206,8 +206,8 @@
           "id": "e1",
           "titulo": "E1 · The queue on paper",
           "min": "15 min",
-          "texto": "Fill in the table with ten repetitive tasks from your work. For each one, list the input in one line, a verifiable result, the destination, and where the gate goes. Ask your agent to review it using the example above.",
-          "pronto": "All 10 rows are filled in, and at least two have a gate."
+          "texto": "Fill in the table with ten repetitive tasks from your work. For each one: input in one line, checkable result, destination, and where the gate goes. Ask your agent to review it using the template above.",
+          "pronto": "all 10 rows are filled in and at least two have a gate."
         }
       ],
       "fonte": "Original exercise: <a href=\"https://github.com/inematds/jornada-agentes/blob/main/exercicios/03-filas.md\" target=\"_blank\" rel=\"noopener\">jornada-agentes/exercicios/03-filas.md</a> (E1)."
@@ -218,55 +218,55 @@
       "sub": "The explanation appears after your answer.",
       "perguntas": [
         {
-          "p": "For which task is the human gate most important?",
+          "p": "In which task is the human gate most important?",
           "opcoes": [
-            "Transcribing an internal meeting.",
             "Summarizing PDFs for you to read yourself.",
             "Publishing a post on behalf of the company.",
+            "Transcribing an internal meeting.",
             "Listing the files in a folder."
           ],
-          "certa": 2,
-          "explica": "Put the gate before anything with outside consequences: publishing, sending, spending. Internal use with low-cost mistakes can run on its own.",
+          "certa": 1,
+          "explica": "The gate goes before anything with an outside consequence: publishing, sending, spending. Internal use where a mistake is cheap can run on its own.",
           "cert": true,
           "ref": "diagrama"
         },
         {
-          "p": "Should \"Make the presentation better\" go in the queue?",
+          "p": "Should \"give the presentation a polish\" go in the queue?",
           "opcoes": [
+            "Yes, with no gate.",
             "Yes, with a gate.",
-            "Yes, without a gate.",
-            "Not yet: the input is vague. Either keep it with you or turn it into a specific request.",
-            "Yes, as long as it uses the most expensive model."
+            "Yes, as long as it uses the most expensive model.",
+            "Not yet: the input is vague. Either it stays with you, or it becomes a concrete request."
           ],
-          "certa": 2,
-          "explica": "The queue can't talk to you in the middle of the night. Without clear input, there's no way to check whether the result is right.",
+          "certa": 3,
+          "explica": "The queue doesn't talk to you in the middle of the night. Without a clear input, there's no way to check that the result came out right.",
           "ref": "passos"
         },
         {
-          "p": "A task has several steps, and one in the middle is expensive. If the last step fails, you don't want to start over. Which type should you use?",
+          "p": "A task has several stages and the middle one is expensive. If the last stage fails, you don't want to redo everything. Which type should you use?",
           "opcoes": [
-            "A skill, because it's simpler.",
-            "A flow, which saves the state of each phase and resumes from the one that failed.",
-            "Neither: expensive tasks don't go in the queue.",
-            "Two separate queues."
+            "Two separate queues.",
+            "One flow, which saves the state of each phase and resumes from the one that failed.",
+            "None: expensive tasks don't go in the queue.",
+            "A skill, because it's simpler."
           ],
           "certa": 1,
-          "explica": "A skill works when starting over from scratch is okay. When partial work is valuable, the flow saves each phase, and /refazer resumes from the one that failed.",
+          "explica": "A skill makes sense when redoing from scratch is acceptable. When partial work is valuable, the flow saves each phase and /refazer resumes from the one that failed.",
           "ref": "passos"
         }
       ]
     },
     {
       "tipo": "links",
-      "titulo": "To learn more",
+      "titulo": "Going further",
       "links": [
         {
-          "t": "Exercises from sequence 3 (jornada-agentes)",
+          "t": "Exercises for sequence 3 (jornada-agentes)",
           "href": "https://github.com/inematds/jornada-agentes/blob/main/exercicios/03-filas.md",
           "icone": "lista"
         },
         {
-          "t": "INEMACCBOT Course with Promoavatar: Skill or Flow?",
+          "t": "INEMACCBOT course with Promoavatar: skill or flow?",
           "href": "https://eventos.inema.pro/inemaccbot.html",
           "icone": "camadas"
         }

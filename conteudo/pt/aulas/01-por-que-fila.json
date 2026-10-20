@@ -194,12 +194,12 @@
         {
           "p": "Qual é a diferença essencial entre pedir no chat e mandar para uma fila durável?",
           "opcoes": [
-            "A fila usa um modelo de IA melhor.",
             "Na fila o pedido é guardado em disco antes de rodar, então não depende de você nem da janela aberta.",
+            "A fila usa um modelo de IA melhor.",
             "A fila responde mais rápido.",
             "No chat não é possível pedir tarefas longas."
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "O modelo pode ser o mesmo. O que muda é o lugar: o pedido vira registro durável, e por isso sobrevive a quedas e pode rodar com você longe.",
           "cert": true,
           "ref": "diagrama"
@@ -207,22 +207,22 @@
         {
           "p": "O log do bot mostrou <code>requeued=2 failed=1</code> ao subir. O que aconteceu?",
           "opcoes": [
+            "O banco foi apagado e recriado.",
             "Três tarefas novas chegaram durante a noite.",
             "O processo anterior caiu com trabalho em andamento: duas tarefas voltaram para a fila e uma já tinha esgotado as tentativas.",
-            "Duas tarefas deram certo e uma falhou.",
-            "O banco foi apagado e recriado."
+            "Duas tarefas deram certo e uma falhou."
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "Essa linha aparece na subida e é a evidência de que havia trabalho em voo quando o processo caiu. Requeued volta para a fila; failed não tinha mais tentativa.",
           "ref": "passos"
         },
         {
           "p": "Uma tarefa falhou às 3 h da manhã. O que uma boa fila faz?",
           "opcoes": [
+            "Tenta de novo para sempre até dar certo.",
             "Para tudo até você acordar.",
-            "Apaga a tarefa para não atrapalhar.",
             "Registra a falha com o motivo e segue para a próxima tarefa.",
-            "Tenta de novo para sempre até dar certo."
+            "Apaga a tarefa para não atrapalhar."
           ],
           "certa": 2,
           "explica": "Falha separada e com motivo, e fila andando. Tentar para sempre gastaria a noite (e dinheiro); por isso há um número máximo de tentativas.",

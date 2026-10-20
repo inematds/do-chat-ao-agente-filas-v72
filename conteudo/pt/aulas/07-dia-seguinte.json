@@ -241,6 +241,7 @@
         "semanas": "semanas",
         "travou": "## O que travou e a regra que criei",
         "h": "h por semana",
+        "ex1": "exercício",
         "exs": "exercícios"
       }
     },
@@ -277,11 +278,11 @@
           "p": "Qual número você deve anotar toda manhã?",
           "opcoes": [
             "Quantas tarefas foram mandadas.",
-            "Quantas saíram certas na primeira tentativa, do total.",
+            "Quantas mensagens o bot mandou.",
             "Quanto tempo a fila levou.",
-            "Quantas mensagens o bot mandou."
+            "Quantas saíram certas na primeira tentativa, do total."
           ],
-          "certa": 1,
+          "certa": 3,
           "explica": "A proporção de certas na primeira mostra se a fila está melhorando. Mandar mais tarefas não diz nada sobre a qualidade.",
           "cert": true,
           "ref": "diagrama"
@@ -289,12 +290,12 @@
         {
           "p": "Um resumo saiu longo demais pela terceira noite seguida. O que fazer?",
           "opcoes": [
-            "Encurtar na mão toda manhã.",
             "Escrever uma regra concreta no prompt da skill ou no AGENTS.md e comparar na próxima noite.",
+            "Trocar de modelo sem mudar nada.",
             "Tirar essa tarefa da fila para sempre.",
-            "Trocar de modelo sem mudar nada."
+            "Encurtar na mão toda manhã."
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "Corrigir na mão resolve hoje. A regra nova resolve as próximas noites e pode ser conferida.",
           "ref": "passos"
         },
@@ -303,8 +304,8 @@
           "opcoes": [
             "Regra nova para o agente.",
             "Falha de reinício: /refazer e não reiniciar com lote rodando.",
-            "Trocar o prompt da skill.",
-            "Apagar a tarefa."
+            "Apagar a tarefa.",
+            "Trocar o prompt da skill."
           ],
           "certa": 1,
           "explica": "143 é desligamento do serviço, não erro do agente. Regra para o agente não resolveria; o cuidado é com o reinício.",
